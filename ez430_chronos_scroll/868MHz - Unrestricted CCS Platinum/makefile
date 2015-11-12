@@ -169,20 +169,20 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-ez430_chronos_scroll_868MHz.out \
+EZ430_Chronos_Sit\ Up_868MHz.out \
 
 EXE_OUTPUTS__QUOTED += \
-"ez430_chronos_scroll_868MHz.out" \
+"EZ430_Chronos_Sit Up_868MHz.out" \
 
 
 # All Target
-all: ez430_chronos_scroll_868MHz.out
+all: EZ430_Chronos_Sit\ Up_868MHz.out
 
 # Tool invocations
-ez430_chronos_scroll_868MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+EZ430_Chronos_Sit\ Up_868MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\smpl_nwk_config.dat" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\End Device\smpl_config.dat"  -vmspx --abi=coffabi -O4 --opt_for_speed=0 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_EU --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"ez430_chronos_scroll_868MHz.map" --heap_size=80 --stack_size=80 --use_hw_mpy=F5 -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="ez430_chronos_scroll_868MHz_linkInfo.xml" --rom_model -o "ez430_chronos_scroll_868MHz.out" $(ORDERED_OBJS)
+	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\smpl_nwk_config.dat" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\End Device\smpl_config.dat"  -vmspx --abi=coffabi -O4 --opt_for_speed=0 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_EU --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"EZ430_Chronos_Sit Up_868MHz.map" --heap_size=80 --stack_size=80 --use_hw_mpy=F5 -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="EZ430_Chronos_Sit Up_868MHz_linkInfo.xml" --rom_model -o "EZ430_Chronos_Sit Up_868MHz.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
@@ -199,7 +199,7 @@ clean:
 
 post-build:
 	-@echo 'Create flash image: TI-TXT'
-	-"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430.exe" --ti_txt "ez430_chronos_scroll_868MHz.out" -o "ez430_chronos_scroll_868MHz.txt" -order MS -romwidth 16
+	-"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430.exe" --ti_txt "EZ430_Chronos_Sit Up_868MHz.out" -o "EZ430_Chronos_Sit Up_868MHz.txt" -order MS -romwidth 16
 	-@echo ' '
 
 .PHONY: all clean dependents

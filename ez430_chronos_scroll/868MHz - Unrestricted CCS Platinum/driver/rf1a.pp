@@ -1,24 +1,24 @@
 # FIXED
 
 driver/rf1a.obj: ../driver/rf1a.c
-driver/rf1a.obj: C:/Users/darkdanito/Desktop/Watch\ Files/ez430_chronos_scroll/ez430_chronos_scroll/include/project.h
+driver/rf1a.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/include/project.h
 driver/rf1a.obj: E:/ti/ccsv6/ccs_base/msp430/include/cc430x613x.h
 driver/rf1a.obj: E:/ti/ccsv6/ccs_base/msp430/include/in430.h
 driver/rf1a.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics.h
 driver/rf1a.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics_legacy_undefs.h
-driver/rf1a.obj: C:/Users/darkdanito/Desktop/Watch\ Files/ez430_chronos_scroll/ez430_chronos_scroll/bluerobin/bm.h
+driver/rf1a.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/bluerobin/bm.h
 driver/rf1a.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stddef.h
 driver/rf1a.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/limits.h
 driver/rf1a.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h
 driver/rf1a.obj: ../driver/rf1a.h
 
 ../driver/rf1a.c: 
-C:/Users/darkdanito/Desktop/Watch\ Files/ez430_chronos_scroll/ez430_chronos_scroll/include/project.h: 
+C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/include/project.h: 
 E:/ti/ccsv6/ccs_base/msp430/include/cc430x613x.h: 
 E:/ti/ccsv6/ccs_base/msp430/include/in430.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics_legacy_undefs.h: 
-C:/Users/darkdanito/Desktop/Watch\ Files/ez430_chronos_scroll/ez430_chronos_scroll/bluerobin/bm.h: 
+C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/bluerobin/bm.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stddef.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/limits.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h: 
