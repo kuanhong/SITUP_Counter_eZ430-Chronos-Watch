@@ -185,14 +185,6 @@ void stopwatch_tick(void)
         sStopwatch.swtIs1Hz = 1;
 
 
-        if (sStopwatch.time[4] == 0x30 && sStopwatch.time[5] == 0x30)
-        {
-        	stop_stopwatch();
-        }
-
-
-
-
         // Add data
         sStopwatch.time[6] = '9';
         sStopwatch.time[5]--;                      // second  L (0 - 9)
