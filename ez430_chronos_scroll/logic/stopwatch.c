@@ -152,7 +152,7 @@ void stopwatch_tick(void)
 
         // Add 1/10 sec
 //        if (sStopwatch.time[7] == 0x3A)
-        if (sStopwatch.time[7] == 0x30)
+        if (sStopwatch.time[7] == 0x2f)
 
         {
 //            sStopwatch.time[7] = '0';
@@ -172,11 +172,11 @@ void stopwatch_tick(void)
                                 // HH:MM:SS
     {
         // Just add 1 second
-        sStopwatch.time[6] = 0x30;
+        sStopwatch.time[6] = 0x2f;
     }
 
     // Second overflow?
-    if (sStopwatch.time[6] == 0x30)
+    if (sStopwatch.time[6] == 0x2f)
     {
         // Reset draw flag
         sStopwatch.drawFlag = 1;
@@ -185,10 +185,22 @@ void stopwatch_tick(void)
         sStopwatch.swtIs1Hz = 1;
 
 
+        if ( (sStopwatch.time[4] == 0x30) && (sStopwatch.time[5] == 0x30) )
+        {
+        	stop_stopwatch();
+        	reset_stopwatch();
+//            memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
+            display_stopwatch(7, DISPLAY_LINE_UPDATE_FULL);
+        }
+
+
+
         // Add data
         sStopwatch.time[6] = '9';
         sStopwatch.time[5]--;                      // second  L (0 - 9)
-        if (sStopwatch.time[5] == 0x30)
+
+
+        if (sStopwatch.time[5] == 0x2f)
         {
             sStopwatch.drawFlag++;                 // 2
             sStopwatch.time[5] = '9';
@@ -198,7 +210,7 @@ void stopwatch_tick(void)
                 sStopwatch.drawFlag++;             // 3
                 sStopwatch.time[4] = '9';
                 sStopwatch.time[3]--;              // minutes L (0 - 9)
-                if (sStopwatch.time[3] == 0x30)
+                if (sStopwatch.time[3] == 0x2f)
                 {
                     sStopwatch.drawFlag++;         // 4
                     sStopwatch.time[3] = '9';
@@ -216,7 +228,7 @@ void stopwatch_tick(void)
                         sStopwatch.time[2] = '0';
                         sStopwatch.time[1]++;      // hours L (0-9)
 
-                        if (sStopwatch.time[1] == 0x3A)
+                        if (sStopwatch.time[1] == 0x2f)
                         {
                             sStopwatch.drawFlag++; // 6
                             sStopwatch.time[1] = '0';
@@ -251,7 +263,7 @@ void reset_stopwatch(void)
     // Clear counter
 
 	//    memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-	memcpy(sStopwatch.time, "00006666", sizeof(sStopwatch.time));
+	memcpy(sStopwatch.time, "00001111", sizeof(sStopwatch.time));
 
     // Clear trigger
     sStopwatch.swtIs10Hz = 0;   // 1/10Hz trigger
