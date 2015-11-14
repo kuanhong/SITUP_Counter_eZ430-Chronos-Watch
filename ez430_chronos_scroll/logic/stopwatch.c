@@ -207,7 +207,9 @@ void stopwatch_tick(void)
 
         if ( (sStopwatch.time[4] == 0x30) && (sStopwatch.time[5] == 0x30) )
         {
-//        	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+        	// Buzzer when the time has ended.
+        	start_buzzer(5, CONV_MS_TO_TICKS(200), BUZZER_OFF_TICKS);
+
         	stop_stopwatch();
         	reset_stopwatch();
 //          memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
