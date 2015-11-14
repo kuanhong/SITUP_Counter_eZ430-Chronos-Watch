@@ -16,6 +16,7 @@ logic/stopwatch.obj: ../logic/stopwatch.h
 logic/stopwatch.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h
 logic/stopwatch.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h
 logic/stopwatch.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h
+logic/stopwatch.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/buzzer.h
 logic/stopwatch.obj: ../logic/menu.h
 
 ../logic/stopwatch.c: 
@@ -34,4 +35,5 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/linkage.h:
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h: 
+C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/buzzer.h: 
 ../logic/menu.h: 

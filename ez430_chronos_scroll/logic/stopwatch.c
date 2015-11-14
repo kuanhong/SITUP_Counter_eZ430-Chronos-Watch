@@ -47,6 +47,7 @@
 #include "ports.h"
 #include "display.h"
 #include "timer.h"
+#include "buzzer.h"
 
 // logic
 #include "menu.h"
@@ -131,7 +132,7 @@ void stopwatch_tick(void)
     if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
     {
         // Add 1/100 sec
-//        sStopwatch.time[7]++;
+//      sStopwatch.time[7]++;
     	sStopwatch.time[7]--;
 
         // Draw flag minimizes display update activity
@@ -151,14 +152,14 @@ void stopwatch_tick(void)
         }
 
         // Add 1/10 sec
-//        if (sStopwatch.time[7] == 0x3A)
+//      if (sStopwatch.time[7] == 0x3A)
         if (sStopwatch.time[7] == 0x2f)
 
         {
-//            sStopwatch.time[7] = '0';
+//          sStopwatch.time[7] = '0';
             sStopwatch.time[7] = '9';
 
-//            sStopwatch.time[6]++;
+//          sStopwatch.time[6]++;
             sStopwatch.time[6]--;
 
             // 1/10Hz trigger
@@ -184,21 +185,38 @@ void stopwatch_tick(void)
         // 1Hz trigger
         sStopwatch.swtIs1Hz = 1;
 
-
-        if ( (sStopwatch.time[4] == 0x30) && (sStopwatch.time[5] == 0x30) )
+        // 30 sec Buzzer Alert
+        if ( (sStopwatch.time[4] == 0x33) && (sStopwatch.time[5] == 0x30) )
         {
-        	stop_stopwatch();
-        	reset_stopwatch();
-//            memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-            display_stopwatch(7, DISPLAY_LINE_UPDATE_FULL);
+        	start_buzzer(3, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+        }
+
+        // 20 sec Buzzer Alert
+        if ( (sStopwatch.time[4] == 0x32) && (sStopwatch.time[5] == 0x30) )
+        {
+        	start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+        }
+
+        // 10 sec Buzzer Alert
+        if ( (sStopwatch.time[4] == 0x31) && (sStopwatch.time[5] == 0x30) )
+        {
+        	start_buzzer(1, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
         }
 
 
 
+        if ( (sStopwatch.time[4] == 0x30) && (sStopwatch.time[5] == 0x30) )
+        {
+//        	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+        	stop_stopwatch();
+        	reset_stopwatch();
+//          memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
+            display_stopwatch(2, DISPLAY_LINE_UPDATE_FULL);
+        }
+
         // Add data
         sStopwatch.time[6] = '9';
         sStopwatch.time[5]--;                      // second  L (0 - 9)
-
 
         if (sStopwatch.time[5] == 0x2f)
         {
@@ -262,8 +280,9 @@ void reset_stopwatch(void)
 {
     // Clear counter
 
-	//    memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-	memcpy(sStopwatch.time, "00001111", sizeof(sStopwatch.time));
+//  memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
+//	memcpy(sStopwatch.time, "00000555", sizeof(sStopwatch.time));
+	memcpy(sStopwatch.time, "00006000", sizeof(sStopwatch.time));
 
     // Clear trigger
     sStopwatch.swtIs10Hz = 0;   // 1/10Hz trigger
