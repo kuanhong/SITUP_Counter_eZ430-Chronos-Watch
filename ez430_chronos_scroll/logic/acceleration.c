@@ -46,6 +46,7 @@
 #include "bmp_as.h"
 #include "cma_as.h"
 #include "as.h"
+#include "buzzer.h"
 
 // logic
 #include "acceleration.h"
@@ -250,7 +251,8 @@ void display_acceleration(u8 line, u8 update)
                     break;
                 case DISPLAY_ACCEL_Y:
                     raw_data = sAccel.xyz[1];
-                    display_char(LCD_SEG_L1_3, 'Y', SEG_ON);
+                    display_char(LCD_SEG_L1_3, 'N', SEG_ON);
+                   // start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
                     break;
                 default:
                     raw_data = sAccel.xyz[2];
@@ -266,8 +268,13 @@ void display_acceleration(u8 line, u8 update)
             sAccel.data = accel_data;
 
             // Display acceleration in x.xx format
+
             str = int_to_array(accel_data, 3, 0);
             display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
+
+            if (sAccel.xyz[0]==30){
+            	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+            }
 
             // Display sign
             if (acceleration_value_is_positive(raw_data))

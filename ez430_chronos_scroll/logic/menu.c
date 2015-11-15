@@ -130,8 +130,8 @@ const struct menu menu_L1_Time = {
     FUNCTION(mx_time),                // sub menu function
     FUNCTION(display_time),           // display function
     FUNCTION(update_time),            // new display data
-//    &menu_L1_Alarm,
-    &menu_L1_Scroller,
+    &menu_L1_Acceleration,
+  //  &menu_L1_Scroller,
 };
 
 // Line1 - Alarm
@@ -185,7 +185,7 @@ const struct menu menu_L1_Acceleration = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
-    &menu_L1_Time,
+    &menu_L1_Scroller,
 };
 
 // Line1 - Scroller secret function
@@ -194,7 +194,7 @@ const struct menu menu_L1_Scroller = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_scroller),   // display function
     FUNCTION(update_scroller),    // new display data
-    &menu_L1_Scroller,
+    &menu_L1_Time,
 };
 
 
