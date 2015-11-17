@@ -8,3 +8,5 @@ ez430_chronos_scroll/868MHz - Unrestricted CCS Platinum/ccsObjs.opt
 *.pp
 *.nfo
 *.opt
+*.map
+*.xml
