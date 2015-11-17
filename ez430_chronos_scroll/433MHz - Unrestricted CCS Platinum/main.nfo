@@ -69,10 +69,9 @@ extern int main() is called from 0 sites in this file.
 	init_application() (1 times)
 
 extern void process_requests() is called from 1 sites in this file.
-    It appears to be inlineable (size = 39 units)
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	do_scroll() (1 times)
 	start_buzzer() (1 times)
 	battery_measurement() (1 times)
 	do_acceleration_measurement() (1 times)
@@ -118,7 +117,6 @@ These external functions are called but not defined here:
 	__no_operation()
 	do_acceleration_measurement()
 	start_buzzer()
-	do_scroll()
 	test_mode()
 	reset_clock()
 	reset_date()
@@ -181,7 +179,7 @@ extern void read_calibration_values() is called from 1 sites in this file.
 ==============================================================================
 
 extern void process_requests() is called from 1 sites in this file.
-    It appears to be inlineable (size = 39 units)
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

@@ -96,7 +96,6 @@
 #include "timer.h"
 #include "pmm.h"
 #include "rf1a.h"
-#include "scroller.h"
 
 // logic
 #include "menu.h"
@@ -572,9 +571,6 @@ void process_requests(void)
     // Generate alarm (two signals every second)
     if (request.flag.buzzer)
         start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-
-    if (request.flag.scroller)
-          do_scroll();
 
     // Reset request flag
     request.all_flags = 0;

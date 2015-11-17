@@ -26,7 +26,6 @@ main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/pmm.h
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/rf1a.h
-main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/scroller.h
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/menu.h
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/date.h
 main.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/alarm.h
@@ -65,7 +64,6 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/po
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/pmm.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/rf1a.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/scroller.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/menu.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/date.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/alarm.h: 

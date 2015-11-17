@@ -56,7 +56,6 @@
 #include "rfsimpliciti.h"
 #include "acceleration.h"
 #include "rfbsl.h"
-#include "scroller.h"
 
 // *************************************************************************************************
 // Defines section
@@ -104,11 +103,6 @@ u8 update_acceleration(void)
     return (display.flag.update_acceleration);
 }
 
-u8 update_scroller(void)
-{
-	return (display.flag.update_scroller);
-}
-
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
@@ -124,7 +118,6 @@ const struct menu menu_L1_Time = {
     FUNCTION(display_time),           // display function
     FUNCTION(update_time),            // new display data
     &menu_L1_Acceleration,
-  //  &menu_L1_Scroller,
 };
 
 // Line1 - Alarm
@@ -159,18 +152,7 @@ const struct menu menu_L1_Acceleration = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
-    &menu_L1_Scroller,
 };
-
-// Line1 - Scroller secret function
-const struct menu menu_L1_Scroller = {
-    FUNCTION(sx_scroller),        // direct function
-    FUNCTION(dummy),                  // sub menu function
-    FUNCTION(display_scroller),   // display function
-    FUNCTION(update_scroller),    // new display data
-    &menu_L1_Time,
-};
-
 
 // Line2 - Date
 const struct menu menu_L2_Date = {

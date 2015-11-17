@@ -13,7 +13,6 @@ C_SRCS += \
 ../logic/menu.c \
 ../logic/rfbsl.c \
 ../logic/rfsimpliciti.c \
-../logic/scroller.c \
 ../logic/stopwatch.c \
 ../logic/test.c \
 ../logic/user.c 
@@ -28,7 +27,6 @@ OBJS += \
 ./logic/menu.obj \
 ./logic/rfbsl.obj \
 ./logic/rfsimpliciti.obj \
-./logic/scroller.obj \
 ./logic/stopwatch.obj \
 ./logic/test.obj \
 ./logic/user.obj 
@@ -43,7 +41,6 @@ C_DEPS += \
 ./logic/menu.pp \
 ./logic/rfbsl.pp \
 ./logic/rfsimpliciti.pp \
-./logic/scroller.pp \
 ./logic/stopwatch.pp \
 ./logic/test.pp \
 ./logic/user.pp 
@@ -58,7 +55,6 @@ C_DEPS__QUOTED += \
 "logic\menu.pp" \
 "logic\rfbsl.pp" \
 "logic\rfsimpliciti.pp" \
-"logic\scroller.pp" \
 "logic\stopwatch.pp" \
 "logic\test.pp" \
 "logic\user.pp" 
@@ -73,7 +69,6 @@ OBJS__QUOTED += \
 "logic\menu.obj" \
 "logic\rfbsl.obj" \
 "logic\rfsimpliciti.obj" \
-"logic\scroller.obj" \
 "logic\stopwatch.obj" \
 "logic\test.obj" \
 "logic\user.obj" 
@@ -88,7 +83,6 @@ C_SRCS__QUOTED += \
 "../logic/menu.c" \
 "../logic/rfbsl.c" \
 "../logic/rfsimpliciti.c" \
-"../logic/scroller.c" \
 "../logic/stopwatch.c" \
 "../logic/test.c" \
 "../logic/user.c" 

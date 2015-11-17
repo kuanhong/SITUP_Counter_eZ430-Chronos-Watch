@@ -63,7 +63,6 @@
 #include "simpliciti.h"
 #include "acceleration.h"
 #include "bluerobin.h"
-#include "scroller.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -359,12 +358,6 @@ __interrupt void TIMER0_A0_ISR(void)
         // If DRDY is (still) high, request data again
         if ((AS_INT_IN & AS_INT_PIN) == AS_INT_PIN)
             request.flag.acceleration_measurement = 1;
-    }
-
-    // send a signal every second to scroller when enabled
-    if (is_scroller_active())
-    {
-    	request.flag.scroller = 1;
     }
 
     // If BlueRobin transmitter is connected, get data from API
