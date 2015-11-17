@@ -6,7 +6,6 @@
 C_SRCS += \
 ../logic/acceleration.c \
 ../logic/alarm.c \
-../logic/altitude.c \
 ../logic/battery.c \
 ../logic/bluerobin.c \
 ../logic/clock.c \
@@ -22,7 +21,6 @@ C_SRCS += \
 OBJS += \
 ./logic/acceleration.obj \
 ./logic/alarm.obj \
-./logic/altitude.obj \
 ./logic/battery.obj \
 ./logic/bluerobin.obj \
 ./logic/clock.obj \
@@ -38,7 +36,6 @@ OBJS += \
 C_DEPS += \
 ./logic/acceleration.pp \
 ./logic/alarm.pp \
-./logic/altitude.pp \
 ./logic/battery.pp \
 ./logic/bluerobin.pp \
 ./logic/clock.pp \
@@ -54,7 +51,6 @@ C_DEPS += \
 C_DEPS__QUOTED += \
 "logic\acceleration.pp" \
 "logic\alarm.pp" \
-"logic\altitude.pp" \
 "logic\battery.pp" \
 "logic\bluerobin.pp" \
 "logic\clock.pp" \
@@ -70,7 +66,6 @@ C_DEPS__QUOTED += \
 OBJS__QUOTED += \
 "logic\acceleration.obj" \
 "logic\alarm.obj" \
-"logic\altitude.obj" \
 "logic\battery.obj" \
 "logic\bluerobin.obj" \
 "logic\clock.obj" \
@@ -86,7 +81,6 @@ OBJS__QUOTED += \
 C_SRCS__QUOTED += \
 "../logic/acceleration.c" \
 "../logic/alarm.c" \
-"../logic/altitude.c" \
 "../logic/battery.c" \
 "../logic/bluerobin.c" \
 "../logic/clock.c" \

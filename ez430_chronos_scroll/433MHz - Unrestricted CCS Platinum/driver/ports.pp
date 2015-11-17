@@ -24,7 +24,6 @@ driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chrono
 driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/alarm.h
 driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/rfsimpliciti.h
 driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/simpliciti/simpliciti.h
-driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/altitude.h
 driver/ports.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/stopwatch.h
 
 ../driver/ports.c: 
@@ -51,5 +50,4 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/clo
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/alarm.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/rfsimpliciti.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/simpliciti/simpliciti.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/altitude.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/stopwatch.h: 

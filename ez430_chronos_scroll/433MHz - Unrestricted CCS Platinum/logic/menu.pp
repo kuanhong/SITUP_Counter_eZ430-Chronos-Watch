@@ -17,7 +17,6 @@ logic/menu.obj: ../logic/clock.h
 logic/menu.obj: ../logic/date.h
 logic/menu.obj: ../logic/alarm.h
 logic/menu.obj: ../logic/stopwatch.h
-logic/menu.obj: ../logic/altitude.h
 logic/menu.obj: ../logic/battery.h
 logic/menu.obj: ../logic/bluerobin.h
 logic/menu.obj: ../logic/rfsimpliciti.h
@@ -42,7 +41,6 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/di
 ../logic/date.h: 
 ../logic/alarm.h: 
 ../logic/stopwatch.h: 
-../logic/altitude.h: 
 ../logic/battery.h: 
 ../logic/bluerobin.h: 
 ../logic/rfsimpliciti.h: 

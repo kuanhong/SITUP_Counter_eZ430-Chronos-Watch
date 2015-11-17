@@ -46,20 +46,19 @@ extern void simpliciti_get_ed_data_callback() is called from 0 sites in this fil
 	__bis_SR_register() (1 times)
 
 extern void simpliciti_sync_decode_ap_cmd_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 231 units)
+    It appears to be inlineable (size = 207 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_chars() (1 times)
-	update_pressure_table() (1 times)
 
 extern void simpliciti_sync_get_data_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 169 units)
+    It appears to be inlineable (size = 155 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 64 units)
+    It appears to be inlineable (size = 62 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	close_radio() (1 times)
@@ -68,8 +67,6 @@ extern void start_simpliciti_sync() is called from 1 sites in this file.
 	open_radio() (1 times)
 	Timer0_A4_Delay() (2 times)
 	display_symbol() (6 times)
-	stop_altitude_measurement() (1 times)
-	start_altitude_measurement() (1 times)
 	bmp_as_stop() (1 times)
 	cma_as_stop() (1 times)
 	 ? () (1 times)
@@ -140,14 +137,11 @@ These external functions are called but not defined here:
 	 ? ()
 	cma_as_stop()
 	bmp_as_stop()
-	start_altitude_measurement()
-	stop_altitude_measurement()
 	display_symbol()
 	open_radio()
 	simpliciti_link()
 	simpliciti_main_sync()
 	close_radio()
-	update_pressure_table()
 	__bis_SR_register()
 	__no_operation()
 	Timer0_A4_Delay()
@@ -163,7 +157,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 64 units)
+    It appears to be inlineable (size = 62 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -203,7 +197,7 @@ extern void sx_ppt() is called from 0 sites in this file.
 ==============================================================================
 
 extern void simpliciti_sync_get_data_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 169 units)
+    It appears to be inlineable (size = 155 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -211,7 +205,7 @@ extern void simpliciti_sync_get_data_callback() is called from 0 sites in this f
 ==============================================================================
 
 extern void simpliciti_sync_decode_ap_cmd_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 231 units)
+    It appears to be inlineable (size = 207 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

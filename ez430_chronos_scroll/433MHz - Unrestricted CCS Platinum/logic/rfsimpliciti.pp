@@ -25,7 +25,6 @@ logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_
 logic/rfsimpliciti.obj: ../logic/clock.h
 logic/rfsimpliciti.obj: ../logic/date.h
 logic/rfsimpliciti.obj: ../logic/alarm.h
-logic/rfsimpliciti.obj: ../logic/altitude.h
 
 ../logic/rfsimpliciti.c: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/include/project.h: 
@@ -52,4 +51,3 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/simplicit
 ../logic/clock.h: 
 ../logic/date.h: 
 ../logic/alarm.h: 
-../logic/altitude.h: 

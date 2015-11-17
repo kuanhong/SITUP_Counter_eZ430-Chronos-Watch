@@ -104,7 +104,6 @@
 #include "alarm.h"
 #include "stopwatch.h"
 #include "battery.h"
-#include "altitude.h"
 #include "battery.h"
 #include "acceleration.h"
 #include "bluerobin.h"
@@ -349,7 +348,6 @@ void init_global_variables(void)
     //      ptrMenu_L1 = &menu_L1_Alarm;
     //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
-    //      ptrMenu_L1 = &menu_L1_Altitude;
           ptrMenu_L1 = &menu_L1_Acceleration;
     //ptrMenu_L2 = &menu_L2_Date;
           ptrMenu_L2 = &menu_L2_Stopwatch;
@@ -397,9 +395,6 @@ void init_global_variables(void)
 
     // Reset stopwatch
     reset_stopwatch();
-
-    // Reset altitude measurement
-    reset_altitude_measurement();
 
     // Reset acceleration measurement
     reset_acceleration();
@@ -565,10 +560,6 @@ void wakeup_event(void)
 // *************************************************************************************************
 void process_requests(void)
 {
-    // Do pressure measurement
-    if (request.flag.altitude_measurement)
-        do_altitude_measurement(FILTER_ON);
-
     // Do acceleration measurement
     if (request.flag.acceleration_measurement)
         do_acceleration_measurement();
@@ -734,7 +725,6 @@ void read_calibration_values(void)
         simpliciti_ed_address[1] = 0x56;
         simpliciti_ed_address[2] = 0x34;
         simpliciti_ed_address[3] = 0x12;
-        sAlt.altitude_offset = 0;
     } else
     {
         // Assign calibration data to global variables
@@ -749,14 +739,6 @@ void read_calibration_values(void)
         simpliciti_ed_address[1] = cal_data[7];
         simpliciti_ed_address[2] = cal_data[8];
         simpliciti_ed_address[3] = cal_data[9];
-        // S/W version byte set during calibration?
-        if (cal_data[12] != 0xFF)
-        {
-            sAlt.altitude_offset = (s16) ((cal_data[10] << 8) + cal_data[11]);
-        } else
-        {
-            sAlt.altitude_offset = 0;
-        }
     }
 }
 

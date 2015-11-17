@@ -58,7 +58,6 @@
 #include "alarm.h"
 #include "rfsimpliciti.h"
 #include "simpliciti.h"
-#include "altitude.h"
 #include "stopwatch.h"
 
 // *************************************************************************************************
@@ -318,8 +317,8 @@ __interrupt void PORT2_ISR(void)
         // Pressure sensor IRQ
         if (IRQ_TRIGGERED(int_flag, PS_INT_PIN))
         {
-            // Get data from sensor
-            request.flag.altitude_measurement = 1;
+            // Get data from sensor altit
+
         }
 
         // ---------------------------------------------------

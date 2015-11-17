@@ -51,7 +51,6 @@
 #include "date.h"
 #include "alarm.h"
 #include "stopwatch.h"
-#include "altitude.h"
 #include "battery.h"
 #include "bluerobin.h"
 #include "rfsimpliciti.h"
@@ -134,15 +133,6 @@ const struct menu menu_L1_Alarm = {
     FUNCTION(mx_alarm),               // sub menu function
     FUNCTION(display_alarm),          // display function
     FUNCTION(update_alarm),           // new display data
-};
-
-// Line1 - Altitude
-const struct menu menu_L1_Altitude = {
-    FUNCTION(sx_altitude),            // direct function
-    FUNCTION(mx_altitude),            // sub menu function
-    FUNCTION(display_altitude),       // display function
-    FUNCTION(update_time),            // new display data
-    &menu_L1_Heartrate,
 };
 
 // Line1 - Heart Rate

@@ -59,7 +59,6 @@
 #include "clock.h"
 #include "date.h"
 #include "alarm.h"
-#include "altitude.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -481,10 +480,6 @@ void start_simpliciti_sync(void)
         cma_as_stop();
 	}
 
-    // Get updated altitude
-    start_altitude_measurement();
-    stop_altitude_measurement();
-
     // Turn on beeper icon to show activity
     display_symbol(LCD_ICON_BEEPER1, SEG_ON_BLINK_ON);
     display_symbol(LCD_ICON_BEEPER2, SEG_ON_BLINK_ON);
@@ -567,10 +562,6 @@ void simpliciti_sync_decode_ap_cmd_callback(void)
             sAlarm.hour = simpliciti_data[8];
             sAlarm.minute = simpliciti_data[9];
 
-            // Set altitude
-            sAlt.altitude = (s16) ((simpliciti_data[12] << 8) + simpliciti_data[13]);
-            update_pressure_table(sAlt.altitude, sAlt.pressure, sAlt.pressure);
-
             display_chars(LCD_SEG_L2_5_0, (u8 *) "  DONE", SEG_ON);
             sRFsmpl.display_sync_done = 1;
             break;
@@ -634,8 +625,6 @@ void simpliciti_sync_get_data_callback(unsigned int index)
             simpliciti_data[7] = sDate.day;
             simpliciti_data[8] = sAlarm.hour;
             simpliciti_data[9] = sAlarm.minute;
-            simpliciti_data[12] = sAlt.altitude >> 8;
-            simpliciti_data[13] = sAlt.altitude & 0xFF;
             break;
 
         case SYNC_ED_TYPE_MEMORY:

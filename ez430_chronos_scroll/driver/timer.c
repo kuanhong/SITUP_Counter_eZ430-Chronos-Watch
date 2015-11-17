@@ -58,7 +58,6 @@
 #include "battery.h"
 #include "stopwatch.h"
 #include "alarm.h"
-#include "altitude.h"
 #include "display.h"
 #include "rfsimpliciti.h"
 #include "simpliciti.h"
@@ -330,35 +329,6 @@ __interrupt void TIMER0_A0_ISR(void)
             sAlarm.duration = ALARM_ON_DURATION;
             stop_alarm();
         }
-    }
-
-    // Do a pressure measurement each second while menu item is active
-    if (is_altitude_measurement())
-    {
-        // Countdown altitude measurement timeout while menu item is active
-        sAlt.timeout--;
-
-        // Stop measurement when timeout has elapsed
-        if (sAlt.timeout == 0)
-        {
-            stop_altitude_measurement();
-            // Show ---- m/ft
-            display_chars(LCD_SEG_L1_3_0, (u8 *) "----", SEG_ON);
-            // Clear up/down arrow
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-        }
-        else
-        {
-            if (bmp_used)
-            {
-                bmp_ps_start();
-            }
-        }
-
-        // In case we missed the IRQ due to debouncing, get data now
-        if ((PS_INT_IN & PS_INT_PIN) == PS_INT_PIN)
-            request.flag.altitude_measurement = 1;
     }
 
     // Count down timeout
