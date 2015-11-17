@@ -84,10 +84,8 @@
 // driver
 #include "clock.h"
 #include "display.h"
-#include "cma_as.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "cma_ps.h"
 #include "bmp_ps.h"
 #include "ps.h"
 #include "radio.h"
@@ -319,7 +317,6 @@ void init_application(void)
     if (!ps_ok)
     {
         bmp_used = 0;
-        cma_ps_init();
         // Chronos with Black PCB
         chronos_black = 1;
     }

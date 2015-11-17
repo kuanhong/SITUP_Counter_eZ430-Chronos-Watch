@@ -13,10 +13,8 @@ driver/ports.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h
 driver/ports.obj: ../driver/ports.h
 driver/ports.obj: ../driver/buzzer.h
 driver/ports.obj: ../driver/bmp_as.h
-driver/ports.obj: ../driver/cma_as.h
 driver/ports.obj: ../driver/as.h
 driver/ports.obj: ../driver/bmp_ps.h
-driver/ports.obj: ../driver/cma_ps.h
 driver/ports.obj: ../driver/ps.h
 driver/ports.obj: ../driver/timer.h
 driver/ports.obj: ../driver/display.h
@@ -39,10 +37,8 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h:
 ../driver/ports.h: 
 ../driver/buzzer.h: 
 ../driver/bmp_as.h: 
-../driver/cma_as.h: 
 ../driver/as.h: 
 ../driver/bmp_ps.h: 
-../driver/cma_ps.h: 
 ../driver/ps.h: 
 ../driver/timer.h: 
 ../driver/display.h: 

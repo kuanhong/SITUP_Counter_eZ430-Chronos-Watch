@@ -9,8 +9,6 @@ C_SRCS += \
 ../driver/bmp_as.c \
 ../driver/bmp_ps.c \
 ../driver/buzzer.c \
-../driver/cma_as.c \
-../driver/cma_ps.c \
 ../driver/display.c \
 ../driver/pmm.c \
 ../driver/ports.c \
@@ -25,8 +23,6 @@ OBJS += \
 ./driver/bmp_as.obj \
 ./driver/bmp_ps.obj \
 ./driver/buzzer.obj \
-./driver/cma_as.obj \
-./driver/cma_ps.obj \
 ./driver/display.obj \
 ./driver/pmm.obj \
 ./driver/ports.obj \
@@ -41,8 +37,6 @@ C_DEPS += \
 ./driver/bmp_as.pp \
 ./driver/bmp_ps.pp \
 ./driver/buzzer.pp \
-./driver/cma_as.pp \
-./driver/cma_ps.pp \
 ./driver/display.pp \
 ./driver/pmm.pp \
 ./driver/ports.pp \
@@ -57,8 +51,6 @@ C_DEPS__QUOTED += \
 "driver\bmp_as.pp" \
 "driver\bmp_ps.pp" \
 "driver\buzzer.pp" \
-"driver\cma_as.pp" \
-"driver\cma_ps.pp" \
 "driver\display.pp" \
 "driver\pmm.pp" \
 "driver\ports.pp" \
@@ -73,8 +65,6 @@ OBJS__QUOTED += \
 "driver\bmp_as.obj" \
 "driver\bmp_ps.obj" \
 "driver\buzzer.obj" \
-"driver\cma_as.obj" \
-"driver\cma_ps.obj" \
 "driver\display.obj" \
 "driver\pmm.obj" \
 "driver\ports.obj" \
@@ -89,8 +79,6 @@ C_SRCS__QUOTED += \
 "../driver/bmp_as.c" \
 "../driver/bmp_ps.c" \
 "../driver/buzzer.c" \
-"../driver/cma_as.c" \
-"../driver/cma_ps.c" \
 "../driver/display.c" \
 "../driver/pmm.c" \
 "../driver/ports.c" \

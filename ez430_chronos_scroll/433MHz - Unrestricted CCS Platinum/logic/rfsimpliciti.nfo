@@ -35,12 +35,11 @@ extern void reset_rf() is called from 0 sites in this file.
 	<NONE>
 
 extern void simpliciti_get_ed_data_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 120 units)
+    It appears to be inlineable (size = 116 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_time() (1 times)
 	bmp_as_get_data() (1 times)
-	cma_as_get_data() (1 times)
 	Timer0_A4_Delay() (2 times)
 	__no_operation() (1 times)
 	__bis_SR_register() (1 times)
@@ -58,7 +57,7 @@ extern void simpliciti_sync_get_data_callback() is called from 0 sites in this f
 	<NONE>
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 62 units)
+    It appears to be inlineable (size = 60 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	close_radio() (1 times)
@@ -68,20 +67,17 @@ extern void start_simpliciti_sync() is called from 1 sites in this file.
 	Timer0_A4_Delay() (2 times)
 	display_symbol() (6 times)
 	bmp_as_stop() (1 times)
-	cma_as_stop() (1 times)
 	 ? () (1 times)
 	clear_line() (1 times)
 
 extern void start_simpliciti_tx_only() is called from 2 sites in this file.
-    It appears to be inlineable (size = 108 units)
+    It appears to be inlineable (size = 104 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	close_radio() (1 times)
 	bmp_as_stop() (1 times)
-	cma_as_stop() (1 times)
 	simpliciti_main_tx_only() (1 times)
 	bmp_as_start() (1 times)
-	cma_as_start() (1 times)
 	simpliciti_link() (1 times)
 	open_radio() (1 times)
 	Timer0_A4_Delay() (2 times)
@@ -130,12 +126,10 @@ These functions may be recursive:
 
 These external functions are called but not defined here:
 	is_bluerobin()
-	cma_as_start()
 	bmp_as_start()
 	simpliciti_main_tx_only()
 	clear_line()
 	 ? ()
-	cma_as_stop()
 	bmp_as_stop()
 	display_symbol()
 	open_radio()
@@ -145,7 +139,6 @@ These external functions are called but not defined here:
 	__bis_SR_register()
 	__no_operation()
 	Timer0_A4_Delay()
-	cma_as_get_data()
 	bmp_as_get_data()
 	display_time()
 	display_chars()
@@ -157,7 +150,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 62 units)
+    It appears to be inlineable (size = 60 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -173,7 +166,7 @@ extern void sx_sync() is called from 0 sites in this file.
 ==============================================================================
 
 extern void start_simpliciti_tx_only() is called from 2 sites in this file.
-    It appears to be inlineable (size = 108 units)
+    It appears to be inlineable (size = 104 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -213,7 +206,7 @@ extern void simpliciti_sync_decode_ap_cmd_callback() is called from 0 sites in t
 ==============================================================================
 
 extern void simpliciti_get_ed_data_callback() is called from 0 sites in this file.
-    It appears to be inlineable (size = 120 units)
+    It appears to be inlineable (size = 116 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

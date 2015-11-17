@@ -17,7 +17,7 @@ extern void display_all_on() is called from 1 sites in this file.
 	<NONE>
 
 extern void test_mode() is called from 0 sites in this file.
-    It appears to be inlineable (size = 262 units)
+    It appears to be inlineable (size = 254 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_all_on() (1 times)
@@ -25,12 +25,9 @@ extern void test_mode() is called from 0 sites in this file.
 	get_bluerobin_data() (1 times)
 	sx_bluerobin() (1 times)
 	bmp_as_stop() (1 times)
-	cma_as_stop() (1 times)
 	int_to_array() (2 times)
 	bmp_as_get_data() (1 times)
-	cma_as_get_data() (1 times)
 	bmp_as_start() (1 times)
-	cma_as_start() (1 times)
 	Timer0_A4_Delay() (6 times)
 	Timer0_Start() (1 times)
 	display_all_off() (2 times)
@@ -56,12 +53,9 @@ These external functions are called but not defined here:
 	__no_operation()
 	Timer0_Start()
 	Timer0_A4_Delay()
-	cma_as_start()
 	bmp_as_start()
-	cma_as_get_data()
 	bmp_as_get_data()
 	int_to_array()
-	cma_as_stop()
 	bmp_as_stop()
 	sx_bluerobin()
 	get_bluerobin_data()
@@ -90,7 +84,7 @@ extern void display_all_on() is called from 1 sites in this file.
 ==============================================================================
 
 extern void test_mode() is called from 0 sites in this file.
-    It appears to be inlineable (size = 262 units)
+    It appears to be inlineable (size = 254 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_all_off() (2 times)

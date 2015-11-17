@@ -23,10 +23,9 @@ extern void idle_loop() is called from 1 sites in this file.
 	to_lpm() (1 times)
 
 extern void init_application() is called from 1 sites in this file.
-    It appears to be inlineable (size = 131 units)
+    It appears to be inlineable (size = 130 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	cma_ps_init() (1 times)
 	bmp_ps_init() (1 times)
 	Timer0_Init() (1 times)
 	init_buttons() (1 times)
@@ -141,7 +140,6 @@ These external functions are called but not defined here:
 	init_buttons()
 	Timer0_Init()
 	bmp_ps_init()
-	cma_ps_init()
 	 ? ()
 	clear_line()
 	display_chars()
@@ -187,7 +185,7 @@ extern void process_requests() is called from 1 sites in this file.
 ==============================================================================
 
 extern void init_application() is called from 1 sites in this file.
-    It appears to be inlineable (size = 131 units)
+    It appears to be inlineable (size = 130 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

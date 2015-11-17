@@ -12,7 +12,6 @@ logic/acceleration.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/l
 logic/acceleration.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h
 logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h
 logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/bmp_as.h
-logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/cma_as.h
 logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h
 logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/buzzer.h
 logic/acceleration.obj: ../logic/acceleration.h
@@ -31,7 +30,6 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/limits.h:
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/bmp_as.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/cma_as.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/buzzer.h: 
 ../logic/acceleration.h: 

@@ -44,7 +44,6 @@
 // driver
 #include "display.h"
 #include "bmp_as.h"
-#include "cma_as.h"
 #include "as.h"
 #include "ps.h"
 #include "ports.h"
@@ -263,10 +262,6 @@ void start_simpliciti_tx_only(simpliciti_mode_t mode)
         	{
                 bmp_as_start();
         	}
-        	else
-        	{
-                cma_as_start();
-        	}
         }
 
         // Enter TX only routine. This will transfer button events and/or acceleration data to
@@ -281,10 +276,6 @@ void start_simpliciti_tx_only(simpliciti_mode_t mode)
 	if (bmp_used)
 	{
         bmp_as_stop();
-	}
-	else
-	{
-        cma_as_stop();
 	}
 
     // Powerdown radio
@@ -393,10 +384,6 @@ void simpliciti_get_ed_data_callback(void)
         	{
                 bmp_as_get_data(sAccel.xyz);
         	}
-        	else
-        	{
-                cma_as_get_data(sAccel.xyz);
-        	}
 
             // Transmit only every 3rd data set (= 33 packets / second)
             if (packet_counter++ > 1)
@@ -474,10 +461,6 @@ void start_simpliciti_sync(void)
 	if (bmp_used)
 	{
         bmp_as_stop();
-	}
-	else
-	{
-        cma_as_stop();
 	}
 
     // Turn on beeper icon to show activity

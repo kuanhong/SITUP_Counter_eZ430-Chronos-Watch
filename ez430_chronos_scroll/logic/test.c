@@ -44,9 +44,7 @@
 // driver
 #include "display.h"
 #include "bmp_as.h"
-#include "cma_as.h"
 #include "bmp_ps.h"
-#include "cma_ps.h"
 #include "ps.h"
 #include "ports.h"
 #include "timer.h"
@@ -152,20 +150,12 @@ void test_mode(void)
                         	{
                                 bmp_as_start();
                         	}
-                        	else
-                        	{
-                                cma_as_start();
-                        	}
                             for (i = 0; i < 4; i++)
                             {
                                 Timer0_A4_Delay(CONV_MS_TO_TICKS(250));
                             	if (bmp_used)
                             	{
                                     bmp_as_get_data(sAccel.xyz);
-                            	}
-                            	else
-                            	{
-                                    cma_as_get_data(sAccel.xyz);
                             	}
                                 str = int_to_array(sAccel.xyz[0], 3, 0);
                                 display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
@@ -175,10 +165,6 @@ void test_mode(void)
                         	if (bmp_used)
                         	{
                                 bmp_as_stop();
-                        	}
-                        	else
-                        	{
-                                cma_as_stop();
                         	}
                             break;
                         case 4: // BlueRobin test

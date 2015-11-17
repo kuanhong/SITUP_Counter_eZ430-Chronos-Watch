@@ -46,10 +46,8 @@
 #include "ports.h"
 #include "buzzer.h"
 #include "bmp_as.h"
-#include "cma_as.h"
 #include "as.h"
 #include "bmp_ps.h"
-#include "cma_ps.h"
 #include "ps.h"
 #include "display.h"
 
@@ -342,10 +340,6 @@ __interrupt void TIMER0_A0_ISR(void)
         	if (bmp_used)
         	{
             	bmp_as_stop();
-        	}
-        	else
-        	{
-                cma_as_stop();
         	}
             // Show ----
             display_chars(LCD_SEG_L1_3_0, (u8 *) "----", SEG_ON);
