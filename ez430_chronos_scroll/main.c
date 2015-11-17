@@ -488,22 +488,22 @@ void wakeup_event(void)
         else if (button.flag.num)
         {
             // Clear rfBSL confirmation flag
-            rfBSL_button_confirmation = 0;
+//            rfBSL_button_confirmation = 0;
 
             // Clean up display before activating next menu item
-            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
+//            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
 
             // Go to next menu entry
-            ptrMenu_L2 = ptrMenu_L2->next;
+//            ptrMenu_L2 = ptrMenu_L2->next;
 
             // Assign new display function
-            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
+//            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
 
             // Set Line2 display update flag
-            display.flag.line2_full_update = 1;
+//            display.flag.line2_full_update = 1;
 
             // Clear button flag
-            button.flag.num = 0;
+//            button.flag.num = 0;
         }
         // UP button event ---------------------------------------------------------------------
         // Activate user function for Line1 menu item

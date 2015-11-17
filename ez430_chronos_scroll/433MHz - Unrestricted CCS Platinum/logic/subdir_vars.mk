@@ -16,7 +16,6 @@ C_SRCS += \
 ../logic/rfsimpliciti.c \
 ../logic/scroller.c \
 ../logic/stopwatch.c \
-../logic/temperature.c \
 ../logic/test.c \
 ../logic/user.c 
 
@@ -33,7 +32,6 @@ OBJS += \
 ./logic/rfsimpliciti.obj \
 ./logic/scroller.obj \
 ./logic/stopwatch.obj \
-./logic/temperature.obj \
 ./logic/test.obj \
 ./logic/user.obj 
 
@@ -50,7 +48,6 @@ C_DEPS += \
 ./logic/rfsimpliciti.pp \
 ./logic/scroller.pp \
 ./logic/stopwatch.pp \
-./logic/temperature.pp \
 ./logic/test.pp \
 ./logic/user.pp 
 
@@ -67,7 +64,6 @@ C_DEPS__QUOTED += \
 "logic\rfsimpliciti.pp" \
 "logic\scroller.pp" \
 "logic\stopwatch.pp" \
-"logic\temperature.pp" \
 "logic\test.pp" \
 "logic\user.pp" 
 
@@ -84,7 +80,6 @@ OBJS__QUOTED += \
 "logic\rfsimpliciti.obj" \
 "logic\scroller.obj" \
 "logic\stopwatch.obj" \
-"logic\temperature.obj" \
 "logic\test.obj" \
 "logic\user.obj" 
 
@@ -101,7 +96,6 @@ C_SRCS__QUOTED += \
 "../logic/rfsimpliciti.c" \
 "../logic/scroller.c" \
 "../logic/stopwatch.c" \
-"../logic/temperature.c" \
 "../logic/test.c" \
 "../logic/user.c" 
 

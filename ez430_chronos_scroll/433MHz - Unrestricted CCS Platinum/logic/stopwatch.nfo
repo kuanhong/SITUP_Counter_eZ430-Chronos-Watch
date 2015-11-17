@@ -1,10 +1,10 @@
-MSP430 C/C++ Optimizer                  v4.4.6
-Build Number 1PJLP-I3E%IMB0-RTARQ-RAQ-C08D
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 
 		======File-level Analysis Summary======
 
 
-extern void display_stopwatch() is called from 4 sites in this file.
+extern void display_stopwatch() is called from 5 sites in this file.
     It appears to be inlineable (size = 193 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -26,7 +26,7 @@ extern void mx_stopwatch() is called from 0 sites in this file.
 	reset_stopwatch() (1 times)
 	stop_stopwatch() (1 times)
 
-extern void reset_stopwatch() is called from 2 sites in this file.
+extern void reset_stopwatch() is called from 3 sites in this file.
     It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -39,7 +39,7 @@ extern void start_stopwatch() is called from 1 sites in this file.
 	display_symbol() (1 times)
 	update_stopwatch_timer() (1 times)
 
-extern void stop_stopwatch() is called from 2 sites in this file.
+extern void stop_stopwatch() is called from 3 sites in this file.
     It appears to be inlineable (size = 13 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -47,11 +47,13 @@ extern void stop_stopwatch() is called from 2 sites in this file.
 	display_symbol() (1 times)
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 230 units)
+    It appears to be inlineable (size = 319 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_stopwatch() (2 times)
-	reset_stopwatch() (1 times)
+	display_stopwatch() (3 times)
+	reset_stopwatch() (2 times)
+	stop_stopwatch() (1 times)
+	start_buzzer() (4 times)
 
 extern void sx_stopwatch() is called from 0 sites in this file.
     It appears to be inlineable (size = 16 units)
@@ -87,6 +89,7 @@ Making this function inlineable: reset_stopwatch()
 
 These external functions are called but not defined here:
 	memcpy()
+	start_buzzer()
 	display_chars()
 	display_symbol()
 	display_char()
@@ -113,7 +116,7 @@ extern void start_stopwatch() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern void display_stopwatch() is called from 4 sites in this file.
+extern void display_stopwatch() is called from 5 sites in this file.
     It appears to be inlineable (size = 193 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -121,7 +124,7 @@ extern void display_stopwatch() is called from 4 sites in this file.
 
 ==============================================================================
 
-extern void stop_stopwatch() is called from 2 sites in this file.
+extern void stop_stopwatch() is called from 3 sites in this file.
     It appears to be inlineable (size = 13 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -138,7 +141,7 @@ extern void sx_stopwatch() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern void reset_stopwatch() is called from 2 sites in this file.
+extern void reset_stopwatch() is called from 3 sites in this file.
     It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -147,11 +150,12 @@ extern void reset_stopwatch() is called from 2 sites in this file.
 ==============================================================================
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 230 units)
+    It appears to be inlineable (size = 319 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	reset_stopwatch() (1 times)
-	display_stopwatch() (2 times)
+	stop_stopwatch() (1 times)
+	reset_stopwatch() (2 times)
+	display_stopwatch() (3 times)
 
 ==============================================================================
 

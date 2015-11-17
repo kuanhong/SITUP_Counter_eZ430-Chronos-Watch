@@ -36,7 +36,6 @@ $(GEN_CMDS__FLAG) \
 "./logic/rfsimpliciti.obj" \
 "./logic/scroller.obj" \
 "./logic/stopwatch.obj" \
-"./logic/temperature.obj" \
 "./logic/test.obj" \
 "./logic/user.obj" \
 "./driver/adc12.obj" \
@@ -169,20 +168,20 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-ez430_chronos_scroll_433MHz.out \
+EZ430_Chronos_Sit\ Up_433MHz.out \
 
 EXE_OUTPUTS__QUOTED += \
-"ez430_chronos_scroll_433MHz.out" \
+"EZ430_Chronos_Sit Up_433MHz.out" \
 
 
 # All Target
-all: ez430_chronos_scroll_433MHz.out
+all: EZ430_Chronos_Sit\ Up_433MHz.out
 
 # Tool invocations
-ez430_chronos_scroll_433MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
+EZ430_Chronos_Sit\ Up_433MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\smpl_nwk_config.dat" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\End Device\smpl_config.dat"  -vmspx --abi=coffabi -O4 --opt_for_speed=0 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_LF --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"ez430_chronos_scroll_433MHz.map" --heap_size=80 --stack_size=80 --use_hw_mpy=F5 -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="ez430_chronos_scroll_433MHz_linkInfo.xml" --rom_model -o "ez430_chronos_scroll_433MHz.out" $(ORDERED_OBJS)
+	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\smpl_nwk_config.dat" --cmd_file="C:\Users\darkdanito\Documents\GitHub\Land-of-Hope\ez430_chronos_scroll\simpliciti\Applications\configuration\End Device\smpl_config.dat"  -vmspx --abi=coffabi -O4 --opt_for_speed=0 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_LF --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"EZ430_Chronos_Sit Up_433MHz.map" --heap_size=80 --stack_size=80 --use_hw_mpy=F5 -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="EZ430_Chronos_Sit Up_433MHz_linkInfo.xml" --rom_model -o "EZ430_Chronos_Sit Up_433MHz.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
@@ -190,16 +189,16 @@ ez430_chronos_scroll_433MHz.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.pp" "simpliciti\Components\nwk_applications\nwk_freq.pp" "simpliciti\Components\nwk_applications\nwk_ioctl.pp" "simpliciti\Components\nwk_applications\nwk_join.pp" "simpliciti\Components\nwk_applications\nwk_link.pp" "simpliciti\Components\nwk_applications\nwk_mgmt.pp" "simpliciti\Components\nwk_applications\nwk_ping.pp" "simpliciti\Components\nwk_applications\nwk_security.pp" "simpliciti\Components\nwk\nwk.pp" "simpliciti\Components\nwk\nwk_QMgmt.pp" "simpliciti\Components\nwk\nwk_api.pp" "simpliciti\Components\nwk\nwk_frame.pp" "simpliciti\Components\nwk\nwk_globals.pp" "simpliciti\Components\mrfi\mrfi.pp" "simpliciti\Components\bsp\bsp.pp" "simpliciti\Applications\application\End Device\main_ED_BM.pp" "logic\acceleration.pp" "logic\alarm.pp" "logic\altitude.pp" "logic\battery.pp" "logic\bluerobin.pp" "logic\clock.pp" "logic\date.pp" "logic\menu.pp" "logic\rfbsl.pp" "logic\rfsimpliciti.pp" "logic\scroller.pp" "logic\stopwatch.pp" "logic\temperature.pp" "logic\test.pp" "logic\user.pp" 
-	-$(RM) "driver\adc12.pp" "driver\as.pp" "driver\bmp_as.pp" "driver\bmp_ps.pp" "driver\buzzer.pp" "driver\cma_as.pp" "driver\cma_ps.pp" "driver\display.pp" "driver\pmm.pp" "driver\ports.pp" "driver\ps.pp" "driver\radio.pp" "driver\rf1a.pp" "driver\timer.pp" 
-	-$(RM) "main.obj" "simpliciti\Components\nwk_applications\nwk_freq.obj" "simpliciti\Components\nwk_applications\nwk_ioctl.obj" "simpliciti\Components\nwk_applications\nwk_join.obj" "simpliciti\Components\nwk_applications\nwk_link.obj" "simpliciti\Components\nwk_applications\nwk_mgmt.obj" "simpliciti\Components\nwk_applications\nwk_ping.obj" "simpliciti\Components\nwk_applications\nwk_security.obj" "simpliciti\Components\nwk\nwk.obj" "simpliciti\Components\nwk\nwk_QMgmt.obj" "simpliciti\Components\nwk\nwk_api.obj" "simpliciti\Components\nwk\nwk_frame.obj" "simpliciti\Components\nwk\nwk_globals.obj" "simpliciti\Components\mrfi\mrfi.obj" "simpliciti\Components\bsp\bsp.obj" "simpliciti\Applications\application\End Device\main_ED_BM.obj" "logic\acceleration.obj" "logic\alarm.obj" "logic\altitude.obj" "logic\battery.obj" "logic\bluerobin.obj" "logic\clock.obj" "logic\date.obj" "logic\menu.obj" "logic\rfbsl.obj" "logic\rfsimpliciti.obj" "logic\scroller.obj" "logic\stopwatch.obj" "logic\temperature.obj" 
-	-$(RM) "logic\test.obj" "logic\user.obj" "driver\adc12.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\bmp_ps.obj" "driver\buzzer.obj" "driver\cma_as.obj" "driver\cma_ps.obj" "driver\display.obj" "driver\pmm.obj" "driver\ports.obj" "driver\ps.obj" "driver\radio.obj" "driver\rf1a.obj" "driver\timer.obj" 
+	-$(RM) "main.pp" "simpliciti\Components\nwk_applications\nwk_freq.pp" "simpliciti\Components\nwk_applications\nwk_ioctl.pp" "simpliciti\Components\nwk_applications\nwk_join.pp" "simpliciti\Components\nwk_applications\nwk_link.pp" "simpliciti\Components\nwk_applications\nwk_mgmt.pp" "simpliciti\Components\nwk_applications\nwk_ping.pp" "simpliciti\Components\nwk_applications\nwk_security.pp" "simpliciti\Components\nwk\nwk.pp" "simpliciti\Components\nwk\nwk_QMgmt.pp" "simpliciti\Components\nwk\nwk_api.pp" "simpliciti\Components\nwk\nwk_frame.pp" "simpliciti\Components\nwk\nwk_globals.pp" "simpliciti\Components\mrfi\mrfi.pp" "simpliciti\Components\bsp\bsp.pp" "simpliciti\Applications\application\End Device\main_ED_BM.pp" "logic\acceleration.pp" "logic\alarm.pp" "logic\altitude.pp" "logic\battery.pp" "logic\bluerobin.pp" "logic\clock.pp" "logic\date.pp" "logic\menu.pp" "logic\rfbsl.pp" "logic\rfsimpliciti.pp" "logic\scroller.pp" "logic\stopwatch.pp" "logic\test.pp" "logic\user.pp" "driver\adc12.pp" 
+	-$(RM) "driver\as.pp" "driver\bmp_as.pp" "driver\bmp_ps.pp" "driver\buzzer.pp" "driver\cma_as.pp" "driver\cma_ps.pp" "driver\display.pp" "driver\pmm.pp" "driver\ports.pp" "driver\ps.pp" "driver\radio.pp" "driver\rf1a.pp" "driver\timer.pp" 
+	-$(RM) "main.obj" "simpliciti\Components\nwk_applications\nwk_freq.obj" "simpliciti\Components\nwk_applications\nwk_ioctl.obj" "simpliciti\Components\nwk_applications\nwk_join.obj" "simpliciti\Components\nwk_applications\nwk_link.obj" "simpliciti\Components\nwk_applications\nwk_mgmt.obj" "simpliciti\Components\nwk_applications\nwk_ping.obj" "simpliciti\Components\nwk_applications\nwk_security.obj" "simpliciti\Components\nwk\nwk.obj" "simpliciti\Components\nwk\nwk_QMgmt.obj" "simpliciti\Components\nwk\nwk_api.obj" "simpliciti\Components\nwk\nwk_frame.obj" "simpliciti\Components\nwk\nwk_globals.obj" "simpliciti\Components\mrfi\mrfi.obj" "simpliciti\Components\bsp\bsp.obj" "simpliciti\Applications\application\End Device\main_ED_BM.obj" "logic\acceleration.obj" "logic\alarm.obj" "logic\altitude.obj" "logic\battery.obj" "logic\bluerobin.obj" "logic\clock.obj" "logic\date.obj" "logic\menu.obj" "logic\rfbsl.obj" "logic\rfsimpliciti.obj" "logic\scroller.obj" "logic\stopwatch.obj" "logic\test.obj" "logic\user.obj" 
+	-$(RM) "driver\adc12.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\bmp_ps.obj" "driver\buzzer.obj" "driver\cma_as.obj" "driver\cma_ps.obj" "driver\display.obj" "driver\pmm.obj" "driver\ports.obj" "driver\ps.obj" "driver\radio.obj" "driver\rf1a.obj" "driver\timer.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
 post-build:
 	-@echo 'Create flash image: TI-TXT'
-	-"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430.exe" --ti_txt "ez430_chronos_scroll_433MHz.out" -o "ez430_chronos_scroll_433MHz.txt" -order MS -romwidth 16
+	-"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430.exe" --ti_txt "EZ430_Chronos_Sit Up_433MHz.out" -o "EZ430_Chronos_Sit Up_433MHz.txt" -order MS -romwidth 16
 	-@echo ' '
 
 .PHONY: all clean dependents

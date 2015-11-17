@@ -1,5 +1,5 @@
-MSP430 C/C++ Optimizer                  v4.4.6
-Build Number 1PJLP-I3E%IMB0-RTARQ-RAQ-C08D
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 
 		======File-level Analysis Summary======
 
@@ -46,12 +46,6 @@ extern unsigned char update_stopwatch() is called from 0 sites in this file.
     It calls these functions:
 	<NONE>
 
-extern unsigned char update_temperature() is called from 0 sites in this file.
-    It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
 extern unsigned char update_time() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -66,14 +60,6 @@ extern unsigned char update_time() is called from 0 sites in this file.
 ==============================================================================
 
 extern unsigned char update_time() is called from 0 sites in this file.
-    It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern unsigned char update_temperature() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
