@@ -104,7 +104,6 @@
 #include "alarm.h"
 #include "stopwatch.h"
 #include "battery.h"
-#include "temperature.h"
 #include "altitude.h"
 #include "battery.h"
 #include "acceleration.h"
@@ -350,7 +349,6 @@ void init_global_variables(void)
     //      ptrMenu_L1 = &menu_L1_Alarm;
     //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
-    //      ptrMenu_L1 = &menu_L1_Temperature;
     //      ptrMenu_L1 = &menu_L1_Altitude;
           ptrMenu_L1 = &menu_L1_Acceleration;
     //ptrMenu_L2 = &menu_L2_Date;
@@ -411,9 +409,6 @@ void init_global_variables(void)
 
     // Reset SimpliciTI stack
     reset_rf();
-
-    // Reset temperature measurement
-    reset_temp_measurement();
 
     // Reset battery measurement
     reset_batt_measurement();
@@ -570,10 +565,6 @@ void wakeup_event(void)
 // *************************************************************************************************
 void process_requests(void)
 {
-    // Do temperature measurement
-    if (request.flag.temperature_measurement)
-        temperature_measurement(FILTER_ON);
-
     // Do pressure measurement
     if (request.flag.altitude_measurement)
         do_altitude_measurement(FILTER_ON);
@@ -738,7 +729,6 @@ void read_calibration_values(void)
         // If no values are available (i.e. INFO D memory has been erased by user), assign
         // experimentally derived values
         rf_frequoffset = 4;
-        sTemp.offset = -250;
         sBatt.offset = -10;
         simpliciti_ed_address[0] = 0x79;
         simpliciti_ed_address[1] = 0x56;
@@ -754,7 +744,6 @@ void read_calibration_values(void)
         {
             rf_frequoffset = 0;
         }
-        sTemp.offset = (s16) ((cal_data[2] << 8) + cal_data[3]);
         sBatt.offset = (s16) ((cal_data[4] << 8) + cal_data[5]);
         simpliciti_ed_address[0] = cal_data[6];
         simpliciti_ed_address[1] = cal_data[7];

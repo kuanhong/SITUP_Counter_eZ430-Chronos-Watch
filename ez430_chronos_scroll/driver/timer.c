@@ -64,7 +64,6 @@
 #include "simpliciti.h"
 #include "acceleration.h"
 #include "bluerobin.h"
-#include "temperature.h"
 #include "scroller.h"
 
 // *************************************************************************************************
@@ -332,10 +331,6 @@ __interrupt void TIMER0_A0_ISR(void)
             stop_alarm();
         }
     }
-
-    // Do a temperature measurement each second while menu item is active
-    if (is_temp_measurement())
-        request.flag.temperature_measurement = 1;
 
     // Do a pressure measurement each second while menu item is active
     if (is_altitude_measurement())

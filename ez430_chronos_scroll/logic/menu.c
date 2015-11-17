@@ -51,7 +51,6 @@
 #include "date.h"
 #include "alarm.h"
 #include "stopwatch.h"
-#include "temperature.h"
 #include "altitude.h"
 #include "battery.h"
 #include "bluerobin.h"
@@ -96,11 +95,6 @@ u8 update_alarm(void)
     return (display.flag.update_alarm);
 }
 
-u8 update_temperature(void)
-{
-    return (display.flag.update_temperature);
-}
-
 u8 update_battery_voltage(void)
 {
     return (display.flag.update_battery_voltage);
@@ -140,16 +134,6 @@ const struct menu menu_L1_Alarm = {
     FUNCTION(mx_alarm),               // sub menu function
     FUNCTION(display_alarm),          // display function
     FUNCTION(update_alarm),           // new display data
-    &menu_L1_Temperature,
-};
-
-// Line1 - Temperature
-const struct menu menu_L1_Temperature = {
-    FUNCTION(dummy),                  // direct function
-    FUNCTION(mx_temperature),         // sub menu function
-    FUNCTION(display_temperature),    // display function
-    FUNCTION(update_temperature),     // new display data
-    &menu_L1_Altitude,
 };
 
 // Line1 - Altitude

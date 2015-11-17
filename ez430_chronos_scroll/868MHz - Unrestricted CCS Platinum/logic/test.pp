@@ -20,7 +20,6 @@ logic/test.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_
 logic/test.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h
 logic/test.obj: ../logic/acceleration.h
 logic/test.obj: ../logic/altitude.h
-logic/test.obj: ../logic/temperature.h
 logic/test.obj: ../logic/bluerobin.h
 logic/test.obj: ../logic/test.h
 
@@ -44,6 +43,5 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/po
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h: 
 ../logic/acceleration.h: 
 ../logic/altitude.h: 
-../logic/temperature.h: 
 ../logic/bluerobin.h: 
 ../logic/test.h: 

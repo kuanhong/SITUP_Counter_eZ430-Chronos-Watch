@@ -54,7 +54,6 @@
 // logic
 #include "acceleration.h"
 #include "altitude.h"
-#include "temperature.h"
 #include "bluerobin.h"
 #include "test.h"
 
@@ -155,14 +154,7 @@ void test_mode(void)
                             }
                             stop_altitude_measurement();
                             break;
-                        case 2: // Temperature measurement
-                            display_temperature(LINE1, DISPLAY_LINE_UPDATE_FULL);
-                            for (i = 0; i < 4; i++)
-                            {
-                                Timer0_A4_Delay(CONV_MS_TO_TICKS(250));
-                                temperature_measurement(FILTER_OFF);
-                                display_temperature(LINE1, DISPLAY_LINE_UPDATE_PARTIAL);
-                            }
+                        case 2:
                             break;
                         case 3: // Acceleration measurement
                         	if (bmp_used)
