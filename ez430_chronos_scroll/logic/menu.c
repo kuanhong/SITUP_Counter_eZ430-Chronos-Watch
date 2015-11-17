@@ -128,15 +128,6 @@ const struct menu menu_L1_Alarm = {
     FUNCTION(update_alarm),           // new display data
 };
 
-// Line1 - Heart Rate
-const struct menu menu_L1_Heartrate = {
-    FUNCTION(sx_bluerobin),           // direct function
-    FUNCTION(mx_bluerobin),           // sub menu function
-    FUNCTION(display_heartrate),      // display function
-    FUNCTION(update_time),            // new display data
-    &menu_L1_Speed,
-};
-
 // Line1 - Speed
 const struct menu menu_L1_Speed = {
     FUNCTION(dummy),                  // direct function
@@ -152,6 +143,7 @@ const struct menu menu_L1_Acceleration = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
+    &menu_L1_Time,
 };
 
 // Line2 - Date

@@ -86,7 +86,7 @@ void test_mode(void)
     display_chars(LCD_SEG_L1_3_0, (u8 *) "0430", SEG_ON);
     display_chars(LCD_SEG_L2_4_0, (u8 *) "CC430", SEG_ON);
     display_symbol(LCD_SEG_L1_COL, SEG_ON);
-    display_symbol(LCD_ICON_HEART, SEG_ON);
+//    display_symbol(LCD_ICON_HEART, SEG_ON);
     display_symbol(LCD_ICON_STOPWATCH, SEG_ON);
     display_symbol(LCD_ICON_RECORD, SEG_ON);
     display_symbol(LCD_ICON_ALARM, SEG_ON);
@@ -186,7 +186,6 @@ void test_mode(void)
                             sx_bluerobin(LINE1);
                             Timer0_A4_Delay(CONV_MS_TO_TICKS(100));
                             get_bluerobin_data();
-                            display_heartrate(LINE1, DISPLAY_LINE_UPDATE_FULL);
                             stop_bluerobin();
                             break;
                     }

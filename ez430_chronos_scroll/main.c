@@ -345,7 +345,6 @@ void init_global_variables(void)
     // set menu pointers to default menu items
    // ptrMenu_L1 = &menu_L1_Time;
     //      ptrMenu_L1 = &menu_L1_Alarm;
-    //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
           ptrMenu_L1 = &menu_L1_Acceleration;
     //ptrMenu_L2 = &menu_L2_Date;
@@ -463,19 +462,19 @@ void wakeup_event(void)
         if (button.flag.star)
         {
             // Clean up display before activating next menu item
-//            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
+            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
 
             // Go to next menu entry
-//            ptrMenu_L1 = ptrMenu_L1->next;
+            ptrMenu_L1 = ptrMenu_L1->next;
 
             // Assign new display function
-//            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
+            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
 
             // Set Line1 display update flag
-//            display.flag.line1_full_update = 1;
+            display.flag.line1_full_update = 1;
 
             // Clear button flag
-//           button.flag.star = 0;
+           button.flag.star = 0;
         }
         // NUM button event ---------------------------------------------------------------------
         // (Short) Advance to next menu item
