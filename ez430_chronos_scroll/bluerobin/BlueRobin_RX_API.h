@@ -51,20 +51,6 @@
 //              * channels                              3
 //              * data rate                             250 kBaud
 //
-// Bluerobin_RX_868MHz.lib (868MHz ISM band)
-//
-//              * frequency                             868.25 MHz - 868.95 MHz
-//              * deviation                             95 kHz
-//              * channels                              3
-//              * data rate                             250 kBaud
-//
-//
-// Bluerobin_RX_915MHz.lib (915MHz ISM band)
-//
-//              * frequency                             914.35 MHz - 917.75 MHz
-//              * deviation                             95 kHz
-//              * channels                              34
-//              * data rate                             250 kBaud
 //
 // *************************************************************************************************
 
