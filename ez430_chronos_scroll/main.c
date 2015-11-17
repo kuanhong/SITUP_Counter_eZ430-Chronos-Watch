@@ -463,41 +463,25 @@ void wakeup_event(void)
         if (button.flag.star)
         {
             // Clean up display before activating next menu item
-            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
+//            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
 
             // Go to next menu entry
-            ptrMenu_L1 = ptrMenu_L1->next;
+//            ptrMenu_L1 = ptrMenu_L1->next;
 
             // Assign new display function
-            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
+//            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
 
             // Set Line1 display update flag
-            display.flag.line1_full_update = 1;
+//            display.flag.line1_full_update = 1;
 
             // Clear button flag
-            button.flag.star = 0;
+//           button.flag.star = 0;
         }
         // NUM button event ---------------------------------------------------------------------
         // (Short) Advance to next menu item
         else if (button.flag.num)
         {
-            // Clear rfBSL confirmation flag
-//            rfBSL_button_confirmation = 0;
 
-            // Clean up display before activating next menu item
-//            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
-
-            // Go to next menu entry
-//            ptrMenu_L2 = ptrMenu_L2->next;
-
-            // Assign new display function
-//            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
-
-            // Set Line2 display update flag
-//            display.flag.line2_full_update = 1;
-
-            // Clear button flag
-//            button.flag.num = 0;
         }
         // UP button event ---------------------------------------------------------------------
         // Activate user function for Line1 menu item
@@ -562,7 +546,6 @@ void process_requests(void)
     // Do acceleration measurement
     if (request.flag.acceleration_measurement)
         do_acceleration_measurement();
-
 
     // Do voltage measurement
     if (request.flag.voltage_measurement)

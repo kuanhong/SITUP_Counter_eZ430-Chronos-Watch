@@ -90,11 +90,11 @@ extern void to_lpm() is called from 1 sites in this file.
 	__bis_SR_register() (1 times)
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 178 units)
+    It appears to be inlineable (size = 157 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	clear_display() (1 times)
-	 ? () (5 times)
+	 ? () (4 times)
 
 
 These functions may be recursive:
@@ -155,7 +155,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 178 units)
+    It appears to be inlineable (size = 157 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
