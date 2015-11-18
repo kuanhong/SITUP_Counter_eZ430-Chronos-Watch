@@ -45,7 +45,6 @@
 #include "display.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "ps.h"
 #include "ports.h"
 #include "timer.h"
 #include "radio.h"

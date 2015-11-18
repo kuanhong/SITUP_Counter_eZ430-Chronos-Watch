@@ -47,8 +47,6 @@
 #include "buzzer.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "display.h"
 
 // logic

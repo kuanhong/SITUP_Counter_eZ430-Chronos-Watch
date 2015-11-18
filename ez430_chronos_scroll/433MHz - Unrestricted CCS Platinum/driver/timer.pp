@@ -15,8 +15,6 @@ driver/timer.obj: ../driver/ports.h
 driver/timer.obj: ../driver/buzzer.h
 driver/timer.obj: ../driver/bmp_as.h
 driver/timer.obj: ../driver/as.h
-driver/timer.obj: ../driver/bmp_ps.h
-driver/timer.obj: ../driver/ps.h
 driver/timer.obj: ../driver/display.h
 driver/timer.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/clock.h
 driver/timer.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/battery.h
@@ -42,8 +40,6 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h:
 ../driver/buzzer.h: 
 ../driver/bmp_as.h: 
 ../driver/as.h: 
-../driver/bmp_ps.h: 
-../driver/ps.h: 
 ../driver/display.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/clock.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/logic/battery.h: 

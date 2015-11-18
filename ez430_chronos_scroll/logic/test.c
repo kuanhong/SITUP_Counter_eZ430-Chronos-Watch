@@ -44,8 +44,6 @@
 // driver
 #include "display.h"
 #include "bmp_as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "ports.h"
 #include "timer.h"
 

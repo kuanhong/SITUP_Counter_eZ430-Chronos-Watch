@@ -46,8 +46,6 @@
 #include "buzzer.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "timer.h"
 #include "display.h"
 
@@ -309,14 +307,6 @@ __interrupt void PORT2_ISR(void)
         {
             // Get data from sensor
             request.flag.acceleration_measurement = 1;
-        }
-
-        // ---------------------------------------------------
-        // Pressure sensor IRQ
-        if (IRQ_TRIGGERED(int_flag, PS_INT_PIN))
-        {
-            // Get data from sensor altit
-
         }
 
         // ---------------------------------------------------

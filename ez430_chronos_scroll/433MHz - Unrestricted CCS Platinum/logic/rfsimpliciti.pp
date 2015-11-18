@@ -13,7 +13,6 @@ logic/rfsimpliciti.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/f
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/bmp_as.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h
-logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ps.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/radio.h
@@ -38,7 +37,6 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/float.h:
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/display.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/bmp_as.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ps.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/radio.h: 

@@ -21,7 +21,6 @@ logic/menu.obj: ../logic/battery.h
 logic/menu.obj: ../logic/bluerobin.h
 logic/menu.obj: ../logic/rfsimpliciti.h
 logic/menu.obj: ../logic/acceleration.h
-logic/menu.obj: ../logic/rfbsl.h
 
 ../logic/menu.c: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/include/project.h: 
@@ -44,4 +43,3 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/di
 ../logic/bluerobin.h: 
 ../logic/rfsimpliciti.h: 
 ../logic/acceleration.h: 
-../logic/rfbsl.h: 

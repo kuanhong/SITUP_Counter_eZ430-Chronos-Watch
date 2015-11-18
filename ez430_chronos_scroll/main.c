@@ -86,8 +86,6 @@
 #include "display.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "radio.h"
 #include "buzzer.h"
 #include "ports.h"
@@ -308,23 +306,6 @@ void init_application(void)
     // Configure Timer0 for use by the clock and delay functions
     Timer0_Init();
     // ---------------------------------------------------------------------
-
-    // ---------------------------------------------------------------------
-    // Init pressure sensor
-    bmp_ps_init();
-    // Bosch sensor not found?
-    if (!ps_ok)
-    {
-        bmp_used = 0;
-        // Chronos with Black PCB
-        chronos_black = 1;
-    }
-    else
-    {
-    	bmp_used = 1;
-    	// Chronos with White PCB
-    	chronos_black = 0;
-    }
 }
 
 // *************************************************************************************************
