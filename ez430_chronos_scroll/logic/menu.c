@@ -55,7 +55,6 @@
 #include "bluerobin.h"
 #include "rfsimpliciti.h"
 #include "acceleration.h"
-#include "rfbsl.h"
 
 // *************************************************************************************************
 // Defines section
@@ -206,14 +205,5 @@ const struct menu menu_L2_CalDist = {
     FUNCTION(mx_caldist),             // sub menu function
     FUNCTION(display_caldist),        // display function
     FUNCTION(update_time),            // new display data
-    &menu_L2_RFBSL,
 };
 
-// Line2 - RFBSL
-const struct menu menu_L2_RFBSL = {
-    FUNCTION(sx_rfbsl),               // direct function
-    FUNCTION(dummy),                  // sub menu function
-    FUNCTION(display_rfbsl),          // display function
-    FUNCTION(update_time),            // new display data
-    &menu_L2_Date,
-};

@@ -11,7 +11,6 @@ C_SRCS += \
 ../logic/clock.c \
 ../logic/date.c \
 ../logic/menu.c \
-../logic/rfbsl.c \
 ../logic/rfsimpliciti.c \
 ../logic/stopwatch.c \
 ../logic/test.c \
@@ -25,7 +24,6 @@ OBJS += \
 ./logic/clock.obj \
 ./logic/date.obj \
 ./logic/menu.obj \
-./logic/rfbsl.obj \
 ./logic/rfsimpliciti.obj \
 ./logic/stopwatch.obj \
 ./logic/test.obj \
@@ -39,7 +37,6 @@ C_DEPS += \
 ./logic/clock.pp \
 ./logic/date.pp \
 ./logic/menu.pp \
-./logic/rfbsl.pp \
 ./logic/rfsimpliciti.pp \
 ./logic/stopwatch.pp \
 ./logic/test.pp \
@@ -53,7 +50,6 @@ C_DEPS__QUOTED += \
 "logic\clock.pp" \
 "logic\date.pp" \
 "logic\menu.pp" \
-"logic\rfbsl.pp" \
 "logic\rfsimpliciti.pp" \
 "logic\stopwatch.pp" \
 "logic\test.pp" \
@@ -67,7 +63,6 @@ OBJS__QUOTED += \
 "logic\clock.obj" \
 "logic\date.obj" \
 "logic\menu.obj" \
-"logic\rfbsl.obj" \
 "logic\rfsimpliciti.obj" \
 "logic\stopwatch.obj" \
 "logic\test.obj" \
@@ -81,7 +76,6 @@ C_SRCS__QUOTED += \
 "../logic/clock.c" \
 "../logic/date.c" \
 "../logic/menu.c" \
-"../logic/rfbsl.c" \
 "../logic/rfsimpliciti.c" \
 "../logic/stopwatch.c" \
 "../logic/test.c" \
