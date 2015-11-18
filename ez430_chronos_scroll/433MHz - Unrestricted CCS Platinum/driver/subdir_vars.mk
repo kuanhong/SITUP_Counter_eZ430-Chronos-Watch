@@ -11,7 +11,6 @@ C_SRCS += \
 ../driver/display.c \
 ../driver/pmm.c \
 ../driver/ports.c \
-../driver/radio.c \
 ../driver/rf1a.c \
 ../driver/timer.c 
 
@@ -23,7 +22,6 @@ OBJS += \
 ./driver/display.obj \
 ./driver/pmm.obj \
 ./driver/ports.obj \
-./driver/radio.obj \
 ./driver/rf1a.obj \
 ./driver/timer.obj 
 
@@ -35,7 +33,6 @@ C_DEPS += \
 ./driver/display.pp \
 ./driver/pmm.pp \
 ./driver/ports.pp \
-./driver/radio.pp \
 ./driver/rf1a.pp \
 ./driver/timer.pp 
 
@@ -47,7 +44,6 @@ C_DEPS__QUOTED += \
 "driver\display.pp" \
 "driver\pmm.pp" \
 "driver\ports.pp" \
-"driver\radio.pp" \
 "driver\rf1a.pp" \
 "driver\timer.pp" 
 
@@ -59,7 +55,6 @@ OBJS__QUOTED += \
 "driver\display.obj" \
 "driver\pmm.obj" \
 "driver\ports.obj" \
-"driver\radio.obj" \
 "driver\rf1a.obj" \
 "driver\timer.obj" 
 
@@ -71,7 +66,6 @@ C_SRCS__QUOTED += \
 "../driver/display.c" \
 "../driver/pmm.c" \
 "../driver/ports.c" \
-"../driver/radio.c" \
 "../driver/rf1a.c" \
 "../driver/timer.c" 
 

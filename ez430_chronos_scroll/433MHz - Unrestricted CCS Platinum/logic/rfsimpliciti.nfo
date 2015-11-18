@@ -57,13 +57,11 @@ extern void simpliciti_sync_get_data_callback() is called from 0 sites in this f
 	<NONE>
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 60 units)
+    It appears to be inlineable (size = 58 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	close_radio() (1 times)
 	simpliciti_main_sync() (1 times)
 	simpliciti_link() (1 times)
-	open_radio() (1 times)
 	Timer0_A4_Delay() (2 times)
 	display_symbol() (6 times)
 	bmp_as_stop() (1 times)
@@ -71,15 +69,13 @@ extern void start_simpliciti_sync() is called from 1 sites in this file.
 	clear_line() (1 times)
 
 extern void start_simpliciti_tx_only() is called from 2 sites in this file.
-    It appears to be inlineable (size = 104 units)
+    It appears to be inlineable (size = 102 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	close_radio() (1 times)
 	bmp_as_stop() (1 times)
 	simpliciti_main_tx_only() (1 times)
 	bmp_as_start() (1 times)
 	simpliciti_link() (1 times)
-	open_radio() (1 times)
 	Timer0_A4_Delay() (2 times)
 	display_symbol() (6 times)
 	display_time() (2 times)
@@ -87,21 +83,21 @@ extern void start_simpliciti_tx_only() is called from 2 sites in this file.
 	clear_line() (2 times)
 
 extern void sx_ppt() is called from 0 sites in this file.
-    It appears to be inlineable (size = 33 units)
+    It appears to be inlineable (size = 27 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_tx_only() (1 times)
 	is_bluerobin() (1 times)
 
 extern void sx_rf() is called from 0 sites in this file.
-    It appears to be inlineable (size = 33 units)
+    It appears to be inlineable (size = 27 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_tx_only() (1 times)
 	is_bluerobin() (1 times)
 
 extern void sx_sync() is called from 0 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 26 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_sync() (1 times)
@@ -132,10 +128,8 @@ These external functions are called but not defined here:
 	 ? ()
 	bmp_as_stop()
 	display_symbol()
-	open_radio()
 	simpliciti_link()
 	simpliciti_main_sync()
-	close_radio()
 	__bis_SR_register()
 	__no_operation()
 	Timer0_A4_Delay()
@@ -150,7 +144,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void start_simpliciti_sync() is called from 1 sites in this file.
-    It appears to be inlineable (size = 60 units)
+    It appears to be inlineable (size = 58 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -158,7 +152,7 @@ extern void start_simpliciti_sync() is called from 1 sites in this file.
 ==============================================================================
 
 extern void sx_sync() is called from 0 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 26 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_sync() (1 times)
@@ -166,7 +160,7 @@ extern void sx_sync() is called from 0 sites in this file.
 ==============================================================================
 
 extern void start_simpliciti_tx_only() is called from 2 sites in this file.
-    It appears to be inlineable (size = 104 units)
+    It appears to be inlineable (size = 102 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -174,7 +168,7 @@ extern void start_simpliciti_tx_only() is called from 2 sites in this file.
 ==============================================================================
 
 extern void sx_rf() is called from 0 sites in this file.
-    It appears to be inlineable (size = 33 units)
+    It appears to be inlineable (size = 27 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_tx_only() (1 times)
@@ -182,7 +176,7 @@ extern void sx_rf() is called from 0 sites in this file.
 ==============================================================================
 
 extern void sx_ppt() is called from 0 sites in this file.
-    It appears to be inlineable (size = 33 units)
+    It appears to be inlineable (size = 27 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	start_simpliciti_tx_only() (1 times)

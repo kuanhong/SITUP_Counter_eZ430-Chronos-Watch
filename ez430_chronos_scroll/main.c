@@ -86,7 +86,6 @@
 #include "display.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "radio.h"
 #include "buzzer.h"
 #include "ports.h"
 #include "timer.h"
@@ -284,11 +283,6 @@ void init_application(void)
 
     // ---------------------------------------------------------------------
     // Configure ports
-
-    // ---------------------------------------------------------------------
-    // Reset radio core
-    radio_reset();
-    radio_powerdown();
 
     // ---------------------------------------------------------------------
     // Init acceleration sensor

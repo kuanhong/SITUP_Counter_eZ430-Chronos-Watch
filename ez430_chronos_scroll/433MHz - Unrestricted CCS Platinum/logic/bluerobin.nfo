@@ -95,30 +95,24 @@ extern void reset_bluerobin() is called from 0 sites in this file.
 	<NONE>
 
 extern void stop_bluerobin() is called from 2 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_symbol() (4 times)
-	close_radio() (1 times)
 	BRRX_Stop_v() (1 times)
 
 extern void sx_bluerobin() is called from 0 sites in this file.
-    It appears to be inlineable (size = 119 units)
+    It appears to be inlineable (size = 88 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_bluerobin() (1 times)
-	Timer0_A4_Delay() (1 times)
 	BRRX_GetID_u32() (1 times)
-	BRRX_Start_v() (1 times)
-	BRRX_SetID_v() (1 times)
-	BRRX_GetState_t() (3 times)
+	BRRX_GetState_t() (1 times)
 	display_symbol() (7 times)
-	WriteSingleReg() (1 times)
 	BRRX_SetSignalLevelReduction_v() (1 times)
 	BRRX_SetSearchTimeout_v() (1 times)
 	BRRX_SetPowerdownDelay_v() (1 times)
 	BRRX_Init_v() (1 times)
-	open_radio() (1 times)
 	is_rf() (1 times)
 
 extern void sx_caldist() is called from 0 sites in this file.
@@ -145,18 +139,12 @@ Making this function inlineable: is_bluerobin()
 
 These external functions are called but not defined here:
 	is_rf()
-	open_radio()
 	BRRX_Init_v()
 	BRRX_SetPowerdownDelay_v()
 	BRRX_SetSearchTimeout_v()
 	BRRX_SetSignalLevelReduction_v()
-	WriteSingleReg()
-	BRRX_SetID_v()
-	BRRX_Start_v()
 	BRRX_GetID_u32()
-	Timer0_A4_Delay()
 	BRRX_Stop_v()
-	close_radio()
 	clear_display_all()
 	set_value()
 	clear_line()
@@ -208,7 +196,7 @@ extern void sx_caldist() is called from 0 sites in this file.
 ==============================================================================
 
 extern void stop_bluerobin() is called from 2 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 31 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -216,7 +204,7 @@ extern void stop_bluerobin() is called from 2 sites in this file.
 ==============================================================================
 
 extern void sx_bluerobin() is called from 0 sites in this file.
-    It appears to be inlineable (size = 119 units)
+    It appears to be inlineable (size = 88 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_bluerobin() (1 times)

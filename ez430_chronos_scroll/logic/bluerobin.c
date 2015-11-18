@@ -43,10 +43,8 @@
 
 // driver
 #include "display.h"
-#include "radio.h"
 #include "ports.h"
 #include "timer.h"
-#include "rf1a.h"
 
 // logic
 #include "BlueRobin_RX_API.h"
@@ -146,10 +144,6 @@ void sx_bluerobin(u8 line)
 {
     u8 stop = 0;
 
-    // Exit if battery voltage is too low for radio operation
-    if (sys.flag.low_battery)
-        return;
-
     // Exit if SimpliciTI stack is active
     if (is_rf())
         return;
@@ -159,9 +153,6 @@ void sx_bluerobin(u8 line)
     {
         if (sBlueRobin.state == BLUEROBIN_OFF)
         {
-            // Init BlueRobin timer and radio
-            open_radio();
-
             // Initialize BR library
             BRRX_Init_v();
 
@@ -182,10 +173,6 @@ void sx_bluerobin(u8 line)
             BRRX_SetSignalLevelReduction_v(5);
 #endif
 
-            // Apply frequency offset compensation to radio register FSCTRL0
-            // If calibration memory was erased, rf_frequoffset defaults to 0x00 and has no effect
-            WriteSingleReg(FSCTRL0, rf_frequoffset);
-
             // New state is SEARCH
             sBlueRobin.state = BLUEROBIN_SEARCHING;
 
@@ -193,20 +180,6 @@ void sx_bluerobin(u8 line)
             display_symbol(LCD_ICON_BEEPER1, SEG_ON_BLINK_ON);
             display_symbol(LCD_ICON_BEEPER2, SEG_ON_BLINK_ON);
             display_symbol(LCD_ICON_BEEPER3, SEG_ON_BLINK_ON);
-
-            // Turn on radio and establish connection if channel not already started
-            if (BRRX_GetState_t(HR_CHANNEL) == TX_OFF)
-            {
-                // Start in learn mode (connect to closest heart rate transmitter)
-                BRRX_SetID_v(HR_CHANNEL, sBlueRobin.cs_id);
-                BRRX_Start_v(HR_CHANNEL);
-
-                // Wait until learning phase is over
-                while (BRRX_GetState_t(HR_CHANNEL) == TX_SEARCH)
-                {
-                    Timer0_A4_Delay(CONV_MS_TO_TICKS(200));
-                }
-            }
 
             // Check if connection attempt was successful
             if (BRRX_GetState_t(HR_CHANNEL) == TX_ACTIVE)
@@ -686,9 +659,6 @@ void stop_bluerobin(void)
 
     // Stop channel
     BRRX_Stop_v(HR_CHANNEL);
-
-    // Powerdown radio
-    close_radio();
 
     // Force full display update to clear heart rate and speed data
     sBlueRobin.heartrate = 0;

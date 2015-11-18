@@ -23,15 +23,13 @@ extern void idle_loop() is called from 1 sites in this file.
 	to_lpm() (1 times)
 
 extern void init_application() is called from 1 sites in this file.
-    It appears to be inlineable (size = 112 units)
+    It appears to be inlineable (size = 110 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	Timer0_Init() (1 times)
 	init_buttons() (1 times)
 	lcd_init() (1 times)
 	as_init() (1 times)
-	radio_powerdown() (1 times)
-	radio_reset() (1 times)
 	__enable_interrupt() (1 times)
 	__disable_interrupt() (1 times)
 	__delay_cycles() (1 times)
@@ -132,8 +130,6 @@ These external functions are called but not defined here:
 	__delay_cycles()
 	__disable_interrupt()
 	__enable_interrupt()
-	radio_reset()
-	radio_powerdown()
 	as_init()
 	lcd_init()
 	init_buttons()
@@ -183,7 +179,7 @@ extern void process_requests() is called from 1 sites in this file.
 ==============================================================================
 
 extern void init_application() is called from 1 sites in this file.
-    It appears to be inlineable (size = 112 units)
+    It appears to be inlineable (size = 110 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

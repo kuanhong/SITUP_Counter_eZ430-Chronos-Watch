@@ -47,7 +47,6 @@
 #include "as.h"
 #include "ports.h"
 #include "timer.h"
-#include "radio.h"
 
 // logic
 #include "acceleration.h"
@@ -130,10 +129,6 @@ void reset_rf(void)
 // *************************************************************************************************
 void sx_rf(u8 line)
 {
-    // Exit if battery voltage is too low for radio operation
-    if (sys.flag.low_battery)
-        return;
-
     // Exit if BlueRobin stack is active
     if (is_bluerobin())
         return;
@@ -159,10 +154,6 @@ void sx_rf(u8 line)
 // *************************************************************************************************
 void sx_ppt(u8 line)
 {
-    // Exit if battery voltage is too low for radio operation
-    if (sys.flag.low_battery)
-        return;
-
     // Exit if BlueRobin stack is active
     if (is_bluerobin())
         return;
@@ -187,10 +178,6 @@ void sx_ppt(u8 line)
 // *************************************************************************************************
 void sx_sync(u8 line)
 {
-    // Exit if battery voltage is too low for radio operation
-    if (sys.flag.low_battery)
-        return;
-
     // Exit if BlueRobin stack is active
     if (is_bluerobin())
         return;
@@ -241,9 +228,6 @@ void start_simpliciti_tx_only(simpliciti_mode_t mode)
     // Debounce button event
     Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_OUT));
 
-    // Prepare radio for RF communication
-    open_radio();
-
     // Set SimpliciTI mode
     sRFsmpl.mode = mode;
 
@@ -276,9 +260,6 @@ void start_simpliciti_tx_only(simpliciti_mode_t mode)
 	{
         bmp_as_stop();
 	}
-
-    // Powerdown radio
-    close_radio();
 
     // Clear last button events
     Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_OUT));
@@ -470,9 +451,6 @@ void start_simpliciti_sync(void)
     // Debounce button event
     Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_OUT));
 
-    // Prepare radio for RF communication
-    open_radio();
-
     // Set SimpliciTI mode
     sRFsmpl.mode = SIMPLICITI_SYNC;
 
@@ -491,9 +469,6 @@ void start_simpliciti_sync(void)
 
     // Set SimpliciTI state to OFF
     sRFsmpl.mode = SIMPLICITI_OFF;
-
-    // Powerdown radio
-    close_radio();
 
     // Clear last button events
     Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_OUT));

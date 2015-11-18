@@ -15,7 +15,6 @@ logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h
 logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h
-logic/rfsimpliciti.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/radio.h
 logic/rfsimpliciti.obj: ../logic/acceleration.h
 logic/rfsimpliciti.obj: ../logic/rfsimpliciti.h
 logic/rfsimpliciti.obj: ../logic/bluerobin.h
@@ -39,7 +38,6 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/bm
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/as.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/ports.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/timer.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/ez430_chronos_scroll/driver/radio.h: 
 ../logic/acceleration.h: 
 ../logic/rfsimpliciti.h: 
 ../logic/bluerobin.h: 
