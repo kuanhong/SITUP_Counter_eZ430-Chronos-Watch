@@ -62,18 +62,6 @@
 // Conversion from msec to ACLK timer ticks
 #define CONV_MS_TO_TICKS(msec)                          (((msec) * 32768) / 1000)
 
-
-
-
-
-
-
-
-
-
-
-
-
 // *************************************************************************************************
 // Typedef section
 

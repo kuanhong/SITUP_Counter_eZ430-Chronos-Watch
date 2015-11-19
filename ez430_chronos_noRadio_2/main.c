@@ -452,23 +452,20 @@ void wakeup_event(void)
         // (Short) Advance to next menu item
         else if (button.flag.num)
         {
-            // Clear rfBSL confirmation flag
-//            rfBSL_button_confirmation = 0;
-
             // Clean up display before activating next menu item
-            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
+//            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
 
             // Go to next menu entry
-            ptrMenu_L2 = ptrMenu_L2->next;
+//            ptrMenu_L2 = ptrMenu_L2->next;
 
             // Assign new display function
-            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
+//            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
 
             // Set Line2 display update flag
-            display.flag.line2_full_update = 1;
+//            display.flag.line2_full_update = 1;
 
             // Clear button flag
-            button.flag.num = 0;
+//            button.flag.num = 0;
         }
         // UP button event ---------------------------------------------------------------------
         // Activate user function for Line1 menu item
@@ -615,18 +612,7 @@ void display_update(void)
         // Update line2 only when new data is available
         fptr_lcd_function_line2(LINE2, DISPLAY_LINE_UPDATE_PARTIAL);
     }
-    // ---------------------------------------------------------------------
-    // Restore blinking icons (blinking memory is cleared when calling set_value)
-    if (display.flag.full_update)
-    {
-//        if (is_bluerobin() == BLUEROBIN_CONNECTED)
-//        {
-//            // Turn on beeper icon to show activity
-//            display_symbol(LCD_ICON_BEEPER1, SEG_ON_BLINK_OFF);
-//            display_symbol(LCD_ICON_BEEPER2, SEG_ON_BLINK_OFF);
-//            display_symbol(LCD_ICON_BEEPER3, SEG_ON_BLINK_OFF);
-//        }
-    }
+
     // Clear display flag
     display.all_flags = 0;
 }
