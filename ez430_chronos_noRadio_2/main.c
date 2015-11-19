@@ -323,7 +323,6 @@ void init_global_variables(void)
     // set menu pointers to default menu items
     //		ptrMenu_L1 = &menu_L1_Time;
     //      ptrMenu_L1 = &menu_L1_Alarm;
-    //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
     //		ptrMenu_L2 = &menu_L2_Date;
