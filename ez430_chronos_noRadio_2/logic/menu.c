@@ -107,7 +107,7 @@ unsigned char update_acceleration(void)
 //
 //      LINE1:  [Time] -> Alarm -> Heart rate -> Speed -> Acceleration
 //
-//      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC -> Calories/Distance --> RFBSL
+//      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
 // *************************************************************************************************
 
 // Line1 - Time

@@ -127,13 +127,6 @@ __interrupt void PORT2_ISR(void)
         // Store valid button interrupt flag
         int_flag = BUTTONS_IFG & int_enable;
 
-        // ---------------------------------------------------
-        // While SimpliciTI stack is active, buttons behave differently:
-        //  - Store button events in SimpliciTI packet data
-        //  - Exit SimpliciTI when button DOWN was pressed
-//        if (is_rf())
-
-//        else                    // Normal operation
         {
             // Debounce buttons
             if ((int_flag & ALL_BUTTONS) != 0)
@@ -404,4 +397,3 @@ void button_repeat_function(void)
         stop_blink();
     }
 }
-

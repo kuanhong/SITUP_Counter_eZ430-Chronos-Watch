@@ -161,12 +161,6 @@ int main(void)
     // Init MCU
     init_application();
 
-//    while(1)
-//    {
-//    	P2OUT ^= BIT7;
-//    	__delay_cycles(0xFFF);
-//    }
-
     // Assign initial value to global variables
     init_global_variables();
 
@@ -284,14 +278,6 @@ void init_application(void)
     __enable_interrupt();
 
     // ---------------------------------------------------------------------
-    // Configure ports
-
-    // ---------------------------------------------------------------------
-    // Reset radio core
-//    radio_reset();
-//    radio_powerdown();
-
-    // ---------------------------------------------------------------------
     // Init acceleration sensor
     as_init();
 
@@ -331,7 +317,6 @@ void init_global_variables(void)
     //      ptrMenu_L2 = &menu_L2_Ppt;
     //      ptrMenu_L2 = &menu_L2_Sync;
     //      ptrMenu_L2 = &menu_L2_Distance;
-    //      ptrMenu_L2 = &menu_L2_Calories;
     //      ptrMenu_L2 = &menu_L2_Battery;
     //      ptrMenu_L2 = &menu_L2_RFBSL;
 
@@ -484,11 +469,6 @@ void wakeup_event(void)
         // Activate user function for Line2 menu item
         else if (button.flag.down)
         {
-            if (ptrMenu_L2 == &menu_L2_RFBSL)
-            {
-
-            }
-
             // Call direct function
             ptrMenu_L2->sx_function(LINE2);
 
@@ -679,4 +659,3 @@ void read_calibration_values(void)
         // S/W version byte set during calibration?
     }
 }
-
