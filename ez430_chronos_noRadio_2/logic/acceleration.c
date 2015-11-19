@@ -63,8 +63,6 @@ struct accel sAccel;
 
 // Conversion values from data to mgrav taken from BMA250 datasheet (rev 1.05, figure 4)
 	const unsigned short bmp_mgrav_per_bit[7] = { 16, 31, 63, 125, 250, 500, 1000 };
-// Conversion values from data to mgrav taken from CMA3000-D0x datasheet (rev 0.4, table 4)
-	const unsigned short cma_mgrav_per_bit[7] = { 18, 36, 71, 143, 286, 571, 1142 };
 
 // *************************************************************************************************
 // Extern section
