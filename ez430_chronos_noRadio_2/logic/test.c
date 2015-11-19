@@ -44,14 +44,11 @@
 // driver
 #include "display.h"
 #include "bmp_as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "ports.h"
 #include "timer.h"
 
 // logic
 #include "acceleration.h"
-#include "altitude.h"
 #include "temperature.h"
 #include "test.h"
 
@@ -142,15 +139,7 @@ void test_mode(void)
                             // Wait until buttons are off
                             while (BUTTON_STAR_IS_PRESSED && BUTTON_UP_IS_PRESSED) ;
                             break;
-                        case 1: // Altitude measurement
-                            display_altitude(LINE1, DISPLAY_LINE_UPDATE_FULL);
-                            for (i = 0; i < 2; i++)
-                            {
-                                while ((PS_INT_IN & PS_INT_PIN) == 0) ;
-                                do_altitude_measurement(FILTER_OFF);
-                                display_altitude(LINE1, DISPLAY_LINE_UPDATE_PARTIAL);
-                            }
-                            stop_altitude_measurement();
+                        case 1:
                             break;
                         case 2: // Temperature measurement
                             display_temperature(LINE1, DISPLAY_LINE_UPDATE_FULL);

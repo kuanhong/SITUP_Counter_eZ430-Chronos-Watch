@@ -45,20 +45,13 @@
 #include "ports.h"
 #include "buzzer.h"
 #include "bmp_as.h"
-//#include "cma_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-//#include "cma_ps.h"
-#include "ps.h"
 #include "timer.h"
 #include "display.h"
 
 // logic
 #include "clock.h"
 #include "alarm.h"
-//#include "rfsimpliciti.h"
-//#include "simpliciti.h"
-#include "altitude.h"
 #include "stopwatch.h"
 
 // *************************************************************************************************
@@ -122,8 +115,6 @@ __interrupt void PORT2_ISR(void)
     // Clear flags
     unsigned char int_flag, int_enable;
     unsigned char buzzer = 0;
-//    unsigned char simpliciti_button_event = 0;
-//    static unsigned char simpliciti_button_repeat = 0;
 
     // Remember interrupt enable bits
     int_enable = BUTTONS_IE;
@@ -141,42 +132,7 @@ __interrupt void PORT2_ISR(void)
         //  - Store button events in SimpliciTI packet data
         //  - Exit SimpliciTI when button DOWN was pressed
 //        if (is_rf())
-        {
-            // Erase previous button press after a number of resends (increase number if link
-            // quality is low)
-            // This will create a series of packets containing the same button press
-            // Necessary because we have no acknowledge
-            // Filtering (edge detection) will be done by receiver software
-//            if (simpliciti_button_repeat++ > 6)
-//            {
-//                simpliciti_data[0] &= ~0xF0;
-//                simpliciti_button_repeat = 0;
-//            }
 
-//            if ((int_flag & BUTTON_STAR_PIN) == BUTTON_STAR_PIN)
-//            {
-//                simpliciti_data[0] |= SIMPLICITI_BUTTON_STAR;
-//                simpliciti_button_event = 1;
-//            }
-//            else if ((int_flag & BUTTON_NUM_PIN) == BUTTON_NUM_PIN)
-//            {
-//                simpliciti_data[0] |= SIMPLICITI_BUTTON_NUM;
-//                simpliciti_button_event = 1;
-//            }
-//            else if ((int_flag & BUTTON_UP_PIN) == BUTTON_UP_PIN)
-//            {
-//                simpliciti_data[0] |= SIMPLICITI_BUTTON_UP;
-//                simpliciti_button_event = 1;
-//            }
-//            else if ((int_flag & BUTTON_DOWN_PIN) == BUTTON_DOWN_PIN)
-//            {
-//                simpliciti_flag |= SIMPLICITI_TRIGGER_STOP;
-//            }
-
-            // Trigger packet sending inside SimpliciTI stack
-//            if (simpliciti_button_event)
-//                simpliciti_flag |= SIMPLICITI_TRIGGER_SEND_DATA;
-        }
 //        else                    // Normal operation
         {
             // Debounce buttons
@@ -312,14 +268,6 @@ __interrupt void PORT2_ISR(void)
         {
             // Get data from sensor
             request.flag.acceleration_measurement = 1;
-        }
-
-        // ---------------------------------------------------
-        // Pressure sensor IRQ
-        if (IRQ_TRIGGERED(int_flag, PS_INT_PIN))
-        {
-            // Get data from sensor
-            request.flag.altitude_measurement = 1;
         }
 
         // ---------------------------------------------------

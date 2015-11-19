@@ -52,7 +52,6 @@
 #include "alarm.h"
 #include "stopwatch.h"
 #include "temperature.h"
-#include "altitude.h"
 #include "battery.h"
 //#include "bluerobin.h"
 //#include "rfsimpliciti.h"
@@ -115,7 +114,7 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1:  [Time] -> Alarm -> Temperature -> Altitude -> Heart rate -> Speed -> Acceleration
+//      LINE1:  [Time] -> Alarm -> Temperature -> Heart rate -> Speed -> Acceleration
 //
 //      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC -> Calories/Distance --> RFBSL
 // *************************************************************************************************
@@ -144,26 +143,13 @@ const struct menu menu_L1_Temperature = {
     FUNCTION(mx_temperature),         // sub menu function
     FUNCTION(display_temperature),    // display function
     FUNCTION(update_temperature),     // new display data
-    &menu_L1_Altitude,
-};
-
-// Line1 - Altitude
-const struct menu menu_L1_Altitude = {
-    FUNCTION(sx_altitude),            // direct function
-    FUNCTION(mx_altitude),            // sub menu function
-    FUNCTION(display_altitude),       // display function
-    FUNCTION(update_time),            // new display data
-    &menu_L1_Heartrate,
 };
 
 // Line1 - Heart Rate
 const struct menu menu_L1_Heartrate = {
-//    FUNCTION(sx_bluerobin),           // direct function
-FUNCTION(dummy),                // direct function
-//    FUNCTION(mx_bluerobin),           // sub menu function
-FUNCTION(dummy),                // sub menu function
-//    FUNCTION(display_heartrate),      // display function
-FUNCTION(display_nothing),		// insert by alwy
+	FUNCTION(dummy),                // direct function
+	FUNCTION(dummy),                // sub menu function
+	FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L1_Speed,
 };
@@ -172,8 +158,7 @@ FUNCTION(display_nothing),		// insert by alwy
 const struct menu menu_L1_Speed = {
     FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_speed),          // display function
-FUNCTION(display_nothing),		// insert by alwy
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L1_Acceleration,
 };
@@ -216,56 +201,45 @@ const struct menu menu_L2_Battery = {
 
 // Line2 - ACC (acceleration data + button events via SimpliciTI)
 const struct menu menu_L2_Rf = {
-//    FUNCTION(sx_rf),                  // direct function
-FUNCTION(dummy),                  // direct function
+    FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_rf),             // display function
-FUNCTION(display_nothing),		// insert by alwy
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L2_Ppt,
 };
 
 // Line2 - PPT (button events via SimpliciTI)
 const struct menu menu_L2_Ppt = {
-//    FUNCTION(sx_ppt),                 // direct function
-FUNCTION(dummy),                  // direct function
+	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_ppt),            // display function
-FUNCTION(display_nothing),		// insert by alwy
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L2_Sync,
 };
 
 // Line2 - SXNC (synchronization/data download via SimpliciTI)
 const struct menu menu_L2_Sync = {
-//    FUNCTION(sx_sync),                // direct function
-FUNCTION(dummy),                  // direct function
+	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_sync),           // display function
-FUNCTION(display_nothing),		// insert by alwy
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L2_CalDist,
 };
 
 // Line2 - Calories/Distance
 const struct menu menu_L2_CalDist = {
-//    FUNCTION(sx_caldist),             // direct function
-FUNCTION(dummy),                  // direct function
-//    FUNCTION(mx_caldist),             // sub menu function
-FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_caldist),        // display function
-FUNCTION(display_nothing),		// insert by alwy
+	FUNCTION(dummy),                  // direct function
+    FUNCTION(dummy),                  // sub menu function
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L2_RFBSL,
 };
 
 // Line2 - RFBSL
 const struct menu menu_L2_RFBSL = {
-//    FUNCTION(sx_rfbsl),               // direct function
-FUNCTION(dummy),                  // direct function
+	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_rfbsl),          // display function
-FUNCTION(display_nothing),		// insert by alwy
+    FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
     &menu_L2_Date,
 };

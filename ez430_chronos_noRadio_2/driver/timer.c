@@ -46,11 +46,7 @@
 #include "ports.h"
 #include "buzzer.h"
 #include "bmp_as.h"
-//#include "cma_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-//#include "cma_ps.h"
-#include "ps.h"
 #include "display.h"
 
 // logic
@@ -58,12 +54,8 @@
 #include "battery.h"
 #include "stopwatch.h"
 #include "alarm.h"
-#include "altitude.h"
 #include "display.h"
-//#include "rfsimpliciti.h"
-//#include "simpliciti.h"
 #include "acceleration.h"
-//#include "bluerobin.h"
 #include "temperature.h"
 
 // *************************************************************************************************
@@ -335,35 +327,6 @@ __interrupt void TIMER0_A0_ISR(void)
     // Do a temperature measurement each second while menu item is active
     if (is_temp_measurement())
         request.flag.temperature_measurement = 1;
-
-    // Do a pressure measurement each second while menu item is active
-    if (is_altitude_measurement())
-    {
-        // Countdown altitude measurement timeout while menu item is active
-        sAlt.timeout--;
-
-        // Stop measurement when timeout has elapsed
-        if (sAlt.timeout == 0)
-        {
-            stop_altitude_measurement();
-            // Show ---- m/ft
-            display_chars(LCD_SEG_L1_3_0, (unsigned char *) "----", SEG_ON);
-            // Clear up/down arrow
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-        }
-        else
-        {
-            if (bmp_used)
-            {
-                bmp_ps_start();
-            }
-        }
-
-        // In case we missed the IRQ due to debouncing, get data now
-        if ((PS_INT_IN & PS_INT_PIN) == PS_INT_PIN)
-            request.flag.altitude_measurement = 1;
-    }
 
     // Count down timeout
     if (is_acceleration_measurement())

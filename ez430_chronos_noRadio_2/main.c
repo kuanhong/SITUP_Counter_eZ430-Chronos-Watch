@@ -86,8 +86,6 @@
 #include "display.h"
 #include "bmp_as.h"
 #include "as.h"
-#include "bmp_ps.h"
-#include "ps.h"
 #include "buzzer.h"
 #include "ports.h"
 #include "timer.h"
@@ -100,7 +98,6 @@
 #include "stopwatch.h"
 #include "battery.h"
 #include "temperature.h"
-#include "altitude.h"
 #include "battery.h"
 #include "acceleration.h"
 #include "test.h"
@@ -311,24 +308,6 @@ void init_application(void)
     // Configure Timer0 for use by the clock and delay functions
     Timer0_Init();
     // ---------------------------------------------------------------------
-
-    // ---------------------------------------------------------------------
-    // Init pressure sensor
-    bmp_ps_init();
-    // Bosch sensor not found?
-    if (!ps_ok)
-    {
-        bmp_used = 0;
-//        cma_ps_init();
-        // Chronos with Black PCB
-        chronos_black = 1;
-    }
-    else
-    {
-    	bmp_used = 1;
-    	// Chronos with White PCB
-    	chronos_black = 0;
-    }
 }
 
 // *************************************************************************************************
@@ -348,7 +327,6 @@ void init_global_variables(void)
     //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
     //      ptrMenu_L1 = &menu_L1_Temperature;
-    //      ptrMenu_L1 = &menu_L1_Altitude;
             ptrMenu_L1 = &menu_L1_Acceleration;
     //		ptrMenu_L2 = &menu_L2_Date;
             ptrMenu_L2 = &menu_L2_Stopwatch;
@@ -396,9 +374,6 @@ void init_global_variables(void)
 
     // Reset stopwatch
     reset_stopwatch();
-
-    // Reset altitude measurement
-    reset_altitude_measurement();
 
     // Reset acceleration measurement
     reset_acceleration();
@@ -571,10 +546,6 @@ void process_requests(void)
     if (request.flag.temperature_measurement)
         temperature_measurement(FILTER_ON);
 
-    // Do pressure measurement
-    if (request.flag.altitude_measurement)
-        do_altitude_measurement(FILTER_ON);
-
     // Do acceleration measurement
     if (request.flag.acceleration_measurement)
         do_acceleration_measurement();
@@ -733,34 +704,11 @@ void read_calibration_values(void)
         rf_frequoffset = 4;
         sTemp.offset = -250;
         sBatt.offset = -10;
-//        simpliciti_ed_address[0] = 0x79;
-//        simpliciti_ed_address[1] = 0x56;
-//        simpliciti_ed_address[2] = 0x34;
-//        simpliciti_ed_address[3] = 0x12;
-        sAlt.altitude_offset = 0;
     } else
     {
-        // Assign calibration data to global variables
-//        rf_frequoffset = cal_data[1];
-        // Range check for calibrated FREQEST value (-20 .. + 20 is ok, else use default value)
-//        if ((rf_frequoffset > 20) && (rf_frequoffset < (256 - 20)))
-//        {
-//            rf_frequoffset = 0;
-//        }
         sTemp.offset = (short) ((cal_data[2] << 8) + cal_data[3]);
         sBatt.offset = (short) ((cal_data[4] << 8) + cal_data[5]);
-//        simpliciti_ed_address[0] = cal_data[6];
-//        simpliciti_ed_address[1] = cal_data[7];
-//        simpliciti_ed_address[2] = cal_data[8];
-//        simpliciti_ed_address[3] = cal_data[9];
         // S/W version byte set during calibration?
-        if (cal_data[12] != 0xFF)
-        {
-            sAlt.altitude_offset = (short) ((cal_data[10] << 8) + cal_data[11]);
-        } else
-        {
-            sAlt.altitude_offset = 0;
-        }
     }
 }
 
