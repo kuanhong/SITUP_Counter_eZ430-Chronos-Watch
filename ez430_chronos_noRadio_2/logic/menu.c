@@ -51,12 +51,8 @@
 #include "date.h"
 #include "alarm.h"
 #include "stopwatch.h"
-#include "temperature.h"
 #include "battery.h"
-//#include "bluerobin.h"
-//#include "rfsimpliciti.h"
 #include "acceleration.h"
-//#include "rfbsl.h"
 
 #include <string.h>
 
@@ -96,11 +92,6 @@ unsigned char update_alarm(void)
     return (display.flag.update_alarm);
 }
 
-unsigned char update_temperature(void)
-{
-    return (display.flag.update_temperature);
-}
-
 unsigned char update_battery_voltage(void)
 {
     return (display.flag.update_battery_voltage);
@@ -114,7 +105,7 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1:  [Time] -> Alarm -> Temperature -> Heart rate -> Speed -> Acceleration
+//      LINE1:  [Time] -> Alarm -> Heart rate -> Speed -> Acceleration
 //
 //      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC -> Calories/Distance --> RFBSL
 // *************************************************************************************************
@@ -134,15 +125,6 @@ const struct menu menu_L1_Alarm = {
     FUNCTION(mx_alarm),               // sub menu function
     FUNCTION(display_alarm),          // display function
     FUNCTION(update_alarm),           // new display data
-    &menu_L1_Temperature,
-};
-
-// Line1 - Temperature
-const struct menu menu_L1_Temperature = {
-    FUNCTION(dummy),                  // direct function
-    FUNCTION(mx_temperature),         // sub menu function
-    FUNCTION(display_temperature),    // display function
-    FUNCTION(update_temperature),     // new display data
 };
 
 // Line1 - Heart Rate

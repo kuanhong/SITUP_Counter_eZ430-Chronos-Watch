@@ -97,7 +97,6 @@
 #include "alarm.h"
 #include "stopwatch.h"
 #include "battery.h"
-#include "temperature.h"
 #include "battery.h"
 #include "acceleration.h"
 #include "test.h"
@@ -326,7 +325,6 @@ void init_global_variables(void)
     //      ptrMenu_L1 = &menu_L1_Alarm;
     //      ptrMenu_L1 = &menu_L1_Heartrate;
     //      ptrMenu_L1 = &menu_L1_Speed;
-    //      ptrMenu_L1 = &menu_L1_Temperature;
             ptrMenu_L1 = &menu_L1_Acceleration;
     //		ptrMenu_L2 = &menu_L2_Date;
             ptrMenu_L2 = &menu_L2_Stopwatch;
@@ -377,15 +375,6 @@ void init_global_variables(void)
 
     // Reset acceleration measurement
     reset_acceleration();
-
-    // Reset BlueRobin stack
-//    reset_bluerobin();
-
-    // Reset SimpliciTI stack
-//    reset_rf();
-
-    // Reset temperature measurement
-    reset_temp_measurement();
 
     // Reset battery measurement
     reset_batt_measurement();
@@ -542,10 +531,6 @@ void wakeup_event(void)
 // *************************************************************************************************
 void process_requests(void)
 {
-    // Do temperature measurement
-    if (request.flag.temperature_measurement)
-        temperature_measurement(FILTER_ON);
-
     // Do acceleration measurement
     if (request.flag.acceleration_measurement)
         do_acceleration_measurement();
@@ -702,11 +687,9 @@ void read_calibration_values(void)
         // If no values are available (i.e. INFO D memory has been erased by user), assign
         // experimentally derived values
         rf_frequoffset = 4;
-        sTemp.offset = -250;
         sBatt.offset = -10;
     } else
     {
-        sTemp.offset = (short) ((cal_data[2] << 8) + cal_data[3]);
         sBatt.offset = (short) ((cal_data[4] << 8) + cal_data[5]);
         // S/W version byte set during calibration?
     }

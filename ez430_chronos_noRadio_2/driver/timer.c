@@ -56,7 +56,6 @@
 #include "alarm.h"
 #include "display.h"
 #include "acceleration.h"
-#include "temperature.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -323,10 +322,6 @@ __interrupt void TIMER0_A0_ISR(void)
             stop_alarm();
         }
     }
-
-    // Do a temperature measurement each second while menu item is active
-    if (is_temp_measurement())
-        request.flag.temperature_measurement = 1;
 
     // Count down timeout
     if (is_acceleration_measurement())
