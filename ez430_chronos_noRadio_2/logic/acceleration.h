@@ -61,6 +61,8 @@ struct accel
     unsigned char mode;                    // ACC_MODE_OFF, ACC_MODE_ON
     unsigned char xyz[3];                  // Sensor raw data
     unsigned short data;                   // Acceleration data in 10 * mgrav
+    unsigned short data_x;
+    unsigned short data_y;
     unsigned char view_style;              // Display X/Y/Z values
     unsigned short timeout;                // Timeout
 };
