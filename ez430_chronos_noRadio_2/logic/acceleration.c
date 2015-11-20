@@ -57,6 +57,8 @@
 #include "acceleration.h"
 #include "user.h"
 
+#include <stdio.h>
+
 // *************************************************************************************************
 // Global Variable section
 struct accel sAccel;
@@ -64,6 +66,7 @@ struct accel sAccel;
 // Conversion values from data to mgrav taken from BMA250 datasheet (rev 1.05, figure 4)
 	const unsigned short bmp_mgrav_per_bit[7] = { 16, 31, 63, 125, 250, 500, 1000 };
 
+int counter=0;
 // *************************************************************************************************
 // Extern section
 
@@ -176,6 +179,22 @@ void do_acceleration_measurement(void)
 
     // Set display update flag
     display.flag.update_acceleration = 1;
+
+//    unsigned char raw_data;
+//    unsigned short accel_data;
+//
+//    raw_data = sAccel.xyz[1];
+//
+//    accel_data = convert_acceleration_value_to_mgrav(raw_data) / 10;
+////            // Filter acceleration
+//    accel_data = (unsigned short) ((accel_data * 0.2) + (sAccel.data * 0.8));
+//
+//    // Store average acceleration
+//    //sAccel.data = accel_data;
+//
+//    if (accel_data==35){
+//            start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+//    }
 }
 
 // *************************************************************************************************
@@ -196,7 +215,7 @@ void display_acceleration(unsigned char line, unsigned char update)
 
     int upCounter=0;
     int downCounter=0;
-    int counter=0;
+//    int counter=0;
 
     // Show warning if acceleration sensor was not initialised properly
     if (!as_ok)
@@ -240,27 +259,31 @@ void display_acceleration(unsigned char line, unsigned char update)
         else if (update == DISPLAY_LINE_UPDATE_PARTIAL)
         {
             // Convert X/Y/Z values to mg
+
+
             switch (sAccel.view_style)
             {
                 case DISPLAY_ACCEL_X:
-                    raw_data = sAccel.xyz[0];
-                    raw_data_x = sAccel.xyz[0];
-                    display_char(LCD_SEG_L1_3, 'X', SEG_ON);
-                    break;
                 case DISPLAY_ACCEL_Y:
-                    raw_data = sAccel.xyz[1];
+
+                    raw_data_x = sAccel.xyz[0];
                     raw_data_y = sAccel.xyz[1];
-                    display_char(LCD_SEG_L1_3, 'Y', SEG_ON);
+                    //display_char(LCD_SEG_L1_3, 'X', SEG_ON);
+
+
+
                     break;
                 default:
-                    //raw_data = sAccel.xyz[2];
+                    raw_data = sAccel.xyz[1];
                     //display_char(LCD_SEG_L1_3, 'Z', SEG_ON);
+
                     break;
             }
 
             accel_data = convert_acceleration_value_to_mgrav(raw_data) / 10;
-            // Filter acceleration
+//            // Filter acceleration
             accel_data = (unsigned short) ((accel_data * 0.2) + (sAccel.data * 0.8));
+            sAccel.data = accel_data;
 
             accel_data_x = convert_acceleration_value_to_mgrav(raw_data_x) / 10;
             accel_data_x = (unsigned short) ((accel_data_x * 0.2) + (sAccel.data_x * 0.8));
@@ -268,38 +291,56 @@ void display_acceleration(unsigned char line, unsigned char update)
             accel_data_y = (unsigned short) ((accel_data_y * 0.2) + (sAccel.data_y * 0.8));
 
             // Store average acceleration
-            sAccel.data = accel_data;
+
             sAccel.data_x = accel_data_x;
             sAccel.data_y = accel_data_y;
 
             // Display acceleration in x.xx format
-            str = int_to_array(accel_data, 3, 0);
+            str = int_to_array(accel_data, 3, 0); // edit here
             display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
 
-            if (accel_data_x==50){
-            	start_buzzer(7, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-            }
-
-            //Up Counter
-            if (accel_data_x==55 && accel_data_y <= 60 && accel_data_y >= 54){
-            	upCounter = 1;
-            	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+                        if (accel_data_x==35){
+                        		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+                        		counter+=1;
+                        	}
 
 
-            }
-            //Down Counter
-            if (accel_data_x==85 && accel_data_y <= 15 && accel_data_y > 0){
-            	downCounter = 1;
-                start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-            }
-            if (upCounter == 1 && downCounter ==1){
-            	counter += 1;
-            	upCounter = 0;
-            	downCounter = 0;
-            	str_counter = int_to_array(downCounter, 4, 0);
-	            display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
-            }
+
+        if (accel_data_y==60 ){
+        		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+        		counter+=1;
+        	}
+        	str_counter = int_to_array(counter, 4, 0);
+        	display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
+        	//printf("hello %d\n" , counter);
         }
+
+//            if (accel_data_x>=35 && accel_data_x<=55){
+//            	if (accel_data_y>=25 && accel_data_y<=55){
+//            		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+//            	}
+//            }
+
+//            //Up Counter
+//            if (accel_data_x==55 && accel_data_y <= 60 && accel_data_y >= 54){
+//            	upCounter = 1;
+//            	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+//
+//
+//            }
+//            //Down Counter
+//            if (accel_data_x==85 && accel_data_y <= 15 && accel_data_y > 0){
+//            	downCounter = 1;
+//                start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+//            }
+//            if (upCounter == 1 && downCounter ==1){
+//            	counter += 1;
+//            	upCounter = 0;
+//            	downCounter = 0;
+//            	str_counter = int_to_array(downCounter, 4, 0);
+//	            display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
+//            }
+
         else if (update == DISPLAY_LINE_CLEAR)
         {
             // Stop acceleration sensor
