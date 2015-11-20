@@ -97,7 +97,6 @@ typedef union
     {
         unsigned short temperature_measurement : 1;  // 1 = Measure temperature
         unsigned short voltage_measurement : 1;      // 1 = Measure voltage
-        unsigned short altitude_measurement : 1;     // 1 = Measure air pressure
         unsigned short acceleration_measurement : 1; // 1 = Measure acceleration
         unsigned short buzzer : 1;                   // 1 = Output buzzer
     } flag;

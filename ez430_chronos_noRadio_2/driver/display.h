@@ -69,7 +69,6 @@ typedef union
         // Logic module data update flags
         unsigned short update_time : 1;            // 1 = Time was updated
         unsigned short update_stopwatch : 1;       // 1 = Stopwatch was updated
-        unsigned short update_temperature : 1;     // 1 = Temperature was updated
         unsigned short update_battery_voltage : 1; // 1 = Battery voltage was updated
         unsigned short update_date : 1;            // 1 = Date was updated
         unsigned short update_alarm : 1;           // 1 = Alarm time was updated
