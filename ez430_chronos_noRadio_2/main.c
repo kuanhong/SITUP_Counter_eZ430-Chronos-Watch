@@ -98,7 +98,6 @@
 #include "battery.h"
 #include "battery.h"
 #include "acceleration.h"
-#include "test.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -163,8 +162,6 @@ int main(void)
     // Assign initial value to global variables
     init_global_variables();
 
-    // Branch to welcome screen
-    test_mode();
 
     // Main control loop: wait in low power mode until some event needs to be processed
     while (1)
