@@ -72,9 +72,9 @@ int main(void)
     	tens= i % 100 / 10;
     	ones=i % 10;
 
-      LCDM2 = LCD_Char_Map[hundreds];          // Display Character
-      LCDM3 = LCD_Char_Map[tens];          // Display Character
-      LCDM4 = LCD_Char_Map[ones];          // Display Character
+    	LCDM2 = LCD_Char_Map[hundreds];          // Display Character
+    	LCDM3 = LCD_Char_Map[tens];          // Display Character
+    	LCDM4 = LCD_Char_Map[ones];          // Display Character
 //      LCDM6 = LCD_Char_Map[i];          // Display Character
 
       __delay_cycles(1000000);           // Delay ~1sec

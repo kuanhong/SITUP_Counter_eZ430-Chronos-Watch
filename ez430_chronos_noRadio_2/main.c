@@ -94,7 +94,6 @@
 // logic
 #include "menu.h"
 #include "date.h"
-#include "alarm.h"
 #include "stopwatch.h"
 #include "battery.h"
 #include "battery.h"
@@ -308,7 +307,6 @@ void init_global_variables(void)
 
     // set menu pointers to default menu items
     //		ptrMenu_L1 = &menu_L1_Time;
-    //      ptrMenu_L1 = &menu_L1_Alarm;
     //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
     //		ptrMenu_L2 = &menu_L2_Date;
@@ -347,9 +345,6 @@ void init_global_variables(void)
 
     // Set date to default value
     reset_date();
-
-    // Set alarm time to default value
-    reset_alarm();
 
     // Set buzzer to default value
     reset_buzzer();
@@ -515,10 +510,6 @@ void process_requests(void)
     if (request.flag.voltage_measurement)
         battery_measurement();
 
-    // Generate alarm (two signals every second)
-    if (request.flag.buzzer)
-        start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-
     // Reset request flag
     request.all_flags = 0;
 }
@@ -559,15 +550,7 @@ void display_update(void)
             memcpy(string, "  OPEN", 6);
         else if (message.flag.type_lobatt)
             memcpy(string, "LOBATT", 6);
-        else if (message.flag.type_alarm_on)
-        {
-            memcpy(string, "  ON", 4);
-            line = LINE1;
-        } else if (message.flag.type_alarm_off)
-        {
-            memcpy(string, " OFF", 4);
-            line = LINE1;
-        }
+
         // Clear previous content
         clear_line(line);
         fptr_lcd_function_line2(line, DISPLAY_LINE_CLEAR);

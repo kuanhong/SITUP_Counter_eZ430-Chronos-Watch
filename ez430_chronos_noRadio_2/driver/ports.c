@@ -51,7 +51,6 @@
 
 // logic
 #include "clock.h"
-#include "alarm.h"
 #include "stopwatch.h"
 
 // *************************************************************************************************
@@ -235,24 +234,6 @@ __interrupt void PORT2_ISR(void)
             // No buzzer output
             buzzer = 0;
             button.all_flags = 0;
-        }
-
-        // Generate button click when button was activated
-        if (buzzer)
-        {
-            // Any button event stops active alarm
-            if (sAlarm.state == ALARM_ON)
-            {
-                stop_alarm();
-                button.all_flags = 0;
-            }
-            else if (!sys.flag.up_down_repeat_enabled)
-            {
-                start_buzzer(1, CONV_MS_TO_TICKS(20), CONV_MS_TO_TICKS(150));
-            }
-
-            // Debounce delay 2
-            Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_OUT));
         }
 
         // ---------------------------------------------------

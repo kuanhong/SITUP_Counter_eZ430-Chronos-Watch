@@ -53,7 +53,6 @@
 #include "clock.h"
 #include "battery.h"
 #include "stopwatch.h"
-#include "alarm.h"
 #include "display.h"
 #include "acceleration.h"
 
@@ -300,28 +299,10 @@ __interrupt void TIMER0_A0_ISR(void)
     {
         // Measure battery voltage to keep track of remaining battery life
         request.flag.voltage_measurement = 1;
-
-        // Check if alarm needs to be turned on
-        check_alarm();
     }
 
     // -------------------------------------------------------------------
     // Service active modules that require 1/s processing
-
-    // Generate alarm signal
-    if (sAlarm.state == ALARM_ON)
-    {
-        // Decrement alarm duration counter
-        if (sAlarm.duration-- > 0)
-        {
-            request.flag.buzzer = 1;
-        }
-        else
-        {
-            sAlarm.duration = ALARM_ON_DURATION;
-            stop_alarm();
-        }
-    }
 
     // Count down timeout
     if (is_acceleration_measurement())

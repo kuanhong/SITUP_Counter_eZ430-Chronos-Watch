@@ -4,15 +4,12 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := D:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.6
-
-GEN_OPTS__FLAG := 
-GEN_CMDS__FLAG := 
+CG_TOOL_ROOT := E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2
 
 ORDERED_OBJS += \
+$(GEN_CMDS__FLAG) \
 "./main.obj" \
 "../lnk_cc430f6137.cmd" \
-$(GEN_CMDS__FLAG) \
 -l"libmath.a" \
 -l"libc.a" \
 
@@ -52,11 +49,11 @@ endif
 ifneq ($(strip $(C67_DEPS)),)
 -include $(C67_DEPS)
 endif
-ifneq ($(strip $(CLA_DEPS)),)
--include $(CLA_DEPS)
-endif
 ifneq ($(strip $(C??_DEPS)),)
 -include $(C??_DEPS)
+endif
+ifneq ($(strip $(CLA_DEPS)),)
+-include $(CLA_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
@@ -85,9 +82,6 @@ endif
 ifneq ($(strip $(C43_DEPS)),)
 -include $(C43_DEPS)
 endif
-ifneq ($(strip $(INO_DEPS)),)
--include $(INO_DEPS)
-endif
 ifneq ($(strip $(S67_DEPS)),)
 -include $(S67_DEPS)
 endif
@@ -99,9 +93,6 @@ ifneq ($(strip $(S43_DEPS)),)
 endif
 ifneq ($(strip $(OPT_DEPS)),)
 -include $(OPT_DEPS)
-endif
-ifneq ($(strip $(PDE_DEPS)),)
--include $(PDE_DEPS)
 endif
 ifneq ($(strip $(S64_DEPS)),)
 -include $(S64_DEPS)
@@ -137,13 +128,13 @@ all: LCD_Display.out
 LCD_Display.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"D:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.6/bin/cl430" -vmspx --abi=eabi --use_hw_mpy=F5 --advice:power=all -g --define=__CC430F6137__ --display_error_number --diag_wrap=off --diag_warning=225 --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z -m"LCD_Display.map" --stack_size=80 --heap_size=80 --cinit_hold_wdt=on -i"D:/ti/ccsv6/ccs_base/msp430/include" -i"D:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.6/lib" -i"D:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.6/include" -i"D:/ti/ccsv6/ccs_base/msp430/lib/5xx_6xx_FRxx" --reread_libs --diag_wrap=off --warn_sections --display_error_number --xml_link_info="LCD_Display_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "LCD_Display.out" $(ORDERED_OBJS)
+	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" -vmspx --abi=eabi --use_hw_mpy=F5 --advice:power=all -g --define=__CC430F6137__ --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --printf_support=minimal -z -m"LCD_Display.map" --heap_size=80 --stack_size=80 --cinit_hold_wdt=on -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib/5xx_6xx_FRxx" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="LCD_Display_linkInfo.xml" --rom_model -o "LCD_Display.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 LCD_Display.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"D:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.6/bin/hex430" --memwidth=8 --romwidth=8 -o "LCD_Display.hex" $(EXE_OUTPUTS__QUOTED)
+	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430" --memwidth=8 --romwidth=8 -o "LCD_Display.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

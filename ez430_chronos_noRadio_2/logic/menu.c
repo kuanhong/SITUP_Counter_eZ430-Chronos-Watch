@@ -49,7 +49,6 @@
 #include "user.h"
 #include "clock.h"
 #include "date.h"
-#include "alarm.h"
 #include "stopwatch.h"
 #include "battery.h"
 #include "acceleration.h"
@@ -87,11 +86,6 @@ unsigned char update_date(void)
     return (display.flag.update_date);
 }
 
-unsigned char update_alarm(void)
-{
-    return (display.flag.update_alarm);
-}
-
 unsigned char update_battery_voltage(void)
 {
     return (display.flag.update_battery_voltage);
@@ -105,7 +99,7 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1:  [Time] -> Alarm -> Heart rate -> Speed -> Acceleration
+//      LINE1:  [Time] -> Heart rate -> Speed -> Acceleration
 //
 //      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
 // *************************************************************************************************
@@ -116,15 +110,6 @@ const struct menu menu_L1_Time = {
     FUNCTION(mx_time),                // sub menu function
     FUNCTION(display_time),           // display function
     FUNCTION(update_time),            // new display data
-    &menu_L1_Alarm,
-};
-
-// Line1 - Alarm
-const struct menu menu_L1_Alarm = {
-    FUNCTION(sx_alarm),               // direct function
-    FUNCTION(mx_alarm),               // sub menu function
-    FUNCTION(display_alarm),          // display function
-    FUNCTION(update_alarm),           // new display data
 };
 
 // Line1 - Heart Rate
