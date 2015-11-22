@@ -481,4 +481,3 @@ void display_stopwatch(unsigned char line, unsigned char update)
         // Clean up symbols when leaving function
     }
 }
-

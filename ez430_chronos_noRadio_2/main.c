@@ -42,34 +42,6 @@
 //   Known working builds:
 //     IAR Embedded Workbench (Version: 5.51)
 //     Code Composer Studio (Version  5.2.0.00069)
-//******************************************************************************
-//Change Log (More detailed information can be found in change_record.txt):
-//******************************************************************************
-//Version:  1.7
-//Comments: Support for new hardware version with Bosch Sensortec sensors added.
-//
-//Version:  1.6
-//Comments: Several bugs were fixed.
-//          LCD shows "done" after successfully received data
-//          rfBSL requires two button presses in order to update watch
-//          New method detects a long button press
-//          Removed file display1.c. The content is now in display.c
-//          Backlight of Chronos stays on for 3 sec after backlight button was pushed.
-//          After timeout the accelerometer menu shows "----"
-//
-//Version:  1.5
-//Comments: Changed XT1 drive level to highest
-//          Modified key lock procedure.
-//          Negative °C are now converted correctly to Kelvin
-//          Enabled fast mode when changing altitude offset
-//          Disabled stopwatch stop when watch buttons are locked
-//          Added SimpliciTI sources to project. Upgraded to Version 1.1.1.
-//          Changed button names from M1/M2/S1/S2/BL to STAR/NUM/UP/DOWN/BACKLIGHT
-//
-//Version:  1.4
-//Comments: Initial Release Version
-//**********************************************************************************
-
 // *************************************************************************************************
 // Initialization and control of application.
 // *************************************************************************************************
@@ -299,7 +271,6 @@ void init_global_variables(void)
     //      ptrMenu_L2 = &menu_L2_Ppt;
     //      ptrMenu_L2 = &menu_L2_Sync;
     //      ptrMenu_L2 = &menu_L2_Distance;
-    //      ptrMenu_L2 = &menu_L2_RFBSL;
 
     // Assign LINE1 and LINE2 display functions
     fptr_lcd_function_line1 = ptrMenu_L1->display_function;

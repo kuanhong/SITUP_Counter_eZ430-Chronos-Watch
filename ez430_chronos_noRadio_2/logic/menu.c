@@ -89,7 +89,7 @@ unsigned char update_acceleration(void)
 //
 //      LINE1:  [Time] -> Speed -> Acceleration
 //
-//      LINE2:  Stopwatch -> ACC -> PPT -> SYNC --> RFBSL
+//      LINE2:  Stopwatch -> ACC -> PPT -> SYNC
 // *************************************************************************************************
 
 // Line1 - Time
@@ -146,24 +146,6 @@ const struct menu menu_L2_Ppt = {
 
 // Line2 - SXNC (synchronization/data download via SimpliciTI)
 const struct menu menu_L2_Sync = {
-	FUNCTION(dummy),                  // direct function
-    FUNCTION(dummy),                  // sub menu function
-    FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
-    &menu_L2_CalDist,
-};
-
-// Line2 - Calories/Distance
-const struct menu menu_L2_CalDist = {
-	FUNCTION(dummy),                  // direct function
-    FUNCTION(dummy),                  // sub menu function
-    FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
-    &menu_L2_RFBSL,
-};
-
-// Line2 - RFBSL
-const struct menu menu_L2_RFBSL = {
 	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy

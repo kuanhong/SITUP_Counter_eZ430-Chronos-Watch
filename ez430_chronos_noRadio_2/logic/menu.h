@@ -78,7 +78,6 @@ extern const struct menu menu_L2_Rf;
 extern const struct menu menu_L2_Ppt;
 extern const struct menu menu_L2_Sync;
 extern const struct menu menu_L2_CalDist;
-extern const struct menu menu_L2_RFBSL;
 
 // Pointers to current menu item
 extern const struct menu *ptrMenu_L1;
