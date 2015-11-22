@@ -355,20 +355,20 @@ void wakeup_event(void)
         // (Short) Advance to next menu item
         if (button.flag.star)
         {
-            // Clean up display before activating next menu item
-            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
-
-            // Go to next menu entry
-            ptrMenu_L1 = ptrMenu_L1->next;
-
-            // Assign new display function
-            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
-
-            // Set Line1 display update flag
-            display.flag.line1_full_update = 1;
-
-            // Clear button flag
-            button.flag.star = 0;
+//            // Clean up display before activating next menu item
+//            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
+//
+//            // Go to next menu entry
+//            ptrMenu_L1 = ptrMenu_L1->next;
+//
+//            // Assign new display function
+//            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
+//
+//            // Set Line1 display update flag
+//            display.flag.line1_full_update = 1;
+//
+//            // Clear button flag
+//            button.flag.star = 0;
         }
         // NUM button event ---------------------------------------------------------------------
         // (Short) Advance to next menu item
