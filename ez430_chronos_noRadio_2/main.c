@@ -89,7 +89,6 @@
 #include "buzzer.h"
 #include "ports.h"
 #include "timer.h"
-#include "pmm.h"
 
 // logic
 #include "menu.h"
@@ -199,15 +198,6 @@ void init_application(void)
 #else
     WDTCTL = WDTPW + WDTHOLD;
 #endif
-
-    // ---------------------------------------------------------------------
-    // Configure PMM
-    SetVCore(3);
-
-    // Set global high power request enable
-    PMMCTL0_H = 0xA5;
-    PMMCTL0_L |= PMMHPMRE;
-    PMMCTL0_H = 0x00;
 
     // ---------------------------------------------------------------------
     // Enable 32kHz ACLK
