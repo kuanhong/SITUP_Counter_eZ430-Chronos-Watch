@@ -48,7 +48,6 @@
 #include "menu.h"
 #include "user.h"
 #include "clock.h"
-#include "date.h"
 #include "stopwatch.h"
 #include "battery.h"
 #include "acceleration.h"
@@ -81,11 +80,6 @@ unsigned char update_stopwatch(void)
     return (display.flag.update_stopwatch);
 }
 
-unsigned char update_date(void)
-{
-    return (display.flag.update_date);
-}
-
 unsigned char update_battery_voltage(void)
 {
     return (display.flag.update_battery_voltage);
@@ -101,7 +95,7 @@ unsigned char update_acceleration(void)
 //
 //      LINE1:  [Time] -> Speed -> Acceleration
 //
-//      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
+//      LINE2:  Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
 // *************************************************************************************************
 
 // Line1 - Time
@@ -128,15 +122,6 @@ const struct menu menu_L1_Acceleration = {
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
     &menu_L1_Time,
-};
-
-// Line2 - Date
-const struct menu menu_L2_Date = {
-    FUNCTION(sx_date),                // direct function
-    FUNCTION(mx_date),                // sub menu function
-    FUNCTION(display_date),           // display function
-    FUNCTION(update_date),            // new display data
-    &menu_L2_Stopwatch,
 };
 
 // Line2 - Stopwatch
@@ -199,5 +184,4 @@ const struct menu menu_L2_RFBSL = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy
     FUNCTION(update_time),            // new display data
-    &menu_L2_Date,
 };

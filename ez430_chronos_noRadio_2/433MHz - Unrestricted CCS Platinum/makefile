@@ -12,7 +12,6 @@ $(GEN_CMDS__FLAG) \
 "./logic/acceleration.obj" \
 "./logic/battery.obj" \
 "./logic/clock.obj" \
-"./logic/date.obj" \
 "./logic/menu.obj" \
 "./logic/stopwatch.obj" \
 "./logic/user.obj" \
@@ -161,8 +160,8 @@ SIT\ UP_433MHz.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "main.pp" "logic\acceleration.pp" "logic\battery.pp" "logic\clock.pp" "logic\date.pp" "logic\menu.pp" "logic\stopwatch.pp" "logic\user.pp" "driver\adc12.pp" "driver\as.pp" "driver\bmp_as.pp" "driver\buzzer.pp" "driver\display.pp" "driver\pmm.pp" "driver\ports.pp" "driver\timer.pp" 
-	-$(RM) "main.obj" "logic\acceleration.obj" "logic\battery.obj" "logic\clock.obj" "logic\date.obj" "logic\menu.obj" "logic\stopwatch.obj" "logic\user.obj" "driver\adc12.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\buzzer.obj" "driver\display.obj" "driver\pmm.obj" "driver\ports.obj" "driver\timer.obj" 
+	-$(RM) "main.pp" "logic\acceleration.pp" "logic\battery.pp" "logic\clock.pp" "logic\menu.pp" "logic\stopwatch.pp" "logic\user.pp" "driver\adc12.pp" "driver\as.pp" "driver\bmp_as.pp" "driver\buzzer.pp" "driver\display.pp" "driver\pmm.pp" "driver\ports.pp" "driver\timer.pp" 
+	-$(RM) "main.obj" "logic\acceleration.obj" "logic\battery.obj" "logic\clock.obj" "logic\menu.obj" "logic\stopwatch.obj" "logic\user.obj" "driver\adc12.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\buzzer.obj" "driver\display.obj" "driver\pmm.obj" "driver\ports.obj" "driver\timer.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

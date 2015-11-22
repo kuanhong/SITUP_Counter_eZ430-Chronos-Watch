@@ -93,7 +93,6 @@
 
 // logic
 #include "menu.h"
-#include "date.h"
 #include "stopwatch.h"
 #include "battery.h"
 #include "battery.h"
@@ -306,7 +305,7 @@ void init_global_variables(void)
     //		ptrMenu_L1 = &menu_L1_Time;
     //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
-    //		ptrMenu_L2 = &menu_L2_Date;
+
             ptrMenu_L2 = &menu_L2_Stopwatch;
     //      ptrMenu_L2 = &menu_L2_Rf;
     //      ptrMenu_L2 = &menu_L2_Ppt;
@@ -339,9 +338,6 @@ void init_global_variables(void)
 
     // Set system time to default value
     reset_clock();
-
-    // Set date to default value
-    reset_date();
 
     // Set buzzer to default value
     reset_buzzer();

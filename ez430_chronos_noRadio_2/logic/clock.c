@@ -50,8 +50,6 @@
 #include "menu.h"
 #include "clock.h"
 #include "user.h"
-//#include "bluerobin.h"
-#include "date.h"
 
 // *************************************************************************************************
 // Prototypes section
@@ -141,7 +139,7 @@ void clock_tick(void)
             if (sTime.hour == 24)
             {
                 sTime.hour = 0;
-                add_day();
+
             }
         }
     }
