@@ -67,11 +67,6 @@ struct menu
 
 // Line1 navigation
 extern const struct menu menu_L1_Time;
-extern const struct menu menu_L1_Alarm;
-extern const struct menu menu_L1_Altitude;
-extern const struct menu menu_L1_Temperature;
-extern const struct menu menu_L1_Altitude;
-extern const struct menu menu_L1_Heartrate;
 extern const struct menu menu_L1_Speed;
 extern const struct menu menu_L1_Acceleration;
 

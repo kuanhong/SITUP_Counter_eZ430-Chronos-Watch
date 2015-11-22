@@ -317,10 +317,6 @@ __interrupt void TIMER0_A0_ISR(void)
         	{
             	bmp_as_stop();
         	}
-        	else
-        	{
-//                cma_as_stop();
-        	}
             // Show ----
             display_chars(LCD_SEG_L1_3_0, (unsigned char *) "----", SEG_ON);
             // Clear up/down arrow
@@ -333,10 +329,6 @@ __interrupt void TIMER0_A0_ISR(void)
         if ((AS_INT_IN & AS_INT_PIN) == AS_INT_PIN)
             request.flag.acceleration_measurement = 1;
     }
-
-    // If BlueRobin transmitter is connected, get data from API
-//    if (is_bluerobin())
-//        get_bluerobin_data();
 
     // If battery is low, decrement display counter
     if (sys.flag.low_battery)

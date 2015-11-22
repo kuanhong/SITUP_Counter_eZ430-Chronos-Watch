@@ -85,7 +85,7 @@ extern unsigned char as_write_register(unsigned char bAddress, unsigned char bDa
 #define AS_PWR_DIR           (PJDIR)
 #define AS_PWR_PIN           (BIT0)
 
-// Port, pin and interrupt resource for interrupt from acceleration sensor, CMA_INT=P2.5
+// Port, pin and interrupt resource for interrupt from acceleration sensor
 #define AS_INT_IN            (P2IN)
 #define AS_INT_OUT           (P2OUT)
 #define AS_INT_DIR           (P2DIR)

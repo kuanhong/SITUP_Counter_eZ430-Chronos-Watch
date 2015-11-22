@@ -147,20 +147,12 @@ void test_mode(void)
                         	{
                                 bmp_as_start();
                         	}
-                        	else
-                        	{
-//                                cma_as_start();
-                        	}
                             for (i = 0; i < 4; i++)
                             {
                                 Timer0_A4_Delay(CONV_MS_TO_TICKS(250));
                             	if (bmp_used)
                             	{
                                     bmp_as_get_data(sAccel.xyz);
-                            	}
-                            	else
-                            	{
-//                                    cma_as_get_data(sAccel.xyz);
                             	}
                                 str = int_to_array(sAccel.xyz[0], 3, 0);
                                 display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
@@ -171,19 +163,7 @@ void test_mode(void)
                         	{
                                 bmp_as_stop();
                         	}
-                        	else
-                        	{
-//                                cma_as_stop();
-                        	}
                             break;
-//                        case 4: // BlueRobin test
-//                            button.flag.up = 1;
-//                            sx_bluerobin(LINE1);
-//                            Timer0_A4_Delay(CONV_MS_TO_TICKS(100));
-//                            get_bluerobin_data();
-//                            display_heartrate(LINE1, DISPLAY_LINE_UPDATE_FULL);
-//                            stop_bluerobin();
-//                            break;
                     }
 
                     // Debounce button

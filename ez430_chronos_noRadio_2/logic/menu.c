@@ -99,7 +99,7 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1:  [Time] -> Heart rate -> Speed -> Acceleration
+//      LINE1:  [Time] -> Speed -> Acceleration
 //
 //      LINE2:  [Date] -> Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
 // *************************************************************************************************
@@ -110,15 +110,6 @@ const struct menu menu_L1_Time = {
     FUNCTION(mx_time),                // sub menu function
     FUNCTION(display_time),           // display function
     FUNCTION(update_time),            // new display data
-};
-
-// Line1 - Heart Rate
-const struct menu menu_L1_Heartrate = {
-	FUNCTION(dummy),                // direct function
-	FUNCTION(dummy),                // sub menu function
-	FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
-    &menu_L1_Speed,
 };
 
 // Line1 - Speed
