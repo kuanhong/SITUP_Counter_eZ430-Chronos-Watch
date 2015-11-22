@@ -46,7 +46,6 @@
 #include "display.h"
 
 // logic
-#include "clock.h"
 #include "user.h"
 #include "stopwatch.h"
 
@@ -462,56 +461,6 @@ void display_value(unsigned char segments, unsigned int value, unsigned char dig
 
     // Display string in blink mode
     display_chars(segments, str, SEG_ON_BLINK_ON);
-}
-
-// *************************************************************************************************
-// @fn          display_hours
-// @brief       Display hours in 24H / 12H time format.
-// @param       unsigned char segments     Segments where to display hour data
-//                              unsigned int value               Hour data
-//                              unsigned char digits               Must be "2"
-//                              unsigned char blanks               Must be "0"
-// @return      none
-// *************************************************************************************************
-void display_hours(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks)
-{
-    unsigned char hours;
-
-    if (sys.flag.use_metric_units)
-    {
-        // Display hours in 24H time format
-        display_value(segments, (unsigned short) value, digits, blanks);
-    }
-    else
-    {
-        // convert internal 24H time format to 12H time format
-        hours = convert_hour_to_12H_format(value);
-
-        // display hours in 12H time format
-        display_value(segments, hours, digits, blanks);
-        display_am_pm_symbol(value);
-    }
-}
-
-// *************************************************************************************************
-// @fn          display_am_pm_symbol
-// @brief       Display AM or PM symbol.
-// @param       unsigned char hour         24H internal time format
-// @return      none
-// *************************************************************************************************
-void display_am_pm_symbol(unsigned char hour)
-{
-    // Display AM/PM symbol
-    if (is_hour_am(hour))
-    {
-        display_symbol(LCD_SYMB_AM, SEG_ON);
-    }
-    else
-    {
-        // Clear AM segments first - required when changing from AM to PM
-        display_symbol(LCD_SYMB_AM, SEG_OFF);
-        display_symbol(LCD_SYMB_PM, SEG_ON);
-    }
 }
 
 // *************************************************************************************************

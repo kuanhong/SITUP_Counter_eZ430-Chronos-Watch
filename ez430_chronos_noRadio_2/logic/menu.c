@@ -47,7 +47,6 @@
 // logic
 #include "menu.h"
 #include "user.h"
-#include "clock.h"
 #include "stopwatch.h"
 #include "acceleration.h"
 
@@ -69,11 +68,6 @@ void display_nothing(unsigned char line, unsigned char update)
 {
 }
 
-unsigned char update_time(void)
-{
-    return (display.flag.update_time);
-}
-
 unsigned char update_stopwatch(void)
 {
     return (display.flag.update_stopwatch);
@@ -87,25 +81,17 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1:  [Time] -> Speed -> Acceleration
+//      LINE1: Speed -> Acceleration
 //
 //      LINE2:  Stopwatch -> ACC -> PPT -> SYNC
 // *************************************************************************************************
 
-// Line1 - Time
-const struct menu menu_L1_Time = {
-    FUNCTION(sx_time),                // direct function
-    FUNCTION(mx_time),                // sub menu function
-    FUNCTION(display_time),           // display function
-    FUNCTION(update_time),            // new display data
-};
 
 // Line1 - Speed
 const struct menu menu_L1_Speed = {
     FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
     &menu_L1_Acceleration,
 };
 
@@ -115,7 +101,6 @@ const struct menu menu_L1_Acceleration = {
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
-    &menu_L1_Time,
 };
 
 // Line2 - Stopwatch
@@ -131,7 +116,6 @@ const struct menu menu_L2_Rf = {
     FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
     &menu_L2_Ppt,
 };
 
@@ -140,7 +124,6 @@ const struct menu menu_L2_Ppt = {
 	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
     &menu_L2_Sync,
 };
 
@@ -149,5 +132,4 @@ const struct menu menu_L2_Sync = {
 	FUNCTION(dummy),                  // direct function
     FUNCTION(dummy),                  // sub menu function
     FUNCTION(display_nothing),		// insert by alwy
-    FUNCTION(update_time),            // new display data
 };

@@ -54,7 +54,6 @@
 #include <string.h>
 
 // driver
-#include "clock.h"
 #include "display.h"
 #include "bmp_as.h"
 #include "as.h"
@@ -262,7 +261,6 @@ void init_global_variables(void)
     // Apply default settings
 
     // set menu pointers to default menu items
-    //		ptrMenu_L1 = &menu_L1_Time;
     //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
 
@@ -293,9 +291,6 @@ void init_global_variables(void)
 
     // Read calibration values from info memory
     read_calibration_values();
-
-    // Set system time to default value
-    reset_clock();
 
     // Set buzzer to default value
     reset_buzzer();
