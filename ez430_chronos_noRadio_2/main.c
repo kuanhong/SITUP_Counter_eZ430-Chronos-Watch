@@ -94,8 +94,6 @@
 // logic
 #include "menu.h"
 #include "stopwatch.h"
-#include "battery.h"
-#include "battery.h"
 #include "acceleration.h"
 
 // *************************************************************************************************
@@ -311,7 +309,6 @@ void init_global_variables(void)
     //      ptrMenu_L2 = &menu_L2_Ppt;
     //      ptrMenu_L2 = &menu_L2_Sync;
     //      ptrMenu_L2 = &menu_L2_Distance;
-    //      ptrMenu_L2 = &menu_L2_Battery;
     //      ptrMenu_L2 = &menu_L2_RFBSL;
 
     // Assign LINE1 and LINE2 display functions
@@ -347,10 +344,6 @@ void init_global_variables(void)
 
     // Reset acceleration measurement
     reset_acceleration();
-
-    // Reset battery measurement
-    reset_batt_measurement();
-    battery_measurement();
 }
 
 // *************************************************************************************************
@@ -499,10 +492,6 @@ void process_requests(void)
     if (request.flag.acceleration_measurement)
         do_acceleration_measurement();
 
-    // Do voltage measurement
-    if (request.flag.voltage_measurement)
-        battery_measurement();
-
     // Reset request flag
     request.all_flags = 0;
 }
@@ -541,8 +530,6 @@ void display_update(void)
             memcpy(string, "  LO?T", 6);
         else if (message.flag.type_unlocked)
             memcpy(string, "  OPEN", 6);
-        else if (message.flag.type_lobatt)
-            memcpy(string, "LOBATT", 6);
 
         // Clear previous content
         clear_line(line);
@@ -628,10 +615,5 @@ void read_calibration_values(void)
         // If no values are available (i.e. INFO D memory has been erased by user), assign
         // experimentally derived values
         rf_frequoffset = 4;
-        sBatt.offset = -10;
-    } else
-    {
-        sBatt.offset = (short) ((cal_data[4] << 8) + cal_data[5]);
-        // S/W version byte set during calibration?
     }
 }

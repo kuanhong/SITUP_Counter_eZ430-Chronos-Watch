@@ -49,7 +49,6 @@
 #include "user.h"
 #include "clock.h"
 #include "stopwatch.h"
-#include "battery.h"
 #include "acceleration.h"
 
 #include <string.h>
@@ -80,11 +79,6 @@ unsigned char update_stopwatch(void)
     return (display.flag.update_stopwatch);
 }
 
-unsigned char update_battery_voltage(void)
-{
-    return (display.flag.update_battery_voltage);
-}
-
 unsigned char update_acceleration(void)
 {
     return (display.flag.update_acceleration);
@@ -95,7 +89,7 @@ unsigned char update_acceleration(void)
 //
 //      LINE1:  [Time] -> Speed -> Acceleration
 //
-//      LINE2:  Stopwatch -> Battery  -> ACC -> PPT -> SYNC --> RFBSL
+//      LINE2:  Stopwatch -> ACC -> PPT -> SYNC --> RFBSL
 // *************************************************************************************************
 
 // Line1 - Time
@@ -130,16 +124,6 @@ const struct menu menu_L2_Stopwatch = {
     FUNCTION(mx_stopwatch),           // sub menu function
     FUNCTION(display_stopwatch),      // display function
     FUNCTION(update_stopwatch),       // new display data
-    &menu_L2_Battery,
-};
-
-// Line2 - Battery
-const struct menu menu_L2_Battery = {
-    FUNCTION(dummy),                  // direct function
-    FUNCTION(dummy),                  // sub menu function
-    FUNCTION(display_battery_V),      // display function
-    FUNCTION(update_battery_voltage), // new display data
-    &menu_L2_Rf,
 };
 
 // Line2 - ACC (acceleration data + button events via SimpliciTI)

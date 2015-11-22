@@ -51,7 +51,6 @@
 
 // logic
 #include "clock.h"
-#include "battery.h"
 #include "stopwatch.h"
 #include "display.h"
 #include "acceleration.h"
@@ -263,44 +262,6 @@ __interrupt void TIMER0_A0_ISR(void)
     // Set clock update flag
     display.flag.update_time = 1;
 
-    // While SimpliciTI stack operates or BlueRobin searches, freeze system state
-//    if (is_rf() || is_bluerobin_searching())
-//    {
-//        // SimpliciTI automatic timeout
-//        if (sRFsmpl.timeout == 0)
-//        {
-//            simpliciti_flag |= SIMPLICITI_TRIGGER_STOP;
-//        }
-//        else
-//        {
-//            sRFsmpl.timeout--;
-//        }
-//
-//        // switch message after received packet
-//        if (sRFsmpl.mode == SIMPLICITI_SYNC)
-//        {
-//            if (sRFsmpl.display_sync_done == 0)
-//            {
-//                display_chars(LCD_SEG_L2_5_0, (unsigned char *) "  SYNC", SEG_ON);
-//            }
-//            else
-//            {
-//                sRFsmpl.display_sync_done--;
-//            }
-//        }
-//        // Exit from LPM3 on RETI
-//        _BIC_SR_IRQ(LPM3_bits);
-//        return;
-//    }
-
-    // -------------------------------------------------------------------
-    // Service modules that require 1/min processing
-    if (sTime.drawFlag >= 2)
-    {
-        // Measure battery voltage to keep track of remaining battery life
-        request.flag.voltage_measurement = 1;
-    }
-
     // -------------------------------------------------------------------
     // Service active modules that require 1/s processing
 
@@ -328,17 +289,6 @@ __interrupt void TIMER0_A0_ISR(void)
         // If DRDY is (still) high, request data again
         if ((AS_INT_IN & AS_INT_PIN) == AS_INT_PIN)
             request.flag.acceleration_measurement = 1;
-    }
-
-    // If battery is low, decrement display counter
-    if (sys.flag.low_battery)
-    {
-        if (sBatt.lobatt_display-- == 0)
-        {
-            message.flag.prepare = 1;
-            message.flag.type_lobatt = 1;
-            sBatt.lobatt_display = BATTERY_LOW_MESSAGE_CYCLE;
-        }
     }
 
     // If a message has to be displayed, set display flag
