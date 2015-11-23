@@ -42,9 +42,6 @@
 // system
 #include "project.h"
 
-// logic
-//#include "simpliciti.h"
-
 // driver
 #include "bmp_as.h"
 #include "as.h"
@@ -243,5 +240,3 @@ void bmp_as_get_data(unsigned char * data)
 	*(data+1) = bmp_as_read_register(BMP_ACC_Y_MSB);
 	*(data+2) = bmp_as_read_register(BMP_ACC_Z_MSB);
 }
-
-

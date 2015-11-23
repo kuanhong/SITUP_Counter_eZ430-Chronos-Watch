@@ -81,19 +81,10 @@ unsigned char update_acceleration(void)
 // *************************************************************************************************
 // User navigation ( [____] = default menu item after reset )
 //
-//      LINE1: Speed -> Acceleration
+//      LINE1: Acceleration
 //
-//      LINE2:  Stopwatch -> ACC -> PPT -> SYNC
+//      LINE2:  Stopwatch -> ACC -> SYNC
 // *************************************************************************************************
-
-
-// Line1 - Speed
-//const struct menu menu_L1_Speed = {
-//    FUNCTION(dummy),                  // direct function
-//    FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_nothing),		// insert by alwy
-//    &menu_L1_Acceleration,
-//};
 
 // Line1 - Acceleration
 const struct menu menu_L1_Acceleration = {
@@ -110,26 +101,3 @@ const struct menu menu_L2_Stopwatch = {
     FUNCTION(display_stopwatch),      // display function
     FUNCTION(update_stopwatch),       // new display data
 };
-
-//// Line2 - ACC (acceleration data + button events via SimpliciTI)
-//const struct menu menu_L2_Rf = {
-//    FUNCTION(dummy),                  // direct function
-//    FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_nothing),		// insert by alwy
-//    &menu_L2_Ppt,
-//};
-
-//// Line2 - PPT (button events via SimpliciTI)
-//const struct menu menu_L2_Ppt = {
-//	FUNCTION(dummy),                  // direct function
-//    FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_nothing),		// insert by alwy
-//    &menu_L2_Sync,
-//};
-//
-//// Line2 - SXNC (synchronization/data download via SimpliciTI)
-//const struct menu menu_L2_Sync = {
-//	FUNCTION(dummy),                  // direct function
-//    FUNCTION(dummy),                  // sub menu function
-//    FUNCTION(display_nothing),		// insert by alwy
-//};

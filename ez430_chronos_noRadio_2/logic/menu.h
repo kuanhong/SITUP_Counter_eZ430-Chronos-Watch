@@ -66,16 +66,12 @@ struct menu
 // Extern section
 
 // Line1 navigation
-extern const struct menu menu_L1_Time;
-extern const struct menu menu_L1_Speed;
 extern const struct menu menu_L1_Acceleration;
 
 // Line2 navigation
 extern const struct menu menu_L2_Date;
 extern const struct menu menu_L2_Stopwatch;
-extern const struct menu menu_L2_Battery;
 extern const struct menu menu_L2_Rf;
-extern const struct menu menu_L2_Ppt;
 extern const struct menu menu_L2_Sync;
 extern const struct menu menu_L2_CalDist;
 

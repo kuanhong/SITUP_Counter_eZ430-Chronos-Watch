@@ -113,8 +113,6 @@ void (*fptr_lcd_function_line2)(unsigned char line, unsigned char update);
 // *************************************************************************************************
 // Extern section
 
-extern void start_simpliciti_sync(void);
-
 // *************************************************************************************************
 // @fn          main
 // @brief       Main routine
@@ -261,12 +259,10 @@ void init_global_variables(void)
     // Apply default settings
 
     // set menu pointers to default menu items
-    //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
 
             ptrMenu_L2 = &menu_L2_Stopwatch;
     //      ptrMenu_L2 = &menu_L2_Rf;
-    //      ptrMenu_L2 = &menu_L2_Ppt;
     //      ptrMenu_L2 = &menu_L2_Sync;
     //      ptrMenu_L2 = &menu_L2_Distance;
 
