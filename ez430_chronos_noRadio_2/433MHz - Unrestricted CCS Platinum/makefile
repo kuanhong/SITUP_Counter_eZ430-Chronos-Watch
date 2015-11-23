@@ -13,7 +13,6 @@ $(GEN_CMDS__FLAG) \
 "./logic/menu.obj" \
 "./logic/stopwatch.obj" \
 "./logic/user.obj" \
-"./driver/adc12.obj" \
 "./driver/as.obj" \
 "./driver/bmp_as.obj" \
 "./driver/buzzer.obj" \
@@ -157,8 +156,8 @@ SIT\ UP_433MHz.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)$(BIN_OUTPUTS__QUOTED)
-	-$(RM) "main.pp" "logic\acceleration.pp" "logic\menu.pp" "logic\stopwatch.pp" "logic\user.pp" "driver\adc12.pp" "driver\as.pp" "driver\bmp_as.pp" "driver\buzzer.pp" "driver\display.pp" "driver\ports.pp" "driver\timer.pp" 
-	-$(RM) "main.obj" "logic\acceleration.obj" "logic\menu.obj" "logic\stopwatch.obj" "logic\user.obj" "driver\adc12.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\buzzer.obj" "driver\display.obj" "driver\ports.obj" "driver\timer.obj" 
+	-$(RM) "main.pp" "logic\acceleration.pp" "logic\menu.pp" "logic\stopwatch.pp" "logic\user.pp" "driver\as.pp" "driver\bmp_as.pp" "driver\buzzer.pp" "driver\display.pp" "driver\ports.pp" "driver\timer.pp" 
+	-$(RM) "main.obj" "logic\acceleration.obj" "logic\menu.obj" "logic\stopwatch.obj" "logic\user.obj" "driver\as.obj" "driver\bmp_as.obj" "driver\buzzer.obj" "driver\display.obj" "driver\ports.obj" "driver\timer.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
