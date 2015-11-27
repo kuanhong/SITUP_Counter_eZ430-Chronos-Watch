@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //	Copyright (C) 2011 Texas Instruments Incorporated - http://www.ti.com/ 
-//	 
 //	 
 //	  Redistribution and use in source and binary forms, with or without 
 //	  modification, are permitted provided that the following conditions 
@@ -30,16 +28,10 @@
 //	  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //	  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
 //	  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef BMP_AS_H_
 #define BMP_AS_H_
-
-
-// *************************************************************************************************
-// Include section
-
 
 // *************************************************************************************************
 // Prototypes section
@@ -49,17 +41,14 @@ extern unsigned char bmp_as_read_register(unsigned char bAddress);
 extern unsigned char bmp_as_write_register(unsigned char bAddress, unsigned char bData);
 extern void bmp_as_get_data(unsigned char * data);
 
-
 // *************************************************************************************************
 // Defines section
 
 #define BMP_RSTKEY           (0xB6)
 
 /********************************************************************
-*
 * Bosch BMA250
 * Register Map
-*
 ********************************************************************/
 
 #define BMP_CHIPID           (0x00)
@@ -80,13 +69,5 @@ extern void bmp_as_get_data(unsigned char * data);
 #define BMP_IMR1             (0x19)	   // Interrupt mapping register 1
 #define BMP_IMR2             (0x1A)	   // Interrupt mapping register 2
 #define BMP_IMR3             (0x1B)	   // Interrupt mapping register 3
-
-// *************************************************************************************************
-// Global Variable section
-
-
-// *************************************************************************************************
-// Extern section
-
 
 #endif /*BMP_AS_H_*/

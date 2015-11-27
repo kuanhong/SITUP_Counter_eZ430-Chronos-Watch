@@ -71,9 +71,7 @@ typedef union
         unsigned short idle_timeout_enabled : 1;     // When in set mode, timeout after a given period
         unsigned short lock_buttons : 1;             // Lock buttons
         unsigned short mask_buzzer : 1;              // Do not output buzz for next button event
-        unsigned short up_down_repeat_enabled : 1;   // While in set_value(), create virtual UP/DOWN button
-                                          // events
-//        unsigned short low_battery : 1;              // 1 = Battery is low
+        unsigned short up_down_repeat_enabled : 1;   // While in set_value(), create virtual UP/DOWN button events
         unsigned short use_metric_units : 1;         // 1 = Use metric units, 0 = use English units
         unsigned short delay_over : 1;               // 1 = Timer delay over
     } flag;
@@ -86,8 +84,6 @@ typedef union
 {
     struct
     {
-//        unsigned short temperature_measurement : 1;  // 1 = Measure temperature
-//        unsigned short voltage_measurement : 1;      // 1 = Measure voltage
         unsigned short acceleration_measurement : 1; // 1 = Measure acceleration
         unsigned short buzzer : 1;                   // 1 = Output buzzer
     } flag;
@@ -106,9 +102,6 @@ typedef union
         unsigned short erase : 1;                    // 1 = Erase message
         unsigned short type_locked : 1;              // 1 = Show "buttons are locked" in Line2
         unsigned short type_unlocked : 1;            // 1 = Show "buttons are unlocked" in Line2
-//        unsigned short type_lobatt : 1;              // 1 = Show "lobatt" text in Line2
-//        unsigned short type_alarm_on : 1;            // 1 = Show "  on" text in Line1
-//        unsigned short type_alarm_off : 1;           // 1 = Show " off" text in Line1
     } flag;
     unsigned short all_flags;                        // Shortcut to all message flags (for reset)
 } s_message_flags;

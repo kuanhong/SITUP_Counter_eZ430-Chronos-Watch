@@ -45,14 +45,13 @@ extern void reset_stopwatch(void);
 extern unsigned char is_stopwatch(void);
 extern void stopwatch_tick(void);
 extern void update_stopwatch_timer(void);
-extern void mx_stopwatch(unsigned char line);
 extern void sx_stopwatch(unsigned char line);
 extern void display_stopwatch(unsigned char line, unsigned char update);
 
 // *************************************************************************************************
 // Defines section
 #define STOPWATCH_1HZ_TICK                      (32768 / 1)
-#define STOPWATCH_100HZ_TICK            (32768 / 100)
+#define STOPWATCH_100HZ_TICK            		(32768 / 100)
 #define STOPWATCH_STOP                          (0u)
 #define STOPWATCH_RUN                           (1u)
 #define STOPWATCH_HIDE                          (2u)
