@@ -335,8 +335,8 @@ void wakeup_event(void)
         // (Short) Advance to next menu item
         else if (button.flag.num)
         {
-        	reset_acceleration();
-            reset_stopwatch();
+        	//reset_acceleration();
+           // reset_stopwatch();
 //            Go to next menu entry
 //            ptrMenu_L2 = ptrMenu_L2->next;
         }

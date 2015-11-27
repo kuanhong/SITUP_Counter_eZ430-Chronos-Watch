@@ -53,6 +53,8 @@
 #include "as.h"
 #include "buzzer.h"
 
+#include "stopwatch.h"
+
 // logic
 #include "acceleration.h"
 #include "user.h"
@@ -137,6 +139,10 @@ void sx_acceleration(unsigned char line) {
 	if (bmp_used) {
 		bmp_as_get_data(sAccel.xyz);
 	}
+}
+
+void mx_acceleration(unsigned char line) {
+	counter=0;
 }
 
 // *************************************************************************************************
@@ -309,18 +315,18 @@ void display_acceleration(unsigned char line, unsigned char update) {
 
 			//Down Counter
 			if (downCounter == 0) {
-				if ((accel_data_y >= 75 && accel_data_y <= 77)
-						&& (accel_data_x >= 49 && accel_data_x <= 51)) {
+				if ((accel_data_y >= 70 && accel_data_y <= 80)
+						&& (accel_data_x >= 45 && accel_data_x <= 55)) {
 					downCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
-				} else if ((accel_data_y >= 89 && accel_data_y <= 91)
-						&& (accel_data_x >= 21 && accel_data_x <= 23)) {
+				} else if ((accel_data_y >= 85 && accel_data_y <= 95)
+						&& (accel_data_x >= 20 && accel_data_x <= 30)) {
 					downCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
-				} else if ((accel_data_y >= 84 && accel_data_y <= 86)
-						&& (accel_data_x >= 30 && accel_data_x <= 32)) {
+				} else if ((accel_data_y >= 80 && accel_data_y <= 90)
+						&& (accel_data_x >= 25 && accel_data_x <= 40)) {
 					downCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
@@ -329,28 +335,30 @@ void display_acceleration(unsigned char line, unsigned char update) {
 
 			//Up Counter
 			if (downCounter == 1 && upCounter == 0) {
-				if ((accel_data_y >= 49 && accel_data_y <= 51)
-						&& (accel_data_x >= 75 && accel_data_x <= 77)) {
+				if ((accel_data_y >= 45 && accel_data_y <= 55)
+						&& (accel_data_x >= 70 && accel_data_x <= 80)) {
 					upCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
-				} else if ((accel_data_y >= 63 && accel_data_y <= 65)
-						&& (accel_data_x >= 50 && accel_data_x <= 52)) {
+				} else if ((accel_data_y >= 60 && accel_data_y <= 70)
+						&& (accel_data_x >= 45 && accel_data_x <= 55)) {
 					upCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
-				} else if ((accel_data_y >= 33 && accel_data_y <= 35)
-						&& (accel_data_x >= 76 && accel_data_x <= 78)) {
+				} else if ((accel_data_y >= 30 && accel_data_y <= 40)
+						&& (accel_data_x >= 70 && accel_data_x <= 80)) {
 					upCounter = 1;
 					//counter += 1;
 					__delay_cycles(5000);
 				}
 			}
-
-			if (upCounter == 1 && downCounter == 1) {
-				counter += 1;
-				upCounter = 0;
-				downCounter = 0;
+			if (sStopwatch.state == STOPWATCH_RUN){
+				if (upCounter == 1 && downCounter == 1) {
+					start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
+					counter += 1;
+					upCounter = 0;
+					downCounter = 0;
+				}
 			}
 
 //			str_counter = int_to_array(counter, 4, 0);
@@ -358,8 +366,8 @@ void display_acceleration(unsigned char line, unsigned char update) {
 			tens = counter % 100 / 10;
 			ones = counter % 10;
 
-			//LCDM2 = LCD_Char_Map[thousands];     // Display Character
-			//LCDM3 = LCD_Char_Map[hundreds];      // Display Character
+			//LCDM2 = LCD_Char_Map[5];     // Display Character
+			//LCDM3 = LCD_Char_Map['U'];      // Display Character
 			LCDM4 = LCD_Char_Map[tens];          // Display Character
 			LCDM6 = LCD_Char_Map[ones];          // Display Character
 			//printf("hello %d\n" , counter);

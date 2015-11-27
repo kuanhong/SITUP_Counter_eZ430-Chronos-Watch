@@ -89,7 +89,7 @@ unsigned char update_acceleration(void)
 // Line1 - Acceleration
 const struct menu menu_L1_Acceleration = {
     FUNCTION(sx_acceleration),        // direct function
-    FUNCTION(dummy),                  // sub menu function
+    FUNCTION(mx_acceleration),                  // sub menu function
     FUNCTION(display_acceleration),   // display function
     FUNCTION(update_acceleration),    // new display data
 };

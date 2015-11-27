@@ -71,6 +71,7 @@ extern struct accel sAccel;
 // *************************************************************************************************
 // Extern section
 extern void reset_acceleration(void);
+extern void mx_acceleration(unsigned char line);
 extern void sx_acceleration(unsigned char line);
 extern void display_acceleration(unsigned char line, unsigned char update);
 extern unsigned char is_acceleration_measurement(void);
