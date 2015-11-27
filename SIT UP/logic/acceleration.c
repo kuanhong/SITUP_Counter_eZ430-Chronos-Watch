@@ -64,10 +64,12 @@
 struct accel sAccel;
 
 // Conversion values from data to mgrav taken from BMA250 datasheet (rev 1.05, figure 4)
-	const unsigned short bmp_mgrav_per_bit[7] = { 16, 31, 63, 125, 250, 500, 1000 };
+const unsigned short bmp_mgrav_per_bit[7] = { 16, 31, 63, 125, 250, 500, 1000 };
 
-unsigned int counter=0;
-unsigned char tens,ones;
+unsigned int counter = 0;
+unsigned int upCounter = 0;
+unsigned int downCounter = 0;
+unsigned char tens, ones;
 
 // LCD Segments
 #define LCD_A    BIT4
@@ -80,19 +82,19 @@ unsigned char tens,ones;
 #define LCD_H    BIT3
 
 // LCD Segment Mapping
-const unsigned char  LCD_Char_Map[] = {
-										  LCD_A+LCD_B+LCD_C+LCD_D+LCD_E+LCD_F,        // '0' or 'O'
-										  LCD_B+LCD_C,                                // '1' or 'I'
-										  LCD_A+LCD_B+LCD_D+LCD_E+LCD_G,              // '2' or 'Z'
-										  LCD_A+LCD_B+LCD_C+LCD_D+LCD_G,              // '3'
-										  LCD_B+LCD_C+LCD_F+LCD_G,                    // '4' or 'y'
-										  LCD_A+LCD_C+LCD_D+LCD_F+LCD_G,              // '5' or 'S'
-										  LCD_A+LCD_C+LCD_D+LCD_E+LCD_F+LCD_G,        // '6' or 'b'
-										  LCD_A+LCD_B+LCD_C,                          // '7'
-										  LCD_A+LCD_B+LCD_C+LCD_D+LCD_E+LCD_F+LCD_G,  // '8' or 'B'
-										  LCD_A+LCD_B+LCD_C+LCD_D+LCD_F+LCD_G,        // '9' or 'g'
+const unsigned char LCD_Char_Map[] = {
+LCD_A + LCD_B + LCD_C + LCD_D + LCD_E + LCD_F,        // '0' or 'O'
+		LCD_B + LCD_C,                                // '1' or 'I'
+		LCD_A + LCD_B + LCD_D + LCD_E + LCD_G,              // '2' or 'Z'
+		LCD_A + LCD_B + LCD_C + LCD_D + LCD_G,              // '3'
+		LCD_B + LCD_C + LCD_F + LCD_G,                    // '4' or 'y'
+		LCD_A + LCD_C + LCD_D + LCD_F + LCD_G,              // '5' or 'S'
+		LCD_A + LCD_C + LCD_D + LCD_E + LCD_F + LCD_G,        // '6' or 'b'
+		LCD_A + LCD_B + LCD_C,                          // '7'
+		LCD_A + LCD_B + LCD_C + LCD_D + LCD_E + LCD_F + LCD_G,  // '8' or 'B'
+		LCD_A + LCD_B + LCD_C + LCD_D + LCD_F + LCD_G,        // '9' or 'g'
 
-};
+		};
 
 // *************************************************************************************************
 // Extern section
@@ -103,18 +105,17 @@ const unsigned char  LCD_Char_Map[] = {
 // @param       none
 // @return      none
 // *************************************************************************************************
-void reset_acceleration(void)
-{
-    // Start with Y-axis display
-    sAccel.view_style = DISPLAY_ACCEL_Y;
+void reset_acceleration(void) {
+	// Start with Y-axis display
+	sAccel.view_style = DISPLAY_ACCEL_Y;
 
-    // Clear timeout counter
-    sAccel.timeout = 0;
+	// Clear timeout counter
+	sAccel.timeout = 0;
 
-    // Default mode is off
-    sAccel.mode = ACCEL_MODE_OFF;
+	// Default mode is off
+	sAccel.mode = ACCEL_MODE_OFF;
 
-    counter=0;
+	counter = 0;
 }
 
 // *************************************************************************************************
@@ -123,20 +124,18 @@ void reset_acceleration(void)
 // @param       unsigned char line         LINE2
 // @return      none
 // *************************************************************************************************
-void sx_acceleration(unsigned char line)
-{
-    if (++sAccel.view_style > 2)
-        sAccel.view_style = 0;
+void sx_acceleration(unsigned char line) {
+	if (++sAccel.view_style > 2)
+		sAccel.view_style = 0;
 
-    // Reset current acceleration value
-    sAccel.data = 0;
-    sAccel.data_x = 0;
-    sAccel.data_y = 0;
+	// Reset current acceleration value
+	sAccel.data = 0;
+	sAccel.data_x = 0;
+	sAccel.data_y = 0;
 
-    // Get data from sensor
-	if (bmp_used)
-	{
-        bmp_as_get_data(sAccel.xyz);
+	// Get data from sensor
+	if (bmp_used) {
+		bmp_as_get_data(sAccel.xyz);
 	}
 }
 
@@ -146,9 +145,8 @@ void sx_acceleration(unsigned char line)
 // @param       unsigned char value        2's complement number
 // @return      unsigned char                      1 = number is positive, 0 = number is negavtive
 // *************************************************************************************************
-unsigned char acceleration_value_is_positive(unsigned char value)
-{
-    return ((value & BIT7) == 0);
+unsigned char acceleration_value_is_positive(unsigned char value) {
+	return ((value & BIT7) == 0);
 }
 
 // *************************************************************************************************
@@ -157,28 +155,24 @@ unsigned char acceleration_value_is_positive(unsigned char value)
 // @param       unsigned char value        g data from sensor
 // @return      unsigned short                     Acceleration (mgrav)
 // *************************************************************************************************
-unsigned short convert_acceleration_value_to_mgrav(unsigned char value)
-{
-    unsigned short result;
-    unsigned char i;
+unsigned short convert_acceleration_value_to_mgrav(unsigned char value) {
+	unsigned short result;
+	unsigned char i;
 
-    if (!acceleration_value_is_positive(value))
-    {
-        // Convert 2's complement negative number to positive number
-        value = ~value;
-        value += 1;
-    }
+	if (!acceleration_value_is_positive(value)) {
+		// Convert 2's complement negative number to positive number
+		value = ~value;
+		value += 1;
+	}
 
-    result = 0;
-    for (i = 0; i < 7; i++)
-    {
-    	if (bmp_used)
-    	{
-            result += ((value & (BIT(i))) >> i) * bmp_mgrav_per_bit[i];
-    	}
-    }
+	result = 0;
+	for (i = 0; i < 7; i++) {
+		if (bmp_used) {
+			result += ((value & (BIT(i))) >> i) * bmp_mgrav_per_bit[i];
+		}
+	}
 
-    return (result);
+	return (result);
 }
 
 // *************************************************************************************************
@@ -187,9 +181,8 @@ unsigned short convert_acceleration_value_to_mgrav(unsigned char value)
 // @param       none
 // @return      unsigned char              1 = acceleration measurement ongoing
 // *************************************************************************************************
-unsigned char is_acceleration_measurement(void)
-{
-    return ((sAccel.mode == ACCEL_MODE_ON) && (sAccel.timeout > 0));
+unsigned char is_acceleration_measurement(void) {
+	return ((sAccel.mode == ACCEL_MODE_ON) && (sAccel.timeout > 0));
 }
 
 // *************************************************************************************************
@@ -198,16 +191,14 @@ unsigned char is_acceleration_measurement(void)
 // @param       none
 // @return      none
 // *************************************************************************************************
-void do_acceleration_measurement(void)
-{
-    // Get data from sensor
-	if (bmp_used)
-	{
-        bmp_as_get_data(sAccel.xyz);
+void do_acceleration_measurement(void) {
+	// Get data from sensor
+	if (bmp_used) {
+		bmp_as_get_data(sAccel.xyz);
 	}
 
-    // Set display update flag
-    display.flag.update_acceleration = 1;
+	// Set display update flag
+	display.flag.update_acceleration = 1;
 
 //    unsigned char raw_data;
 //    unsigned short accel_data;
@@ -233,120 +224,146 @@ void do_acceleration_measurement(void)
 //                              unsigned char update               DISPLAY_LINE_UPDATE_FULL, DISPLAY_LINE_CLEAR
 // @return      none
 // *************************************************************************************************
-void display_acceleration(unsigned char line, unsigned char update)
-{
-    unsigned char *str;
-    unsigned char *str_counter;
-    unsigned char raw_data;
-    unsigned char raw_data_x, raw_data_y;
-    unsigned short accel_data;
-    unsigned short accel_data_x, accel_data_y;
+void display_acceleration(unsigned char line, unsigned char update) {
+	unsigned char *str;
+	unsigned char *str_counter;
+	unsigned char raw_data;
+	unsigned char raw_data_x, raw_data_y;
+	unsigned short accel_data;
+	unsigned short accel_data_x, accel_data_y;
 
-    int upCounter=0;
-    int downCounter=0;
+
 //    int counter=0;
 
-    // Show warning if acceleration sensor was not initialised properly
-    if (!as_ok)
-    {
-        display_chars(LCD_SEG_L1_2_0, (unsigned char *) "ERR", SEG_ON);
-    }
-    else
-    {
-        // Redraw whole screen
-        if (update == DISPLAY_LINE_UPDATE_FULL)
-        {
-            {
-                // Start acceleration sensor
-                if (!is_acceleration_measurement())
-                {
-                    // Clear previous acceleration value
-                    sAccel.data = 0;
-                    sAccel.data_x = 0;
-                    sAccel.data_y = 0;
+	// Show warning if acceleration sensor was not initialised properly
+	if (!as_ok) {
+		display_chars(LCD_SEG_L1_2_0, (unsigned char *) "ERR", SEG_ON);
+	} else {
+		// Redraw whole screen
+		if (update == DISPLAY_LINE_UPDATE_FULL) {
+			{
+				// Start acceleration sensor
+				if (!is_acceleration_measurement()) {
+					// Clear previous acceleration value
+					sAccel.data = 0;
+					sAccel.data_x = 0;
+					sAccel.data_y = 0;
 
-                    // Start sensor
-                	if (bmp_used)
-                	{
-                        bmp_as_start();
-                	}
+					// Start sensor
+					if (bmp_used) {
+						bmp_as_start();
+					}
 
-                    // Set timeout counter
-                    sAccel.timeout = ACCEL_MEASUREMENT_TIMEOUT;
+					// Set timeout counter
+					sAccel.timeout = ACCEL_MEASUREMENT_TIMEOUT;
 
-                    // Set mode
-                    sAccel.mode = ACCEL_MODE_ON;
+					// Set mode
+					sAccel.mode = ACCEL_MODE_ON;
 
-                    // Start with Y-axis values
-                    sAccel.view_style = DISPLAY_ACCEL_Y;
-                }
+					// Start with Y-axis values
+					sAccel.view_style = DISPLAY_ACCEL_Y;
+				}
 
-                // Display decimal point
-     //           display_symbol(LCD_SEG_L1_DP1, SEG_ON);
-            }
-        }
-        else if (update == DISPLAY_LINE_UPDATE_PARTIAL)
-        {
-            // Convert X/Y/Z values to mg
+				// Display decimal point
+				//           display_symbol(LCD_SEG_L1_DP1, SEG_ON);
+			}
+		} else if (update == DISPLAY_LINE_UPDATE_PARTIAL) {
+			// Convert X/Y/Z values to mg
 
+			switch (sAccel.view_style) {
+			case DISPLAY_ACCEL_X:
+			case DISPLAY_ACCEL_Y:
 
-            switch (sAccel.view_style)
-            {
-                case DISPLAY_ACCEL_X:
-                case DISPLAY_ACCEL_Y:
+				raw_data_x = sAccel.xyz[0];
+				raw_data_y = sAccel.xyz[1];
+				//display_char(LCD_SEG_L1_3, 'X', SEG_ON);
+				break;
+			default:
+				raw_data = sAccel.xyz[1];
+				//display_char(LCD_SEG_L1_3, 'Z', SEG_ON);
 
-                    raw_data_x = sAccel.xyz[0];
-                    raw_data_y = sAccel.xyz[1];
-                    //display_char(LCD_SEG_L1_3, 'X', SEG_ON);
-                    break;
-                default:
-                    raw_data = sAccel.xyz[1];
-                    //display_char(LCD_SEG_L1_3, 'Z', SEG_ON);
+				break;
+			}
 
-                    break;
-            }
-
-            accel_data = convert_acceleration_value_to_mgrav(raw_data) / 10;
+			accel_data = convert_acceleration_value_to_mgrav(raw_data) / 10;
 //            // Filter acceleration
-            accel_data = (unsigned short) ((accel_data * 0.2) + (sAccel.data * 0.8));
-            sAccel.data = accel_data;
+			accel_data = (unsigned short) ((accel_data * 0.2)
+					+ (sAccel.data * 0.8));
+			sAccel.data = accel_data;
 
-            accel_data_x = convert_acceleration_value_to_mgrav(raw_data_x) / 10;
-            accel_data_x = (unsigned short) ((accel_data_x * 0.2) + (sAccel.data_x * 0.8));
-            accel_data_y = convert_acceleration_value_to_mgrav(raw_data_y) / 10;
-            accel_data_y = (unsigned short) ((accel_data_y * 0.2) + (sAccel.data_y * 0.8));
+			accel_data_x = convert_acceleration_value_to_mgrav(raw_data_x) / 10;
+			accel_data_x = (unsigned short) ((accel_data_x * 0.2)
+					+ (sAccel.data_x * 0.8));
+			accel_data_y = convert_acceleration_value_to_mgrav(raw_data_y) / 10;
+			accel_data_y = (unsigned short) ((accel_data_y * 0.2)
+					+ (sAccel.data_y * 0.8));
 
-            // Store average acceleration
+			// Store average acceleration
 
-            sAccel.data_x = accel_data_x;
-            sAccel.data_y = accel_data_y;
+			sAccel.data_x = accel_data_x;
+			sAccel.data_y = accel_data_y;
 
-            // Display acceleration in x.xx format
-            str = int_to_array(accel_data, 3, 0); // edit here
-            display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
+			// Display acceleration in x.xx format
+//			str = int_to_array(accel_data, 3, 0); // edit here
+//			display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
 
-                        if (accel_data_x==35){
-                        		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-                        		counter+=1;
-                        	}
+			//Down Counter
+			if (downCounter == 0) {
+				if ((accel_data_y >= 75 && accel_data_y <= 77)
+						&& (accel_data_x >= 49 && accel_data_x <= 51)) {
+					downCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				} else if ((accel_data_y >= 89 && accel_data_y <= 91)
+						&& (accel_data_x >= 21 && accel_data_x <= 23)) {
+					downCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				} else if ((accel_data_y >= 84 && accel_data_y <= 86)
+						&& (accel_data_x >= 30 && accel_data_x <= 32)) {
+					downCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				}
+			}
 
+			//Up Counter
+			if (downCounter == 1 && upCounter == 0) {
+				if ((accel_data_y >= 49 && accel_data_y <= 51)
+						&& (accel_data_x >= 75 && accel_data_x <= 77)) {
+					upCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				} else if ((accel_data_y >= 63 && accel_data_y <= 65)
+						&& (accel_data_x >= 50 && accel_data_x <= 52)) {
+					upCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				} else if ((accel_data_y >= 33 && accel_data_y <= 35)
+						&& (accel_data_x >= 76 && accel_data_x <= 78)) {
+					upCounter = 1;
+					//counter += 1;
+					__delay_cycles(5000);
+				}
+			}
 
+			if (upCounter == 1 && downCounter == 1) {
+				counter += 1;
+				upCounter = 0;
+				downCounter = 0;
+			}
 
-        if (accel_data_y==60 ){
-        		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-        		counter+=1;
-        	}
-        	str_counter = int_to_array(counter, 4, 0);
-        	//display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
-            tens = counter % 100 / 10;
-            ones = counter % 10;
+//			str_counter = int_to_array(counter, 4, 0);
+			//display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
+			tens = counter % 100 / 10;
+			ones = counter % 10;
 
-            //LCDM2 = LCD_Char_Map[thousands];     // Display Character
-            //LCDM3 = LCD_Char_Map[hundreds];      // Display Character
-            LCDM4 = LCD_Char_Map[tens];          // Display Character
-            LCDM6 = LCD_Char_Map[ones];          // Display Character
-        	//printf("hello %d\n" , counter);
-        }
+			//LCDM2 = LCD_Char_Map[thousands];     // Display Character
+			//LCDM3 = LCD_Char_Map[hundreds];      // Display Character
+			LCDM4 = LCD_Char_Map[tens];          // Display Character
+			LCDM6 = LCD_Char_Map[ones];          // Display Character
+			//printf("hello %d\n" , counter);
+		}
 
 //            if (accel_data_x>=35 && accel_data_x<=55){
 //            	if (accel_data_y>=25 && accel_data_y<=55){
@@ -374,21 +391,19 @@ void display_acceleration(unsigned char line, unsigned char update)
 //	            display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
 //            }
 
-        else if (update == DISPLAY_LINE_CLEAR)
-        {
-            // Stop acceleration sensor
-        	if (bmp_used)
-        	{
-                bmp_as_stop();
-        	}
+		else if (update == DISPLAY_LINE_CLEAR) {
+			// Stop acceleration sensor
+			if (bmp_used) {
+				bmp_as_stop();
+			}
 
-            // Clear mode
-            sAccel.mode = ACCEL_MODE_OFF;
+			// Clear mode
+			sAccel.mode = ACCEL_MODE_OFF;
 
-            // Clean up display
-            display_symbol(LCD_SEG_L1_DP1, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-        }
-    }
+			// Clean up display
+			display_symbol(LCD_SEG_L1_DP1, SEG_OFF);
+			display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
+			display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
+		}
+	}
 }
