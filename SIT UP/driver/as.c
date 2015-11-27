@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //	Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/ 
-//	 
 //	 
 //	  Redistribution and use in source and binary forms, with or without 
 //	  modification, are permitted provided that the following conditions 
@@ -30,14 +28,9 @@
 //	  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //	  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
 //	  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 // acceleration sensor driver functions
 // *************************************************************************************************
-
-
-// *************************************************************************************************
-// Include section
 
 // system
 #include "project.h"
@@ -46,22 +39,8 @@
 #include "as.h"
 #include "timer.h"
 
-
-// *************************************************************************************************
-// Prototypes section
-
-// *************************************************************************************************
-// Defines section
-
-// *************************************************************************************************
-// Global Variable section
-
 // Global flag for proper acceleration sensor operation
 unsigned char as_ok;
-
-// *************************************************************************************************
-// Extern section
-
 
 // *************************************************************************************************
 // @fn          as_init

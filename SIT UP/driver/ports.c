@@ -35,9 +35,6 @@
 // Button entry functions.
 // *************************************************************************************************
 
-// *************************************************************************************************
-// Include section
-
 // system
 #include "project.h"
 
@@ -57,9 +54,6 @@
 void button_repeat_on(unsigned short msec);
 void button_repeat_off(void);
 void button_repeat_function(void);
-
-// *************************************************************************************************
-// Defines section
 
 // Macro for button IRQ
 #define IRQ_TRIGGERED(flags, bit)               ((flags & bit) == bit)
@@ -207,19 +201,6 @@ __interrupt void PORT2_ISR(void)
                         stop_stopwatch();
                         button.flag.down = 0;
                     }
-                }
-            }
-            // ---------------------------------------------------
-            // B/L button IRQ
-            else if (IRQ_TRIGGERED(int_flag, BUTTON_BACKLIGHT_PIN))
-            {
-                // Filter bouncing noise
-                if (BUTTON_BACKLIGHT_IS_PRESSED)
-                {
-                    sButton.backlight_status = 1;
-                    sButton.backlight_timeout = 0;
-                    P2OUT |= BUTTON_BACKLIGHT_PIN;
-                    P2DIR |= BUTTON_BACKLIGHT_PIN;
                 }
             }
         }

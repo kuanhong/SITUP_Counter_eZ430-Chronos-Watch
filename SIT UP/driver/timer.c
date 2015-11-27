@@ -35,9 +35,6 @@
 // Timer service routines.
 // *************************************************************************************************
 
-// *************************************************************************************************
-// Include section
-
 // system
 #include "project.h"
 
@@ -67,14 +64,9 @@ void Timer0_A4_Delay(unsigned short ticks);
 void (*fptr_Timer0_A3_function)(void);
 
 // *************************************************************************************************
-// Defines section
-
-// *************************************************************************************************
 // Global Variable section
 struct timer sTimer;
 
-// *************************************************************************************************
-// Extern section
 //extern void BRRX_TimerTask_v(void);
 extern void to_lpm(void);
 
@@ -299,24 +291,6 @@ __interrupt void TIMER0_A0_ISR(void)
         {
             message.flag.erase = 0;
             display.flag.full_update = 1;
-        }
-    }
-
-    // -------------------------------------------------------------------
-    // Turn the Backlight off after timeout
-    if (sButton.backlight_status == 1)
-    {
-        if (sButton.backlight_timeout > BACKLIGHT_TIME_ON)
-        {
-            //turn off Backlight
-            P2OUT &= ~BUTTON_BACKLIGHT_PIN;
-            P2DIR &= ~BUTTON_BACKLIGHT_PIN;
-            sButton.backlight_timeout = 0;
-            sButton.backlight_status = 0;
-        }
-        else
-        {
-            sButton.backlight_timeout++;
         }
     }
 

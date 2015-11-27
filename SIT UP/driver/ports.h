@@ -54,17 +54,14 @@
 #define BUTTON_NUM_PIN          (BIT1)
 #define BUTTON_UP_PIN           (BIT4)
 #define BUTTON_DOWN_PIN         (BIT0)
-#define BUTTON_BACKLIGHT_PIN    (BIT3)
 #define ALL_BUTTONS                             (BUTTON_STAR_PIN + BUTTON_NUM_PIN + BUTTON_UP_PIN + \
-                                                 BUTTON_DOWN_PIN + BUTTON_BACKLIGHT_PIN)
+                                                 BUTTON_DOWN_PIN + BIT3)
 
 // Macros for button press detection
 #define BUTTON_STAR_IS_PRESSED          ((BUTTONS_IN & BUTTON_STAR_PIN) == BUTTON_STAR_PIN)
 #define BUTTON_NUM_IS_PRESSED           ((BUTTONS_IN & BUTTON_NUM_PIN) == BUTTON_NUM_PIN)
 #define BUTTON_UP_IS_PRESSED            ((BUTTONS_IN & BUTTON_UP_PIN) == BUTTON_UP_PIN)
 #define BUTTON_DOWN_IS_PRESSED          ((BUTTONS_IN & BUTTON_DOWN_PIN) == BUTTON_DOWN_PIN)
-#define BUTTON_BACKLIGHT_IS_PRESSED     ((BUTTONS_IN & BUTTON_BACKLIGHT_PIN) == \
-                                         BUTTON_BACKLIGHT_PIN)
 #define NO_BUTTON_IS_PRESSED            ((BUTTONS_IN & ALL_BUTTONS) == 0)
 
 // Macros for button release detection
@@ -72,7 +69,6 @@
 #define BUTTON_NUM_IS_RELEASED                  ((BUTTONS_IN & BUTTON_NUM_PIN) == 0)
 #define BUTTON_UP_IS_RELEASED                   (BUTTONS_IN & BUTTON_UP_PIN) == 0)
 #define BUTTON_DOWN_IS_RELEASED                 ((BUTTONS_IN & BUTTON_DOWN_PIN) == 0)
-#define BUTTON_BACKLIGHT_IS_RELEASED    ((BUTTONS_IN & BUTTON_BACKLIGHT_PIN) == 0)
 
 // Button debounce time (msec)
 #define BUTTONS_DEBOUNCE_TIME_IN        (5u)
@@ -81,9 +77,6 @@
 
 // Detect if STAR / NUM button is held low continuously
 #define LEFT_BUTTON_LONG_TIME           (2u)
-
-// Backlight time  (sec)
-#define BACKLIGHT_TIME_ON                       (3u)
 
 // Leave set_value() function after some seconds of user inactivity
 #define INACTIVITY_TIME                 (30u)
@@ -98,7 +91,6 @@ typedef union
         unsigned short num : 1;            // Short NUM button press
         unsigned short up : 1;             // Short UP button press
         unsigned short down : 1;           // Short DOWN button press
-        unsigned short backlight : 1;      // Short BACKLIGHT button press
         unsigned short star_long : 1;      // Long STAR button press
         unsigned short num_long : 1;       // Long NUM button press
         unsigned short star_not_long : 1;  // Between short and long STAR button press
@@ -110,12 +102,8 @@ extern volatile s_button_flags button;
 
 struct struct_button
 {
-    unsigned char star_timeout;            // this variable is incremented each second if STAR button is still
-                                // pressed
-    unsigned char num_timeout;             // this variable is incremented each second if NUM button is still
-                                // pressed
-    unsigned char backlight_timeout;       // controls the timeout for the backlight
-    unsigned char backlight_status;        // 1 case backlight is on
+    unsigned char star_timeout;            // this variable is incremented each second if STAR button is still pressed
+    unsigned char num_timeout;             // this variable is incremented each second if NUM button is still pressed
     short repeats;
 };
 extern volatile struct struct_button sButton;

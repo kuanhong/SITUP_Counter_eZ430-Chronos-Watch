@@ -50,9 +50,6 @@ struct menu
     const struct menu *next;
 };
 
-// *************************************************************************************************
-// Extern section
-
 // Line1 navigation
 extern const struct menu menu_L1_Acceleration;
 
