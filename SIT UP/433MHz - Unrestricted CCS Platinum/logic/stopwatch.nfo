@@ -4,13 +4,13 @@ Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 		======File-level Analysis Summary======
 
 
-extern void display_stopwatch() is called from 5 sites in this file.
-    It appears to be inlineable (size = 193 units)
+extern void display_stopwatch() is called from 3 sites in this file.
+    It appears to be inlineable (size = 105 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_char() (12 times)
+	display_char() (6 times)
 	display_symbol() (2 times)
-	display_chars() (2 times)
+	display_chars() (1 times)
 
 extern unsigned char is_stopwatch() is called from 0 sites in this file.
     It appears to be inlineable (size = 20 units)
@@ -26,7 +26,7 @@ extern void mx_stopwatch() is called from 0 sites in this file.
 	reset_stopwatch() (1 times)
 	stop_stopwatch() (1 times)
 
-extern void reset_stopwatch() is called from 3 sites in this file.
+extern void reset_stopwatch() is called from 2 sites in this file.
     It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -47,11 +47,11 @@ extern void stop_stopwatch() is called from 3 sites in this file.
 	display_symbol() (1 times)
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 319 units)
+    It appears to be inlineable (size = 238 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_stopwatch() (3 times)
-	reset_stopwatch() (2 times)
+	display_stopwatch() (1 times)
+	reset_stopwatch() (1 times)
 	stop_stopwatch() (1 times)
 	start_buzzer() (4 times)
 
@@ -63,7 +63,7 @@ extern void sx_stopwatch() is called from 0 sites in this file.
 	start_stopwatch() (1 times)
 
 extern void update_stopwatch_timer() is called from 1 sites in this file.
-    It appears to be inlineable (size = 44 units)
+    It appears to be inlineable (size = 34 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -101,7 +101,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void update_stopwatch_timer() is called from 1 sites in this file.
-    It appears to be inlineable (size = 44 units)
+    It appears to be inlineable (size = 34 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -116,8 +116,8 @@ extern void start_stopwatch() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern void display_stopwatch() is called from 5 sites in this file.
-    It appears to be inlineable (size = 193 units)
+extern void display_stopwatch() is called from 3 sites in this file.
+    It appears to be inlineable (size = 105 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -141,7 +141,7 @@ extern void sx_stopwatch() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern void reset_stopwatch() is called from 3 sites in this file.
+extern void reset_stopwatch() is called from 2 sites in this file.
     It appears to be inlineable (size = 18 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -150,12 +150,12 @@ extern void reset_stopwatch() is called from 3 sites in this file.
 ==============================================================================
 
 extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 319 units)
+    It appears to be inlineable (size = 238 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_stopwatch() (1 times)
-	reset_stopwatch() (2 times)
-	display_stopwatch() (3 times)
+	reset_stopwatch() (1 times)
+	display_stopwatch() (1 times)
 
 ==============================================================================
 

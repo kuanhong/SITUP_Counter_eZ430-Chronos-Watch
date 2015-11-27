@@ -282,7 +282,7 @@ void display_acceleration(unsigned char line, unsigned char update)
                 }
 
                 // Display decimal point
-                display_symbol(LCD_SEG_L1_DP1, SEG_ON);
+     //           display_symbol(LCD_SEG_L1_DP1, SEG_ON);
             }
         }
         else if (update == DISPLAY_LINE_UPDATE_PARTIAL)

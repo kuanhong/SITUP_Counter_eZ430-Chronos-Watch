@@ -85,8 +85,7 @@ void update_stopwatch_timer(void)
     unsigned short value;
 
     // Load CCR register with next capture time
-    if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
-    {
+
         // Timer interrupts occur every 32768/100 = 328 ACLK
         // --> stopwatch runs too slow (1 sec nominal != 100 interupts * 328 ACLK = 32800 ACLK =
         // 1.00098 sec)
@@ -106,12 +105,8 @@ void update_stopwatch_timer(void)
             value -= 3;
             sStopwatch.swtIs10Hz = 0;
         }
-    }
-    else                        // Alternative view
-    {
-        // Timer interrupts occur every 32768/1 = 32768 ACLK
-        value = TA0CCR2 + STOPWATCH_1HZ_TICK;
-    }
+
+
 
     // Update CCR
     TA0CCR2 = value;
@@ -132,7 +127,6 @@ void stopwatch_tick(void)
     if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
     {
         // Add 1/100 sec
-//      sStopwatch.time[7]++;
     	sStopwatch.time[7]--;
 
         // Draw flag minimizes display update activity
@@ -152,14 +146,11 @@ void stopwatch_tick(void)
         }
 
         // Add 1/10 sec
-//      if (sStopwatch.time[7] == 0x3A)
         if (sStopwatch.time[7] == 0x2f)
 
         {
-//          sStopwatch.time[7] = '0';
             sStopwatch.time[7] = '9';
 
-//          sStopwatch.time[6]++;
             sStopwatch.time[6]--;
 
             // 1/10Hz trigger
@@ -168,12 +159,6 @@ void stopwatch_tick(void)
             // Update draw flag
             sStopwatch.drawFlag = 7;
         }
-    }
-    else                        // Alternative view (20 minutes .. 20 hours): display and count
-                                // HH:MM:SS
-    {
-        // Just add 1 second
-        sStopwatch.time[6] = 0x2f;
     }
 
     // Second overflow?
@@ -235,34 +220,6 @@ void stopwatch_tick(void)
                     sStopwatch.drawFlag++;         // 4
                     sStopwatch.time[3] = '9';
                     sStopwatch.time[2]--;          // minutes H (0 - 5)
-                    if (sStopwatch.time[2] == '2')
-                    {
-                        // SWT display changes from MM:SS:hh to HH:MM:SS when reaching 20 minutes
-                        sStopwatch.viewStyle = DISPLAY_ALTERNATIVE_VIEW;
-                        display_stopwatch(LINE2, DISPLAY_LINE_UPDATE_FULL);
-
-                    }
-                    else if (sStopwatch.time[2] == '6')
-                    {
-                        sStopwatch.drawFlag++;     // 5
-                        sStopwatch.time[2] = '0';
-                        sStopwatch.time[1]++;      // hours L (0-9)
-
-                        if (sStopwatch.time[1] == 0x2f)
-                        {
-                            sStopwatch.drawFlag++; // 6
-                            sStopwatch.time[1] = '0';
-                            sStopwatch.time[0]++;  // hours H (0-1)
-
-                            if (sStopwatch.time[0] == '2')
-                            {
-                                // When reaching 20 hours, start over
-                                reset_stopwatch();
-                                sStopwatch.state = STOPWATCH_RUN;
-                                display_stopwatch(LINE2, DISPLAY_LINE_UPDATE_FULL);
-                            }
-                        }
-                    }
                 }
             }
         }
@@ -282,7 +239,6 @@ void reset_stopwatch(void)
 {
     // Clear counter
 //  memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-//	memcpy(sStopwatch.time, "00000555", sizeof(sStopwatch.time));
     memcpy(sStopwatch.time, "00006000", sizeof(sStopwatch.time));
 
     // Clear trigger
@@ -415,64 +371,33 @@ void display_stopwatch(unsigned char line, unsigned char update)
     {
         if (display.flag.update_stopwatch)
         {
-            if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
-            {
-                // Display MM:SS:hh
-
-                // Check draw flag to minimize workload
-                if (sStopwatch.drawFlag != 0)
-                {
-                    switch (sStopwatch.drawFlag)
-                    {
-                        case 4:
-                            display_char(LCD_SEG_L2_5, sStopwatch.time[2], SEG_ON);
-                        case 3:
-                            display_char(LCD_SEG_L2_4, sStopwatch.time[3], SEG_ON);
-                        case 2:
-                            display_char(LCD_SEG_L2_3, sStopwatch.time[4], SEG_ON);
-                        case 1:
-                            display_char(LCD_SEG_L2_2, sStopwatch.time[5], SEG_ON);
-                        case 7:
-                            display_char(LCD_SEG_L2_1, sStopwatch.time[6], SEG_ON);
-                        case 8:
-                            display_char(LCD_SEG_L2_0, sStopwatch.time[7], SEG_ON);
-                    }
-                }
-            }
-            else                // DISPLAY_ALTERNATIVE_VIEW
-            {
-                // Display HH:MM:SS
-                switch (sStopwatch.drawFlag)
-                {
-                    case 6:
-                        display_char(LCD_SEG_L2_5, sStopwatch.time[0], SEG_ON);
-                    case 5:
-                        display_char(LCD_SEG_L2_4, sStopwatch.time[1], SEG_ON);
-                    case 4:
-                        display_char(LCD_SEG_L2_3, sStopwatch.time[2], SEG_ON);
-                    case 3:
-                        display_char(LCD_SEG_L2_2, sStopwatch.time[3], SEG_ON);
-                    case 2:
-                        display_char(LCD_SEG_L2_1, sStopwatch.time[4], SEG_ON);
-                    case 1:
-                        display_char(LCD_SEG_L2_0, sStopwatch.time[5], SEG_ON);
-                }
-            }
+        					// Check draw flag to minimize workload
+        	                if (sStopwatch.drawFlag != 0)
+        	                {
+        	                    switch (sStopwatch.drawFlag)
+        	                    {
+        	                        case 4:
+        	                            display_char(LCD_SEG_L2_5, sStopwatch.time[2], SEG_ON);
+        	                        case 3:
+        	                            display_char(LCD_SEG_L2_4, sStopwatch.time[3], SEG_ON);
+        	                        case 2:
+        	                            display_char(LCD_SEG_L2_3, sStopwatch.time[4], SEG_ON);
+        	                        case 1:
+        	                            display_char(LCD_SEG_L2_2, sStopwatch.time[5], SEG_ON);
+        	                        case 7:
+        	                            display_char(LCD_SEG_L2_1, sStopwatch.time[6], SEG_ON);
+        	                        case 8:
+        	                            display_char(LCD_SEG_L2_0, sStopwatch.time[7], SEG_ON);
+        	                    }
+        	                }
         }
     }
     // Redraw whole line
     else if (update == DISPLAY_LINE_UPDATE_FULL)
     {
-        if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
-        {
-            // Display MM:SS:hh
-            display_chars(LCD_SEG_L2_5_0, sStopwatch.time + 2, SEG_ON);
-        }
-        else                    // DISPLAY_ALTERNATIVE_VIEW
-        {
-            // Display HH:MM:SS
-            display_chars(LCD_SEG_L2_5_0, sStopwatch.time, SEG_ON);
-        }
+        // Display MM:SS:hh
+        display_chars(LCD_SEG_L2_5_0, sStopwatch.time + 2, SEG_ON);
+
         display_symbol(LCD_SEG_L2_COL1, SEG_ON);
         display_symbol(LCD_SEG_L2_COL0, SEG_ON);
     }
