@@ -1,7 +1,0 @@
-
-!CONFIGURATION: 'com.ti.ccstudio.buildDefinitions.MSP430.Debug.1369220624.235404380.1620740856' [Fri Nov 27 13:20:53 SGT 2015]
-
-	!TOOL: 'com.ti.ccstudio.buildDefinitions.MSP430_4.4.exe.linkerDebug.1918964313'
-
-		!WARNING: Unresolved option: com.ti.ccstudio.buildDefinitions.MSP430_4.4.linkerID.USE_HW_MPY
-

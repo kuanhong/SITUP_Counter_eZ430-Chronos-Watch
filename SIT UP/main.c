@@ -115,20 +115,6 @@ int main(void)
     // Assign initial value to global variables
     init_global_variables();
 
-    // Display
-    // Frame frequency = 256Hz/4 = 64Hz, LCD mux 4, LCD on
-//    LCDBCTL0 = (LCDDIV0 + LCDDIV1 + LCDDIV2 + LCDDIV3) | (LCDPRE0 + LCDPRE1) | LCD4MUX | LCDON;
-    // LCB_BLK_FREQ = ACLK/8/4096 = 1Hz
-//    LCDBBLKCTL = LCDBLKPRE0 | LCDBLKPRE1 | LCDBLKDIV0 | LCDBLKDIV1 | LCDBLKDIV2 | LCDBLKMOD0;
-
-    // I/O to COM outputs
-//    P5SEL |= (BIT5 | BIT6 | BIT7);
-//    P5DIR |= (BIT5 | BIT6 | BIT7);
-
-    // Select LCD Segments (Line 1)
-//    LCDBPCTL0 = 0x0C00 + 0x00C0 + 0x0030 + 0x000C;
-//    LCDBPCTL0 = 0x00CFC;
-
     // Main control loop: wait in low power mode until some event needs to be processed
     while (1)
     {

@@ -1,10 +1,10 @@
 ******************************************************************************
-                  MSP430 Linker PC v4.4.5                      
+                  MSP430 Linker PC v4.4.2                      
 ******************************************************************************
->> Linked Fri Nov 27 17:48:34 2015
+>> Linked Fri Nov 27 18:36:25 2015
 
 OUTPUT FILE NAME:   <SIT UP_433MHz.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 00009498
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 00009480
 
 
 MEMORY CONFIGURATION
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00000ffe  00000100  00000efe  RWIX
-  FLASH                 00008000   00007f80  000016b8  000068c8  RWIX
+  FLASH                 00008000   00007f80  000016aa  000068d6  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -109,72 +109,72 @@ section   page    origin      length       input sections
                   00002bac    00000002     rts430x.lib : boot.obj (.stack)
                   00002bae    0000004e     --HOLE--
 
-.text      0    00008000    00001578     
+.text      0    00008000    00001560     
                   00008000    000002fe     acceleration.obj (.text:display_acceleration)
                   000082fe    00000162     timer.obj (.text:_isr:TIMER0_A0_ISR)
                   00008460    0000015a     ports.obj (.text:_isr:PORT2_ISR)
                   000085ba    00000136     main.obj (.text:init_application)
-                  000086f0    00000134     stopwatch.obj (.text:stopwatch_tick)
-                  00008824    00000130     rts430x.lib : fs_add.obj (.text)
-                  00008954    000000fa     main.obj (.text:wakeup_event)
-                  00008a4e    000000cc     display.obj (.text:display_chars)
-                  00008b1a    000000ba     main.obj (.text:main)
-                  00008bd4    000000b6     rts430x.lib : fs_mpy.obj (.text)
-                  00008c8a    000000b4     main.obj (.text:display_update)
-                  00008d3e    000000ac     stopwatch.obj (.text:display_stopwatch)
-                  00008dea    0000007a     timer.obj (.text:_isr:TIMER0_A1_5_ISR)
-                  00008e64    0000007a     display.obj (.text:display_char)
-                  00008ede    00000066     bmp_as.obj (.text:bmp_as_read_register)
-                  00008f44    00000062     timer.obj (.text:Timer0_A4_Delay)
-                  00008fa6    0000005e     rts430x.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
-                  00009004    0000005e     bmp_as.obj (.text:bmp_as_write_register)
-                  00009062    0000005c     buzzer.obj (.text:toggle_buzzer)
-                  000090be    0000005a     display.obj (.text:clear_line)
-                  00009118    00000058     rts430x.lib : div32u.obj (.text)
-                  00009170    00000050     acceleration.obj (.text:convert_acceleration_value_to_mgrav)
-                  000091c0    0000004c     bmp_as.obj (.text:bmp_as_get_data)
-                  0000920c    00000046     rts430x.lib : fs_tou.obj (.text)
-                  00009252    00000044     buzzer.obj (.text:start_buzzer)
-                  00009296    00000040     rts430x.lib : div32s.obj (.text)
-                  000092d6    0000003a     display.obj (.text:write_lcd_mem)
-                  00009310    00000034     stopwatch.obj (.text:sx_stopwatch)
-                  00009344    00000032     as.obj (.text:as_stop)
-                  00009376    0000002e     timer.obj (.text:Timer0_A3_Start)
-                  000093a4    0000002c     rts430x.lib : div16s.obj (.text)
-                  000093d0    0000002c     stopwatch.obj (.text:update_stopwatch_timer)
-                  000093fc    00000028     stopwatch.obj (.text:mx_stopwatch)
-                  00009424    00000028     buzzer.obj (.text:stop_buzzer)
-                  0000944c    00000028     acceleration.obj (.text:sx_acceleration)
-                  00009474    00000024     rts430x.lib : fs_utof.obj (.text)
-                  00009498    0000001a                 : boot_special.obj (.text:_isr:_c_int00_noargs_noexit)
-                  000094b2    0000001a     stopwatch.obj (.text:stop_stopwatch)
-                  000094cc    00000016     display.obj (.text:display_symbol)
-                  000094e2    00000016     rts430x.lib : div16u.obj (.text)
-                  000094f8    00000016                 : mult16_f5hw.obj (.text)
-                  0000950e    00000014     stopwatch.obj (.text:is_stopwatch)
-                  00009522    00000010     rts430x.lib : lsl32.obj (.text:l_lsl)
-                  00009532    00000010                 : lsr32.obj (.text:l_lsr)
-                  00009542    00000010                 : memcpy.obj (.text:memcpy)
-                  00009552    0000000c     menu.obj (.text:update_acceleration)
-                  0000955e    0000000a     menu.obj (.text:update_stopwatch)
-                  00009568    00000006     rts430x.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
-                  0000956e    00000004                 : pre_init.obj (.text:_system_pre_init)
-                  00009572    00000004                 : exit.obj (.text:abort)
-                  00009576    00000002     user.obj (.text:dummy)
+                  000086f0    00000130     rts430x.lib : fs_add.obj (.text)
+                  00008820    00000122     stopwatch.obj (.text:stopwatch_tick)
+                  00008942    000000fa     main.obj (.text:wakeup_event)
+                  00008a3c    000000cc     display.obj (.text:display_chars)
+                  00008b08    000000ba     main.obj (.text:main)
+                  00008bc2    000000b6     rts430x.lib : fs_mpy.obj (.text)
+                  00008c78    000000b4     main.obj (.text:display_update)
+                  00008d2c    000000ac     stopwatch.obj (.text:display_stopwatch)
+                  00008dd8    0000007a     timer.obj (.text:_isr:TIMER0_A1_5_ISR)
+                  00008e52    0000007a     display.obj (.text:display_char)
+                  00008ecc    00000066     bmp_as.obj (.text:bmp_as_read_register)
+                  00008f32    00000062     timer.obj (.text:Timer0_A4_Delay)
+                  00008f94    0000005e     bmp_as.obj (.text:bmp_as_write_register)
+                  00008ff2    0000005c     buzzer.obj (.text:toggle_buzzer)
+                  0000904e    0000005a     display.obj (.text:clear_line)
+                  000090a8    00000058     rts430x.lib : autoinit_wdt.obj (.text:_auto_init_hold_wdt)
+                  00009100    00000058                 : div32u.obj (.text)
+                  00009158    00000050     acceleration.obj (.text:convert_acceleration_value_to_mgrav)
+                  000091a8    0000004c     bmp_as.obj (.text:bmp_as_get_data)
+                  000091f4    00000046     rts430x.lib : fs_tou.obj (.text)
+                  0000923a    00000044     buzzer.obj (.text:start_buzzer)
+                  0000927e    00000040     rts430x.lib : div32s.obj (.text)
+                  000092be    0000003a     display.obj (.text:write_lcd_mem)
+                  000092f8    00000034     stopwatch.obj (.text:sx_stopwatch)
+                  0000932c    00000032     as.obj (.text:as_stop)
+                  0000935e    0000002e     timer.obj (.text:Timer0_A3_Start)
+                  0000938c    0000002c     rts430x.lib : div16s.obj (.text)
+                  000093b8    0000002c     stopwatch.obj (.text:update_stopwatch_timer)
+                  000093e4    00000028     stopwatch.obj (.text:mx_stopwatch)
+                  0000940c    00000028     buzzer.obj (.text:stop_buzzer)
+                  00009434    00000028     acceleration.obj (.text:sx_acceleration)
+                  0000945c    00000024     rts430x.lib : fs_utof.obj (.text)
+                  00009480    0000001a                 : boot_special.obj (.text:_isr:_c_int00_noargs_noexit)
+                  0000949a    0000001a     stopwatch.obj (.text:stop_stopwatch)
+                  000094b4    00000016     display.obj (.text:display_symbol)
+                  000094ca    00000016     rts430x.lib : div16u.obj (.text)
+                  000094e0    00000016                 : mult16_f5hw.obj (.text)
+                  000094f6    00000014     stopwatch.obj (.text:is_stopwatch)
+                  0000950a    00000010     rts430x.lib : lsl32.obj (.text:l_lsl)
+                  0000951a    00000010                 : lsr32.obj (.text:l_lsr)
+                  0000952a    00000010                 : memcpy.obj (.text:memcpy)
+                  0000953a    0000000c     menu.obj (.text:update_acceleration)
+                  00009546    0000000a     menu.obj (.text:update_stopwatch)
+                  00009550    00000006     rts430x.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  00009556    00000004                 : pre_init.obj (.text:_system_pre_init)
+                  0000955a    00000004                 : exit.obj (.text:abort)
+                  0000955e    00000002     user.obj (.text:dummy)
 
-.const     0    00009578    000000b6     
-                  00009578    0000002b     display.obj (.const:.string:lcd_font)
-                  000095a3    00000001     --HOLE-- [fill = 0]
-                  000095a4    0000002a     display.obj (.const:.string:segments_bitmask)
-                  000095ce    00000024     <whole-program> (.const:.string)
-                  000095f2    00000024     menu.obj (.const)
-                  00009616    0000000e     acceleration.obj (.const:bmp_mgrav_per_bit)
-                  00009624    0000000a     acceleration.obj (.const:.string:LCD_Char_Map)
+.const     0    00009560    000000c0     
+                  00009560    0000002e     <whole-program> (.const:.string)
+                  0000958e    0000002b     display.obj (.const:.string:lcd_font)
+                  000095b9    00000001     --HOLE-- [fill = 0]
+                  000095ba    0000002a     display.obj (.const:.string:segments_bitmask)
+                  000095e4    00000024     menu.obj (.const)
+                  00009608    0000000e     acceleration.obj (.const:bmp_mgrav_per_bit)
+                  00009616    0000000a     acceleration.obj (.const:.string:LCD_Char_Map)
 
-.cinit     0    0000962e    0000008a     
-                  0000962e    00000087     <whole-program> (.cinit)
-                  000096b5    00000001     --HOLE-- [fill = 0]
-                  000096b6    00000002     (.pad.cinit) [fill = 0]
+.cinit     0    00009620    0000008a     
+                  00009620    00000087     <whole-program> (.cinit)
+                  000096a7    00000001     --HOLE-- [fill = 0]
+                  000096a8    00000002     (.pad.cinit) [fill = 0]
 
 .pinit     0    00008000    00000000     UNINITIALIZED
 
@@ -344,7 +344,7 @@ address   name
 000009c4  AESASTAT                           
 000009c5  AESASTAT_H                         
 000009c4  AESASTAT_L                         
-00009572  C$$EXIT                            
+0000955a  C$$EXIT                            
 000008c0  CBCTL0                             
 000008c1  CBCTL0_H                           
 000008c0  CBCTL0_L                           
@@ -503,9 +503,9 @@ address   name
 00000a26  LCDM7                              
 00000a27  LCDM8                              
 00000a28  LCDM9                              
-00009624  LCD_Char_Map                       
-00009522  L_LSL                              
-00009532  L_LSR                              
+00009616  LCD_Char_Map                       
+0000950a  L_LSL                              
+0000951a  L_LSR                              
 000004c4  MAC                                
 000004da  MAC32H                             
 000004db  MAC32H_H                           
@@ -895,9 +895,9 @@ address   name
 000003ae  TA1IV                              
 00000390  TA1R                               
 000082fe  TIMER0_A0_ISR                      
-00008dea  TIMER0_A1_5_ISR                    
-00009376  Timer0_A3_Start                    
-00008f44  Timer0_A4_Delay                    
+00008dd8  TIMER0_A1_5_ISR                    
+0000935e  Timer0_A3_Start                    
+00008f32  Timer0_A4_Delay                    
 000005d0  UCA0ABCTL                          
 000005c6  UCA0BRW                            
 000005c7  UCA0BRW_H                          
@@ -967,7 +967,7 @@ address   name
 0000015c  WDTCTL_L                           
 00002bfc  __STACK_END                        
 00000050  __STACK_SIZE                       
-00009568  __TI_ISR_TRAP                      
+00009550  __TI_ISR_TRAP                      
 0000ffda  __TI_int45                         
 0000ffdc  __TI_int46                         
 0000ffde  __TI_int47                         
@@ -989,73 +989,73 @@ address   name
 ffffffff  __binit__                          
 00001c00  __bss__                            
 ffffffff  __c_args__                         
-0000962e  __cinit__                          
+00009620  __cinit__                          
 00001c00  __data__                           
-000093a4  __divi                             
-00009296  __divli                            
-000094e2  __divu                             
-00009118  __divul                            
+0000938c  __divi                             
+0000927e  __divli                            
+000094ca  __divu                             
+00009100  __divul                            
 00001c00  __edata__                          
 00001cb0  __end__                            
-00009578  __etext__                          
-0000882a  __fs_add                           
-00008bd4  __fs_mpy                           
-00008824  __fs_sub                           
-0000920c  __fs_tou                           
-00009474  __fs_utof                          
-000094f8  __mpyi_f5hw                        
+00009560  __etext__                          
+000086f6  __fs_add                           
+00008bc2  __fs_mpy                           
+000086f0  __fs_sub                           
+000091f4  __fs_tou                           
+0000945c  __fs_utof                          
+000094e0  __mpyi_f5hw                        
 ffffffff  __pinit__                          
-000093a4  __remi                             
-00009296  __remli                            
-000094e2  __remu                             
-00009118  __remul                            
+0000938c  __remi                             
+0000927e  __remli                            
+000094ca  __remu                             
+00009100  __remul                            
 00008000  __text__                           
-00008fa6  _auto_init_hold_wdt                
-00009498  _c_int00_noargs_noexit             
+000090a8  _auto_init_hold_wdt                
+00009480  _c_int00_noargs_noexit             
 0000fffe  _reset_vector                      
 00002bac  _stack                             
-0000956e  _system_pre_init                   
-00009572  abort                              
+00009556  _system_pre_init                   
+0000955a  abort                              
 00001c9b  as_ok                              
-00009344  as_stop                            
+0000932c  as_stop                            
 ffffffff  binit                              
-000091c0  bmp_as_get_data                    
-00008ede  bmp_as_read_register               
-00009344  bmp_as_stop                        
-00009004  bmp_as_write_register              
-00009616  bmp_mgrav_per_bit                  
+000091a8  bmp_as_get_data                    
+00008ecc  bmp_as_read_register               
+0000932c  bmp_as_stop                        
+00008f94  bmp_as_write_register              
+00009608  bmp_mgrav_per_bit                  
 00001c7a  bmp_used                           
 00001c92  button                             
 00001c7b  chronos_black                      
-0000962e  cinit                              
-000090be  clear_line                         
-00009170  convert_acceleration_value_to_mgrav
+00009620  cinit                              
+0000904e  clear_line                         
+00009158  convert_acceleration_value_to_mgrav
 00001c6c  counter                            
 00001c00  display                            
 00008000  display_acceleration               
-00008e64  display_char                       
-00008a4e  display_chars                      
-00008d3e  display_stopwatch                  
-000094cc  display_symbol                     
-00008c8a  display_update                     
+00008e52  display_char                       
+00008a3c  display_chars                      
+00008d2c  display_stopwatch                  
+000094b4  display_symbol                     
+00008c78  display_update                     
 00001c70  downCounter                        
-00009576  dummy                              
+0000955e  dummy                              
 00001c00  edata                              
 00001cb0  end                                
-00009578  etext                              
+00009560  etext                              
 00001ca4  fptr_Timer0_A3_function            
 00001c7c  fptr_lcd_function_line1            
 00001c80  fptr_lcd_function_line2            
 000085ba  init_application                   
 00001c56  int_to_array_str                   
-0000950e  is_stopwatch                       
-00009578  lcd_font                           
-00008b1a  main                               
-00009542  memcpy                             
-000095f2  menu_L1_Acceleration               
-00009604  menu_L2_Stopwatch                  
+000094f6  is_stopwatch                       
+0000958e  lcd_font                           
+00008b08  main                               
+0000952a  memcpy                             
+000095e4  menu_L1_Acceleration               
+000095f6  menu_L2_Stopwatch                  
 00001c78  message                            
-000093fc  mx_stopwatch                       
+000093e4  mx_stopwatch                       
 00001c73  ones                               
 ffffffff  pinit                              
 00001cac  ptrMenu_L1                         
@@ -1066,23 +1066,23 @@ ffffffff  pinit
 00001c9c  sBuzzer                            
 00001c84  sStopwatch                         
 00001ca8  sTimer                             
-000095a4  segments_bitmask                   
+000095ba  segments_bitmask                   
 00001c02  segments_lcdmem                    
-00009252  start_buzzer                       
-00009424  stop_buzzer                        
-000094b2  stop_stopwatch                     
-000086f0  stopwatch_tick                     
-0000944c  sx_acceleration                    
-00009310  sx_stopwatch                       
+0000923a  start_buzzer                       
+0000940c  stop_buzzer                        
+0000949a  stop_stopwatch                     
+00008820  stopwatch_tick                     
+00009434  sx_acceleration                    
+000092f8  sx_stopwatch                       
 00001c74  sys                                
 00001c72  tens                               
-00009062  toggle_buzzer                      
+00008ff2  toggle_buzzer                      
 00001c6e  upCounter                          
-00009552  update_acceleration                
-0000955e  update_stopwatch                   
-000093d0  update_stopwatch_timer             
-00008954  wakeup_event                       
-000092d6  write_lcd_mem                      
+0000953a  update_acceleration                
+00009546  update_stopwatch                   
+000093b8  update_stopwatch_timer             
+00008942  wakeup_event                       
+000092be  write_lcd_mem                      
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1840,70 +1840,70 @@ address   name
 000082fe  TIMER0_A0_ISR                      
 00008460  PORT2_ISR                          
 000085ba  init_application                   
-000086f0  stopwatch_tick                     
-00008824  __fs_sub                           
-0000882a  __fs_add                           
-00008954  wakeup_event                       
-00008a4e  display_chars                      
-00008b1a  main                               
-00008bd4  __fs_mpy                           
-00008c8a  display_update                     
-00008d3e  display_stopwatch                  
-00008dea  TIMER0_A1_5_ISR                    
-00008e64  display_char                       
-00008ede  bmp_as_read_register               
-00008f44  Timer0_A4_Delay                    
-00008fa6  _auto_init_hold_wdt                
-00009004  bmp_as_write_register              
-00009062  toggle_buzzer                      
-000090be  clear_line                         
-00009118  __divul                            
-00009118  __remul                            
-00009170  convert_acceleration_value_to_mgrav
-000091c0  bmp_as_get_data                    
-0000920c  __fs_tou                           
-00009252  start_buzzer                       
-00009296  __divli                            
-00009296  __remli                            
-000092d6  write_lcd_mem                      
-00009310  sx_stopwatch                       
-00009344  as_stop                            
-00009344  bmp_as_stop                        
-00009376  Timer0_A3_Start                    
-000093a4  __divi                             
-000093a4  __remi                             
-000093d0  update_stopwatch_timer             
-000093fc  mx_stopwatch                       
-00009424  stop_buzzer                        
-0000944c  sx_acceleration                    
-00009474  __fs_utof                          
-00009498  _c_int00_noargs_noexit             
-000094b2  stop_stopwatch                     
-000094cc  display_symbol                     
-000094e2  __divu                             
-000094e2  __remu                             
-000094f8  __mpyi_f5hw                        
-0000950e  is_stopwatch                       
-00009522  L_LSL                              
-00009532  L_LSR                              
-00009542  memcpy                             
-00009552  update_acceleration                
-0000955e  update_stopwatch                   
-00009568  __TI_ISR_TRAP                      
-0000956e  _system_pre_init                   
-00009572  C$$EXIT                            
-00009572  abort                              
-00009576  dummy                              
-00009578  __etext__                          
-00009578  etext                              
-00009578  lcd_font                           
-000095a4  segments_bitmask                   
-000095f2  menu_L1_Acceleration               
-00009604  menu_L2_Stopwatch                  
-00009616  bmp_mgrav_per_bit                  
-00009624  LCD_Char_Map                       
-0000962e  __cinit__                          
-0000962e  cinit                              
+000086f0  __fs_sub                           
+000086f6  __fs_add                           
+00008820  stopwatch_tick                     
+00008942  wakeup_event                       
+00008a3c  display_chars                      
+00008b08  main                               
+00008bc2  __fs_mpy                           
+00008c78  display_update                     
+00008d2c  display_stopwatch                  
+00008dd8  TIMER0_A1_5_ISR                    
+00008e52  display_char                       
+00008ecc  bmp_as_read_register               
+00008f32  Timer0_A4_Delay                    
+00008f94  bmp_as_write_register              
+00008ff2  toggle_buzzer                      
+0000904e  clear_line                         
+000090a8  _auto_init_hold_wdt                
+00009100  __divul                            
+00009100  __remul                            
+00009158  convert_acceleration_value_to_mgrav
+000091a8  bmp_as_get_data                    
+000091f4  __fs_tou                           
+0000923a  start_buzzer                       
+0000927e  __divli                            
+0000927e  __remli                            
+000092be  write_lcd_mem                      
+000092f8  sx_stopwatch                       
+0000932c  as_stop                            
+0000932c  bmp_as_stop                        
+0000935e  Timer0_A3_Start                    
+0000938c  __divi                             
+0000938c  __remi                             
+000093b8  update_stopwatch_timer             
+000093e4  mx_stopwatch                       
+0000940c  stop_buzzer                        
+00009434  sx_acceleration                    
+0000945c  __fs_utof                          
+00009480  _c_int00_noargs_noexit             
+0000949a  stop_stopwatch                     
+000094b4  display_symbol                     
+000094ca  __divu                             
+000094ca  __remu                             
+000094e0  __mpyi_f5hw                        
+000094f6  is_stopwatch                       
+0000950a  L_LSL                              
+0000951a  L_LSR                              
+0000952a  memcpy                             
+0000953a  update_acceleration                
+00009546  update_stopwatch                   
+00009550  __TI_ISR_TRAP                      
+00009556  _system_pre_init                   
+0000955a  C$$EXIT                            
+0000955a  abort                              
+0000955e  dummy                              
+00009560  __etext__                          
+00009560  etext                              
+0000958e  lcd_font                           
+000095ba  segments_bitmask                   
+000095e4  menu_L1_Acceleration               
+000095f6  menu_L2_Stopwatch                  
+00009608  bmp_mgrav_per_bit                  
+00009616  LCD_Char_Map                       
+00009620  __cinit__                          
+00009620  cinit                              
 0000ffda  __TI_int45                         
 0000ffdc  __TI_int46                         
 0000ffde  __TI_int47                         

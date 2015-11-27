@@ -182,32 +182,36 @@ void stopwatch_tick(void)
         	start_buzzer(5, CONV_MS_TO_TICKS(200), BUZZER_OFF_TICKS);
 
         	stop_stopwatch();
-        	reset_stopwatch();
-//          memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-            display_stopwatch(2, DISPLAY_LINE_UPDATE_FULL);
+
+            // Clear counter
+            memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
+
+        	display_stopwatch(2, DISPLAY_LINE_UPDATE_FULL);
         }
-
-        // Add data
-        sStopwatch.time[6] = '9';
-        sStopwatch.time[5]--;                      // second  L (0 - 9)
-
-        if (sStopwatch.time[5] == 0x2f)
+        else
         {
-            sStopwatch.drawFlag++;                 // 2
-            sStopwatch.time[5] = '9';
-            sStopwatch.time[4]--;                  // second  H (0 - 5)
-            if (sStopwatch.time[4] == '6')
-            {
-                sStopwatch.drawFlag++;             // 3
-                sStopwatch.time[4] = '9';
-                sStopwatch.time[3]--;              // minutes L (0 - 9)
-                if (sStopwatch.time[3] == 0x2f)
-                {
-                    sStopwatch.drawFlag++;         // 4
-                    sStopwatch.time[3] = '9';
-                    sStopwatch.time[2]--;          // minutes H (0 - 5)
-                }
-            }
+            // Add data
+              sStopwatch.time[6] = '9';
+              sStopwatch.time[5]--;                      // second  L (0 - 9)
+
+              if (sStopwatch.time[5] == 0x2f)
+              {
+                  sStopwatch.drawFlag++;                 // 2
+                  sStopwatch.time[5] = '9';
+                  sStopwatch.time[4]--;                  // second  H (0 - 5)
+                  if (sStopwatch.time[4] == '6')
+                  {
+                      sStopwatch.drawFlag++;             // 3
+                      sStopwatch.time[4] = '9';
+                      sStopwatch.time[3]--;              // minutes L (0 - 9)
+                      if (sStopwatch.time[3] == 0x2f)
+                      {
+                          sStopwatch.drawFlag++;         // 4
+                          sStopwatch.time[3] = '9';
+                          sStopwatch.time[2]--;          // minutes H (0 - 5)
+                      }
+                  }
+              }
         }
     }
 
@@ -224,7 +228,6 @@ void stopwatch_tick(void)
 void reset_stopwatch(void)
 {
     // Clear counter
-//  memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
     memcpy(sStopwatch.time, "00006000", sizeof(sStopwatch.time));
 
     // Clear trigger
