@@ -78,14 +78,6 @@
 // Valid sleep phase durations are: 1, 2, 4, 6, 10, 25, 50
 #define BMP_AS_SLEEPPHASE   (6u)
 
-
-// *************************************************************************************************
-// Global Variable section
-
-// *************************************************************************************************
-// Extern section
-
-
 // *************************************************************************************************
 // @fn          bmp_as_start
 // @brief       Power-up and initialize acceleration sensor
@@ -165,7 +157,6 @@ void bmp_as_start(void)
 	bmp_as_write_register(BMP_BWD, bBwd);        // Set filter bandwidth
 	bmp_as_write_register(BMP_PM, bSleep);       // Set filter bandwidth
 
-
 #ifndef BMP_AS_FILTERING
 	bmp_as_write_register(BMP_SCR, 0x80);        // acquire unfiltered acceleration data
 #endif
@@ -178,8 +169,6 @@ void bmp_as_start(void)
 	AS_INT_IE  |=  AS_INT_PIN;                   // Enable interrupt
 }
 
-
-
 // *************************************************************************************************
 // @fn          bmp_as_stop
 // @brief       Power down acceleration sensor
@@ -190,7 +179,6 @@ void bmp_as_stop(void)
 {
 	as_stop();
 }
-
 
 // *************************************************************************************************
 // @fn          bmp_as_read_register
@@ -219,7 +207,6 @@ unsigned char bmp_as_write_register(unsigned char bAddress, unsigned char bData)
   return as_write_register(bAddress, bData);
 }
 
-
 // *************************************************************************************************
 // @fn          bmp_as_get_data
 // @brief       Service routine to read acceleration values.
@@ -240,5 +227,3 @@ void bmp_as_get_data(unsigned char * data)
 	*(data+1) = bmp_as_read_register(BMP_ACC_Y_MSB);
 	*(data+2) = bmp_as_read_register(BMP_ACC_Z_MSB);
 }
-
-

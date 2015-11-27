@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,17 +28,10 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef MENU_H_
 #define MENU_H_
-
-// *************************************************************************************************
-// Include section
-
-// *************************************************************************************************
-// Prototypes section
 
 // *************************************************************************************************
 // Defines section
@@ -60,24 +51,13 @@ struct menu
 };
 
 // *************************************************************************************************
-// Global Variable section
-
-// *************************************************************************************************
 // Extern section
 
 // Line1 navigation
-extern const struct menu menu_L1_Time;
-extern const struct menu menu_L1_Speed;
 extern const struct menu menu_L1_Acceleration;
 
 // Line2 navigation
-extern const struct menu menu_L2_Date;
 extern const struct menu menu_L2_Stopwatch;
-extern const struct menu menu_L2_Battery;
-extern const struct menu menu_L2_Rf;
-extern const struct menu menu_L2_Ppt;
-extern const struct menu menu_L2_Sync;
-extern const struct menu menu_L2_CalDist;
 
 // Pointers to current menu item
 extern const struct menu *ptrMenu_L1;

@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,7 +28,6 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 // Several user functions.
 // *************************************************************************************************
@@ -277,4 +274,3 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
     // Enable stopwatch display updates again
     sStopwatch.state = stopwatch_state;
 }
-

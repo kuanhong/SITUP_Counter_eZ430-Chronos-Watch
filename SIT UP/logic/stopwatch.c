@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,7 +28,6 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 // Stopwatch functions.
 // *************************************************************************************************
@@ -64,14 +61,8 @@ void sx_stopwatch(unsigned char line);
 void display_stopwatch(unsigned char line, unsigned char update);
 
 // *************************************************************************************************
-// Defines section
-
-// *************************************************************************************************
 // Global Variable section
 struct stopwatch sStopwatch;
-
-// *************************************************************************************************
-// Extern section
 
 // *************************************************************************************************
 // @fn          update_stopwatch_timer
@@ -106,8 +97,6 @@ void update_stopwatch_timer(void)
             sStopwatch.swtIs10Hz = 0;
         }
 
-
-
     // Update CCR
     TA0CCR2 = value;
 }
@@ -130,7 +119,6 @@ void stopwatch_tick(void)
     	sStopwatch.time[7]--;
 
         // Draw flag minimizes display update activity
-        //
         // swt.drawFlag = 1: second L
         // swt.drawFlag = 2: second H/L
         // swt.drawFlag = 3: minutes L, second H/L
@@ -187,8 +175,6 @@ void stopwatch_tick(void)
         {
         	start_buzzer(1, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
         }
-
-
 
         if ( (sStopwatch.time[4] == 0x30) && (sStopwatch.time[5] == 0x30) )
         {
@@ -371,25 +357,25 @@ void display_stopwatch(unsigned char line, unsigned char update)
     {
         if (display.flag.update_stopwatch)
         {
-        					// Check draw flag to minimize workload
-        	                if (sStopwatch.drawFlag != 0)
-        	                {
-        	                    switch (sStopwatch.drawFlag)
-        	                    {
-        	                        case 4:
-        	                            display_char(LCD_SEG_L2_5, sStopwatch.time[2], SEG_ON);
-        	                        case 3:
-        	                            display_char(LCD_SEG_L2_4, sStopwatch.time[3], SEG_ON);
-        	                        case 2:
-        	                            display_char(LCD_SEG_L2_3, sStopwatch.time[4], SEG_ON);
-        	                        case 1:
-        	                            display_char(LCD_SEG_L2_2, sStopwatch.time[5], SEG_ON);
-        	                        case 7:
-        	                            display_char(LCD_SEG_L2_1, sStopwatch.time[6], SEG_ON);
-        	                        case 8:
-        	                            display_char(LCD_SEG_L2_0, sStopwatch.time[7], SEG_ON);
-        	                    }
-        	                }
+        	// Check draw flag to minimize workload
+        	if (sStopwatch.drawFlag != 0)
+        	{
+        		switch (sStopwatch.drawFlag)
+        	    {
+        	    	case 4:
+        	        	display_char(LCD_SEG_L2_5, sStopwatch.time[2], SEG_ON);
+        	        case 3:
+        	        	display_char(LCD_SEG_L2_4, sStopwatch.time[3], SEG_ON);
+        	        case 2:
+        	        	display_char(LCD_SEG_L2_3, sStopwatch.time[4], SEG_ON);
+        	        case 1:
+        	            display_char(LCD_SEG_L2_2, sStopwatch.time[5], SEG_ON);
+        	        case 7:
+        	            display_char(LCD_SEG_L2_1, sStopwatch.time[6], SEG_ON);
+        	        case 8:
+        	            display_char(LCD_SEG_L2_0, sStopwatch.time[7], SEG_ON);
+        	    }
+        	}
         }
     }
     // Redraw whole line

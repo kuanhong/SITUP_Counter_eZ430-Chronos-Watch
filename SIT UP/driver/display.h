@@ -67,11 +67,11 @@ typedef union
         unsigned short line2_full_update : 1;      // 1 = Redraw Line2 content
 
         // Logic module data update flags
-        unsigned short update_time : 1;            // 1 = Time was updated
+//        unsigned short update_time : 1;            // 1 = Time was updated
         unsigned short update_stopwatch : 1;       // 1 = Stopwatch was updated
-        unsigned short update_battery_voltage : 1; // 1 = Battery voltage was updated
-        unsigned short update_date : 1;            // 1 = Date was updated
-        unsigned short update_alarm : 1;           // 1 = Alarm time was updated
+//        unsigned short update_battery_voltage : 1; // 1 = Battery voltage was updated
+//        unsigned short update_date : 1;            // 1 = Date was updated
+//        unsigned short update_alarm : 1;           // 1 = Alarm time was updated
         unsigned short update_acceleration : 1;    // 1 = Acceleration data was updated
     } flag;
     unsigned short all_flags;                      // Shortcut to all display flags (for reset)
@@ -85,22 +85,22 @@ extern volatile s_display_flags display;
 // Display function modes
 #define DISPLAY_LINE_UPDATE_FULL                (BIT0)
 #define DISPLAY_LINE_UPDATE_PARTIAL             (BIT1)
-#define DISPLAY_LINE_CLEAR                              (BIT2)
+#define DISPLAY_LINE_CLEAR                      (BIT2)
 
 // Definitions for line view style
 #define DISPLAY_DEFAULT_VIEW                    (0u)
 #define DISPLAY_ALTERNATIVE_VIEW                (1u)
 
 // Definitions for line access
-#define LINE1                                                   (1u)
-#define LINE2                                                   (2u)
+#define LINE1                                   (1u)
+#define LINE2                                   (2u)
 
 // LCD display modes
 #define SEG_OFF                                 (0u)
 #define SEG_ON                                  (1u)
-#define SEG_ON_BLINK_ON                 (2u)
-#define SEG_ON_BLINK_OFF                (3u)
-#define SEG_OFF_BLINK_OFF               (4u)
+#define SEG_ON_BLINK_ON                 		(2u)
+#define SEG_ON_BLINK_OFF                		(3u)
+#define SEG_OFF_BLINK_OFF               		(4u)
 
 // 7-segment character bit assignments
 #define SEG_A                   (BIT4)
@@ -122,8 +122,8 @@ extern volatile s_display_flags display;
 // xxx_L2_xxx           = Item is part of Line2 information
 
 // Symbols for Line1
-#define LCD_SYMB_AM                                     0
-#define LCD_SYMB_PM                                     1
+#define LCD_SYMB_AM                             0
+#define LCD_SYMB_PM                             1
 #define LCD_SYMB_ARROW_UP                       2
 #define LCD_SYMB_ARROW_DOWN                     3
 #define LCD_SYMB_PERCENT                        4

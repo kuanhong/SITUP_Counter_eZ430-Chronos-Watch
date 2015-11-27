@@ -115,7 +115,6 @@ int main(void)
     // Assign initial value to global variables
     init_global_variables();
 
-
     // Display
     // Frame frequency = 256Hz/4 = 64Hz, LCD mux 4, LCD on
 //    LCDBCTL0 = (LCDDIV0 + LCDDIV1 + LCDDIV2 + LCDDIV3) | (LCDPRE0 + LCDPRE1) | LCD4MUX | LCDON;
@@ -129,7 +128,6 @@ int main(void)
     // Select LCD Segments (Line 1)
 //    LCDBPCTL0 = 0x0C00 + 0x00C0 + 0x0030 + 0x000C;
 //    LCDBPCTL0 = 0x00CFC;
-
 
     // Main control loop: wait in low power mode until some event needs to be processed
     while (1)
@@ -258,18 +256,10 @@ void init_application(void)
 // *************************************************************************************************
 void init_global_variables(void)
 {
-    // --------------------------------------------
-    // Apply default settings
-
     // set menu pointers to default menu items
-    //      ptrMenu_L1 = &menu_L1_Speed;
             ptrMenu_L1 = &menu_L1_Acceleration;
 
             ptrMenu_L2 = &menu_L2_Stopwatch;
-    //      ptrMenu_L2 = &menu_L2_Rf;
-    //      ptrMenu_L2 = &menu_L2_Ppt;
-    //      ptrMenu_L2 = &menu_L2_Sync;
-    //      ptrMenu_L2 = &menu_L2_Distance;
 
     // Assign LINE1 and LINE2 display functions
     fptr_lcd_function_line1 = ptrMenu_L1->display_function;
@@ -352,42 +342,17 @@ void wakeup_event(void)
         // (Short) Advance to next menu item
         if (button.flag.star)
         {
-
-//            // Clean up display before activating next menu item
-//            fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
-//
-//            // Go to next menu entry
+//            Go to next menu entry
 //            ptrMenu_L1 = ptrMenu_L1->next;
-//
-//            // Assign new display function
-//            fptr_lcd_function_line1 = ptrMenu_L1->display_function;
-//
-//            // Set Line1 display update flag
-//            display.flag.line1_full_update = 1;
-//
-//            // Clear button flag
-//            button.flag.star = 0;
         }
         // NUM button event ---------------------------------------------------------------------
         // (Short) Advance to next menu item
         else if (button.flag.num)
         {
         	reset_acceleration();
-                	reset_stopwatch();
-            // Clean up display before activating next menu item
-//            fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
-
-            // Go to next menu entry
+            reset_stopwatch();
+//            Go to next menu entry
 //            ptrMenu_L2 = ptrMenu_L2->next;
-
-            // Assign new display function
-//            fptr_lcd_function_line2 = ptrMenu_L2->display_function;
-
-            // Set Line2 display update flag
-//            display.flag.line2_full_update = 1;
-
-            // Clear button flag
-//            button.flag.num = 0;
         }
         // UP button event ---------------------------------------------------------------------
         // Activate user function for Line1 menu item

@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,7 +28,6 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef USER_H_
@@ -42,8 +39,8 @@
 #define SETVALUE_DISPLAY_VALUE                          BIT1
 #define SETVALUE_DISPLAY_ARROWS                         BIT2
 #define SETVALUE_DISPLAY_SELECTION                      BIT3
-#define SETVALUE_FAST_MODE                                      BIT4
-#define SETVALUE_NEXT_VALUE                                     BIT5
+#define SETVALUE_FAST_MODE                              BIT4
+#define SETVALUE_NEXT_VALUE                             BIT5
 
 // *************************************************************************************************
 // Prototypes section

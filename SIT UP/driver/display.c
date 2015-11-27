@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,11 +28,8 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 // Display functions.
-// *************************************************************************************************
-
 // *************************************************************************************************
 // Include section
 
@@ -56,9 +51,6 @@ void clear_line(unsigned char line);
 void display_symbol(unsigned char symbol, unsigned char mode);
 void display_char(unsigned char segment, unsigned char chr, unsigned char mode);
 void display_chars(unsigned char segments, unsigned char * str, unsigned char mode);
-
-// *************************************************************************************************
-// Defines section
 
 // *************************************************************************************************
 // Global Variable section

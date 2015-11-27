@@ -256,7 +256,7 @@ __interrupt void TIMER0_A0_ISR(void)
     TA0CCTL0 |= CCIE;
 
     // Set clock update flag
-    display.flag.update_time = 1;
+//    display.flag.update_time = 1;
 
     // -------------------------------------------------------------------
     // Service active modules that require 1/s processing
