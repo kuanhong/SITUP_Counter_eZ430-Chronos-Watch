@@ -42,9 +42,6 @@
 // system
 #include "project.h"
 
-// logic
-//#include "simpliciti.h"
-
 // driver
 #include "bmp_as.h"
 #include "as.h"

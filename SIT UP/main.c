@@ -77,13 +77,6 @@ void process_requests(void);
 void display_update(void);
 void idle_loop(void);
 void configure_ports(void);
-void read_calibration_values(void);
-
-// *************************************************************************************************
-// Defines section
-
-// Number of calibration data bytes in INFOA memory
-#define CALIBRATION_DATA_LENGTH         (13u)
 
 // *************************************************************************************************
 // Global Variable section
@@ -104,18 +97,9 @@ unsigned char bmp_used;
  * between Chronos with Black PCB and Chronos with White PCB */
 unsigned char chronos_black;
 
-// Global radio frequency offset taken from calibration memory
-// Compensates crystal deviation from 26MHz nominal value
-unsigned char rf_frequoffset;
-
 // Function pointers for LINE1 and LINE2 display function
 void (*fptr_lcd_function_line1)(unsigned char line, unsigned char update);
 void (*fptr_lcd_function_line2)(unsigned char line, unsigned char update);
-
-// *************************************************************************************************
-// Extern section
-
-extern void start_simpliciti_sync(void);
 
 // *************************************************************************************************
 // @fn          main
@@ -305,10 +289,6 @@ void init_global_variables(void)
     // Use metric units when displaying values
     sys.flag.use_metric_units = 1;
 #endif
-
-    // Read calibration values from info memory
-    read_calibration_values();
-
     // Set buzzer to default value
     reset_buzzer();
 
@@ -564,32 +544,4 @@ void idle_loop(void)
     // Service watchdog
     WDTCTL = WDTPW + WDTIS__512K + WDTSSEL__ACLK + WDTCNTCL;
 #endif
-}
-
-// *************************************************************************************************
-// @fn          read_calibration_values
-// @brief       Read calibration values for temperature measurement, voltage measurement
-//                              and radio from INFO memory.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void read_calibration_values(void)
-{
-    unsigned char cal_data[CALIBRATION_DATA_LENGTH]; // Temporary storage for constants
-    unsigned char i;
-    unsigned char *flash_mem;                        // Memory pointer
-
-    // Read calibration data from Info D memory
-    flash_mem = (unsigned char *) 0x1800;
-    for (i = 0; i < CALIBRATION_DATA_LENGTH; i++)
-    {
-        cal_data[i] = *flash_mem++;
-    }
-
-    if (cal_data[0] == 0xFF)
-    {
-        // If no values are available (i.e. INFO D memory has been erased by user), assign
-        // experimentally derived values
-        rf_frequoffset = 4;
-    }
 }

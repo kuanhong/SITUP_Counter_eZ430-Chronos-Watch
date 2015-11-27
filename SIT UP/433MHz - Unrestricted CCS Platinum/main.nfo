@@ -35,13 +35,12 @@ extern void init_application() is called from 1 sites in this file.
 	__bis_SR_register() (1 times)
 
 extern void init_global_variables() is called from 1 sites in this file.
-    It appears to be inlineable (size = 44 units)
+    It appears to be inlineable (size = 43 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	reset_acceleration() (1 times)
 	reset_stopwatch() (1 times)
 	reset_buzzer() (1 times)
-	read_calibration_values() (1 times)
 
 extern int main() is called from 0 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -58,12 +57,6 @@ extern void process_requests() is called from 1 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	do_acceleration_measurement() (1 times)
-
-extern void read_calibration_values() is called from 1 sites in this file.
-    It appears to be inlineable (size = 33 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
 
 extern void to_lpm() is called from 1 sites in this file.
     It appears to be inlineable (size = 4 units)
@@ -141,14 +134,6 @@ extern void to_lpm() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern void read_calibration_values() is called from 1 sites in this file.
-    It appears to be inlineable (size = 33 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
 extern void process_requests() is called from 1 sites in this file.
     It appears to be inlineable (size = 12 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -166,10 +151,10 @@ extern void init_application() is called from 1 sites in this file.
 ==============================================================================
 
 extern void init_global_variables() is called from 1 sites in this file.
-    It appears to be inlineable (size = 44 units)
+    It appears to be inlineable (size = 43 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	read_calibration_values() (1 times)
+	<NONE>
 
 ==============================================================================
 

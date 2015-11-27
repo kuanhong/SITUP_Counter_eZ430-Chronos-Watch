@@ -91,7 +91,6 @@ void start_buzzer(unsigned char cycles, unsigned short on_time, unsigned short o
         sBuzzer.on_time = on_time;
         sBuzzer.off_time = off_time;
 
-        // Need to init every time, because SimpliciTI claims same timer
         // Reset TA1R, set up mode, TA1 runs from 32768Hz ACLK
         TA1CTL = TACLR | MC_1 | TASSEL__ACLK;
 
