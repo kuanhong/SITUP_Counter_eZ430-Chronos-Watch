@@ -209,6 +209,19 @@ __interrupt void PORT2_ISR(void)
                     }
                 }
             }
+            // ---------------------------------------------------
+            // B/L button IRQ
+            else if (IRQ_TRIGGERED(int_flag, BUTTON_BACKLIGHT_PIN))
+            {
+                // Filter bouncing noise
+                if (BUTTON_BACKLIGHT_IS_PRESSED)
+                {
+                    sButton.backlight_status = 1;
+                    sButton.backlight_timeout = 0;
+                    P2OUT |= BUTTON_BACKLIGHT_PIN;
+                    P2DIR |= BUTTON_BACKLIGHT_PIN;
+                }
+            }
         }
 
         // Trying to lock/unlock buttons?

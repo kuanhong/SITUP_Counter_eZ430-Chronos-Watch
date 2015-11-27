@@ -10,5 +10,5 @@
 	<rts value="rts430x.lib"/>
 	<templateProperties value="id=com.ti.common.project.core.emptyProjectTemplate,"/>
 	<isTargetManual value="false"/>
-	<origin value="C:/Users/Khaleef/Documents/GitHub/Land-of-Hope/ez430_chronos_noRadio_2"/>
+	<origin value="C:/Users/Khaleef/Documents/GitHub/Land-of-Hope/SIT UP"/>
 </projectOptions>

@@ -56,6 +56,7 @@ void stop_stopwatch(void);
 void reset_stopwatch(void);
 void stopwatch_tick(void);
 void update_stopwatch_timer(void);
+void mx_stopwatch(unsigned char line);
 void sx_stopwatch(unsigned char line);
 void display_stopwatch(unsigned char line, unsigned char update);
 
@@ -184,17 +185,6 @@ void stopwatch_tick(void)
         	reset_stopwatch();
 //          memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
             display_stopwatch(2, DISPLAY_LINE_UPDATE_FULL);
-
-
-
-            // Stop stopwatch
-//            stop_stopwatch();
-
-            // Reset stopwatch count
-//            reset_stopwatch();
-
-            // Display "00:00:00"
-//            display_stopwatch(line, DISPLAY_LINE_UPDATE_FULL);
         }
 
         // Add data
@@ -243,6 +233,9 @@ void reset_stopwatch(void)
 
     // Init stopwatch state 'Off'
     sStopwatch.state = STOPWATCH_STOP;
+
+    // Default display style is MM:SS:HH
+    sStopwatch.viewStyle = DISPLAY_DEFAULT_VIEW;
 }
 
 // *************************************************************************************************
@@ -303,6 +296,24 @@ void stop_stopwatch(void)
 
     // Call draw routine immediately
     display_stopwatch(LINE2, DISPLAY_LINE_UPDATE_FULL);
+}
+
+// *************************************************************************************************
+// @fn          mx_stopwatch
+// @brief       Stopwatch set routine. Mx stops stopwatch and resets count.
+// @param       unsigned char line LINE2
+// @return      none
+// *************************************************************************************************
+void mx_stopwatch(unsigned char line)
+{
+    // Stop stopwatch
+    stop_stopwatch();
+
+    // Reset stopwatch count
+    reset_stopwatch();
+
+    // Display "00:00:00"
+    display_stopwatch(line, DISPLAY_LINE_UPDATE_FULL);
 }
 
 // *************************************************************************************************

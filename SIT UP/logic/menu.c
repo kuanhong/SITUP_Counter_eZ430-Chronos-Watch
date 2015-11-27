@@ -64,6 +64,10 @@ const struct menu *ptrMenu_L2 = NULL;
 // *************************************************************************************************
 // Global Variable section
 
+void display_nothing(unsigned char line, unsigned char update)
+{
+}
+
 unsigned char update_stopwatch(void)
 {
     return (display.flag.update_stopwatch);
@@ -93,7 +97,7 @@ const struct menu menu_L1_Acceleration = {
 // Line2 - Stopwatch
 const struct menu menu_L2_Stopwatch = {
     FUNCTION(sx_stopwatch),           // direct function
-    FUNCTION(dummy),           // sub menu function
+    FUNCTION(mx_stopwatch),           // sub menu function
     FUNCTION(display_stopwatch),      // display function
     FUNCTION(update_stopwatch),       // new display data
 };

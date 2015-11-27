@@ -1,5 +1,7 @@
 // *************************************************************************************************
+//
 //	Copyright (C) 2011 Texas Instruments Incorporated - http://www.ti.com/ 
+//	 
 //	 
 //	  Redistribution and use in source and binary forms, with or without 
 //	  modification, are permitted provided that the following conditions 
@@ -28,10 +30,15 @@
 //	  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //	  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
 //	  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
 // *************************************************************************************************
 
 #ifndef AS_H_
 #define AS_H_
+
+
+// *************************************************************************************************
+// Include section
 
 // *************************************************************************************************
 // Prototypes section
@@ -91,9 +98,14 @@ extern unsigned char as_write_register(unsigned char bAddress, unsigned char bDa
 #define AS_SPI_TIMEOUT       (1000u)
 
 // *************************************************************************************************
+// Global Variable section
+
+
+// *************************************************************************************************
 // Extern section
 
 // Global flag for proper acceleration sensor operation
 extern unsigned char as_ok;
+
 
 #endif /*AS_H_*/
