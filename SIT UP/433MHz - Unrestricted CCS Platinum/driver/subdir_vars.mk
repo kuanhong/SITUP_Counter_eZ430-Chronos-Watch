@@ -4,7 +4,6 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../driver/adc12.c \
 ../driver/as.c \
 ../driver/bmp_as.c \
 ../driver/buzzer.c \
@@ -13,7 +12,6 @@ C_SRCS += \
 ../driver/timer.c 
 
 OBJS += \
-./driver/adc12.obj \
 ./driver/as.obj \
 ./driver/bmp_as.obj \
 ./driver/buzzer.obj \
@@ -22,7 +20,6 @@ OBJS += \
 ./driver/timer.obj 
 
 C_DEPS += \
-./driver/adc12.pp \
 ./driver/as.pp \
 ./driver/bmp_as.pp \
 ./driver/buzzer.pp \
@@ -31,7 +28,6 @@ C_DEPS += \
 ./driver/timer.pp 
 
 C_DEPS__QUOTED += \
-"driver\adc12.pp" \
 "driver\as.pp" \
 "driver\bmp_as.pp" \
 "driver\buzzer.pp" \
@@ -40,7 +36,6 @@ C_DEPS__QUOTED += \
 "driver\timer.pp" 
 
 OBJS__QUOTED += \
-"driver\adc12.obj" \
 "driver\as.obj" \
 "driver\bmp_as.obj" \
 "driver\buzzer.obj" \
@@ -49,7 +44,6 @@ OBJS__QUOTED += \
 "driver\timer.obj" 
 
 C_SRCS__QUOTED += \
-"../driver/adc12.c" \
 "../driver/as.c" \
 "../driver/bmp_as.c" \
 "../driver/buzzer.c" \
