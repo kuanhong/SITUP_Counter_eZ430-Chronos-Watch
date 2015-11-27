@@ -97,15 +97,7 @@ extern unsigned char as_write_register(unsigned char bAddress, unsigned char bDa
 // SPI timeout to detect sensor failure
 #define AS_SPI_TIMEOUT       (1000u)
 
-// *************************************************************************************************
-// Global Variable section
-
-
-// *************************************************************************************************
-// Extern section
-
 // Global flag for proper acceleration sensor operation
 extern unsigned char as_ok;
-
 
 #endif /*AS_H_*/

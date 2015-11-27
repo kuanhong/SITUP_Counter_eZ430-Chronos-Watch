@@ -11,11 +11,10 @@ extern void dummy() is called from 0 sites in this file.
 	<NONE>
 
 extern void set_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 26 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	button_repeat_off() (1 times)
-	display_symbol() (2 times)
 	set_blink_rate() (2 times)
 	button_repeat_on() (1 times)
 	stop_buzzer() (1 times)
@@ -30,7 +29,6 @@ These external functions are called but not defined here:
 	stop_buzzer()
 	button_repeat_on()
 	set_blink_rate()
-	display_symbol()
 	button_repeat_off()
 
 
@@ -40,7 +38,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void set_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 32 units)
+    It appears to be inlineable (size = 26 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

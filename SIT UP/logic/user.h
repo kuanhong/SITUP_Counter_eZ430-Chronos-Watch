@@ -44,7 +44,6 @@
 
 // *************************************************************************************************
 // Prototypes section
-extern unsigned char *select_view_style(unsigned char line, unsigned char * view1, unsigned char * view2);
 
 extern void (*fptr_setValue_display_function1)(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks);
 extern void set_value(int * value, unsigned char digits, unsigned char blanks, int limitLow, int limitHigh, unsigned short mode,

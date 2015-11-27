@@ -116,10 +116,6 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
     // Start blinking with with 2Hz
     set_blink_rate(BIT6 + BIT5);
 
-    // Clear up and down arrows
-    display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-    display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-
     // Set blinking rate to 1Hz and stop
     set_blink_rate(BIT7 + BIT6 + BIT5);
     clear_blink_mem();
