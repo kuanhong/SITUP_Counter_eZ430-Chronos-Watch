@@ -170,19 +170,7 @@ __interrupt void PORT2_ISR(void)
                     BUTTONS_IES &= ~BUTTON_NUM_PIN;
                 }
             }
-            // ---------------------------------------------------
-            // UP button IRQ
-            else if (IRQ_TRIGGERED(int_flag, BUTTON_UP_PIN))
-            {
-                // Filter bouncing noise
-                if (BUTTON_UP_IS_PRESSED)
-                {
-                    button.flag.up = 1;
 
-                    // Generate button click
-                    buzzer = 1;
-                }
-            }
             // ---------------------------------------------------
             // DOWN button IRQ
             else if (IRQ_TRIGGERED(int_flag, BUTTON_DOWN_PIN))
@@ -205,13 +193,7 @@ __interrupt void PORT2_ISR(void)
             }
         }
 
-        // Trying to lock/unlock buttons?
-        if (button.flag.num && button.flag.down)
-        {
-            // No buzzer output
-            buzzer = 0;
-            button.all_flags = 0;
-        }
+
 
         // ---------------------------------------------------
         // Acceleration sensor IRQ
