@@ -72,36 +72,36 @@ const unsigned char lcd_font[] = {
     0,                                                     // Displays " "
     0,                                                     // Displays " "
     0,                                                     // Displays " "
-    SEG_D + SEG_E + SEG_G,                                 // Displays "c"
+//    SEG_D + SEG_E + SEG_G,                                 // Displays "c"
     0,                                                     // Displays " "
-    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,         // Displays "A"
-    SEG_C + SEG_D + SEG_E + SEG_F + SEG_G,                 // Displays "b"
-    SEG_A + SEG_D + SEG_E + SEG_F,                         // Displays "C"
-    SEG_B + SEG_C + SEG_D + SEG_E + SEG_G,                 // Displays "d"
-    SEG_A + +SEG_D + SEG_E + SEG_F + SEG_G,                // Displays "E"
-    SEG_A + SEG_E + SEG_F + SEG_G,                         // Displays "F"
-    //  SEG_A+      SEG_C+SEG_D+SEG_E+SEG_F+SEG_G,       // Displays "G"
-    SEG_A + SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,         // Displays "g"
-    SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,                 // Displays "H"
-    SEG_E + SEG_F,                                         // Displays "I"
-    SEG_A + SEG_B + SEG_C + SEG_D,                         // Displays "J"
-    //              SEG_B+SEG_C+      SEG_E+SEG_F+SEG_G,     // Displays "k"
-    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "k"
-    SEG_D + SEG_E + SEG_F,                                 // Displays "L"
-    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F,                 // Displays "M"
-    SEG_C + SEG_E + SEG_G,                                 // Displays "n"
-    SEG_C + SEG_D + SEG_E + SEG_G,                         // Displays "o"
-    SEG_A + SEG_B + SEG_E + SEG_F + SEG_G,                 // Displays "P"
-    SEG_A + SEG_B + SEG_C + SEG_D + SEG_E + SEG_F,         // Displays "Q"
-    SEG_E + SEG_G,                                         // Displays "r"
-    SEG_A + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "S"
-    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "t"
-    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
-    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
-    SEG_G,                                                 // Displays "-"
-    SEG_B + SEG_C + +SEG_E + SEG_F + SEG_G,                // Displays "X"
-    SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "Y"
-    SEG_A + SEG_B + SEG_D + SEG_E + SEG_G,                 // Displays "Z"
+//    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,         // Displays "A"
+//    SEG_C + SEG_D + SEG_E + SEG_F + SEG_G,                 // Displays "b"
+//    SEG_A + SEG_D + SEG_E + SEG_F,                         // Displays "C"
+//    SEG_B + SEG_C + SEG_D + SEG_E + SEG_G,                 // Displays "d"
+//    SEG_A + +SEG_D + SEG_E + SEG_F + SEG_G,                // Displays "E"
+//    SEG_A + SEG_E + SEG_F + SEG_G,                         // Displays "F"
+//    //  SEG_A+      SEG_C+SEG_D+SEG_E+SEG_F+SEG_G,       // Displays "G"
+//    SEG_A + SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,         // Displays "g"
+//    SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,                 // Displays "H"
+//    SEG_E + SEG_F,                                         // Displays "I"
+//    SEG_A + SEG_B + SEG_C + SEG_D,                         // Displays "J"
+//    //              SEG_B+SEG_C+      SEG_E+SEG_F+SEG_G,     // Displays "k"
+//    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "k"
+//    SEG_D + SEG_E + SEG_F,                                 // Displays "L"
+//    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F,                 // Displays "M"
+//    SEG_C + SEG_E + SEG_G,                                 // Displays "n"
+//    SEG_C + SEG_D + SEG_E + SEG_G,                         // Displays "o"
+//    SEG_A + SEG_B + SEG_E + SEG_F + SEG_G,                 // Displays "P"
+//    SEG_A + SEG_B + SEG_C + SEG_D + SEG_E + SEG_F,         // Displays "Q"
+//    SEG_E + SEG_G,                                         // Displays "r"
+//    SEG_A + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "S"
+//    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "t"
+//    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
+//    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
+//    SEG_G,                                                 // Displays "-"
+//    SEG_B + SEG_C + +SEG_E + SEG_F + SEG_G,                // Displays "X"
+//    SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "Y"
+//    SEG_A + SEG_B + SEG_D + SEG_E + SEG_G,                 // Displays "Z"
 };
 
 // Table with memory address for each display element
@@ -197,10 +197,11 @@ const unsigned char segments_bitmask[] = {
 };
 
 // Quick integer to array conversion table for most common integer values
+
 const unsigned char int_to_array_conversion_table[][3] = {
-    "000", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012",
-    "013", "014", "015",
-    "016", "017", "018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028",
+	"000", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012",
+	"013", "014", "015",
+	"016", "017","018", "019", "020", "021", "022", "023", "024", "025", "026", "027", "028",
     "029", "030", "031",
     "032", "033", "034", "035", "036", "037", "038", "039", "040", "041", "042", "043", "044",
     "045", "046", "047",

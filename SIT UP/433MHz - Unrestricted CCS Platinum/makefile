@@ -4,10 +4,9 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2
+CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3
 
 ORDERED_OBJS += \
-$(GEN_CMDS__FLAG) \
 "./main.obj" \
 "./logic/acceleration.obj" \
 "./logic/menu.obj" \
@@ -20,6 +19,7 @@ $(GEN_CMDS__FLAG) \
 "./driver/ports.obj" \
 "./driver/timer.obj" \
 "../lnk_cc430f6137.cmd" \
+$(GEN_CMDS__FLAG) \
 -l"rts430x.lib" \
 -l"libmath.a" \
 
@@ -63,11 +63,11 @@ endif
 ifneq ($(strip $(C67_DEPS)),)
 -include $(C67_DEPS)
 endif
-ifneq ($(strip $(C??_DEPS)),)
--include $(C??_DEPS)
-endif
 ifneq ($(strip $(CLA_DEPS)),)
 -include $(CLA_DEPS)
+endif
+ifneq ($(strip $(C??_DEPS)),)
+-include $(C??_DEPS)
 endif
 ifneq ($(strip $(CPP_DEPS)),)
 -include $(CPP_DEPS)
@@ -96,6 +96,9 @@ endif
 ifneq ($(strip $(C43_DEPS)),)
 -include $(C43_DEPS)
 endif
+ifneq ($(strip $(INO_DEPS)),)
+-include $(INO_DEPS)
+endif
 ifneq ($(strip $(S67_DEPS)),)
 -include $(S67_DEPS)
 endif
@@ -107,6 +110,9 @@ ifneq ($(strip $(S43_DEPS)),)
 endif
 ifneq ($(strip $(OPT_DEPS)),)
 -include $(OPT_DEPS)
+endif
+ifneq ($(strip $(PDE_DEPS)),)
+-include $(PDE_DEPS)
 endif
 ifneq ($(strip $(S64_DEPS)),)
 -include $(S64_DEPS)
@@ -129,10 +135,10 @@ EXE_OUTPUTS__QUOTED += \
 "SIT UP_433MHz.out" \
 
 BIN_OUTPUTS += \
-SIT\ UP_433MHz.hex \
+SIT\ UP_433MHz.txt \
 
 BIN_OUTPUTS__QUOTED += \
-"SIT UP_433MHz.hex" \
+"SIT UP_433MHz.txt" \
 
 
 # All Target
@@ -142,14 +148,14 @@ all: SIT\ UP_433MHz.out
 SIT\ UP_433MHz.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP430 Linker'
-	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/cl430" -vmspx --abi=coffabi -O4 --opt_for_speed=0 --use_hw_mpy=F5 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_LF --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"SIT UP_433MHz.map" --heap_size=80 --stack_size=80 --cinit_hold_wdt=on -i"E:/ti/ccsv6/ccs_base/msp430/include" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/lib" -i"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include" -i"E:/ti/ccsv6/ccs_base/msp430/lib" -i"E:/ti/ccsv6/ccs_base/msp430/lib/5xx_6xx_FRxx" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="SIT UP_433MHz_linkInfo.xml" --rom_model -o "SIT UP_433MHz.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/cl430" -vmspx --abi=coffabi -O4 --opt_for_speed=0 --use_hw_mpy=F5 -g --define=__CC430F6137__ --define=__CCE__ --define=ISM_LF --define=MRFI_CC430 --diag_warning=225 --display_error_number --diag_wrap=off --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40 --call_assumptions=0 --gen_opt_info=2 --printf_support=minimal -z -m"SIT UP_433MHz.map" --heap_size=80 --stack_size=80 --cinit_hold_wdt=on -i"C:/ti/ccsv6/ccs_base/msp430/include" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/include" -i"C:/ti/ccsv6/ccs_base/msp430/lib" -i"C:/ti/ccsv6/ccs_base/msp430/lib/5xx_6xx_FRxx" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="SIT UP_433MHz_linkInfo.xml" --rom_model -o "SIT UP_433MHz.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	@$(MAKE) --no-print-directory post-build
 
-SIT\ UP_433MHz.hex: $(EXE_OUTPUTS)
+SIT\ UP_433MHz.txt: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP430 Hex Utility'
-	"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430" --memwidth=8 --romwidth=8 -o "SIT UP_433MHz.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/hex430" --memwidth=8 --romwidth=8 -o "SIT UP_433MHz.txt" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -163,7 +169,7 @@ clean:
 
 post-build:
 	-@echo 'Create flash image: TI-TXT'
-	-"E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/bin/hex430.exe" --ti_txt "SIT UP_433MHz.out" -o "SIT UP_433MHz.txt" -order MS -romwidth 16
+	-"C:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.3/bin/hex430.exe" --ti_txt "SIT UP_433MHz.out" -o "SIT UP_433MHz.txt" -order MS -romwidth 16
 	-@echo ' '
 
 .PHONY: all clean dependents
