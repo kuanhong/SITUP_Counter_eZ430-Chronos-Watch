@@ -46,12 +46,6 @@
 // logic
 #include "stopwatch.h"
 
-// *************************************************************************************************
-// Prototypes section
-void button_repeat_on(unsigned short msec);
-void button_repeat_off(void);
-void button_repeat_function(void);
-
 // Macro for button IRQ
 #define IRQ_TRIGGERED(flags, bit)               ((flags & bit) == bit)
 
@@ -234,70 +228,4 @@ __interrupt void PORT2_ISR(void)
 
     // Exit from LPM3/LPM4 on RETI
     __bic_SR_register_on_exit(LPM4_bits);
-}
-
-// *************************************************************************************************
-// @fn          button_repeat_on
-// @brief       Start button auto repeat timer.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void button_repeat_on(unsigned short msec)
-{
-    // Set button repeat flag
-    sys.flag.up_down_repeat_enabled = 1;
-
-    // Set Timer0_A3 function pointer to button repeat function
-    fptr_Timer0_A3_function = button_repeat_function;
-
-    // Timer0_A3 IRQ triggers every 200ms
-    Timer0_A3_Start(CONV_MS_TO_TICKS(msec));
-}
-
-// *************************************************************************************************
-// @fn          button_repeat_off
-// @brief       Stop button auto repeat timer.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void button_repeat_off(void)
-{
-    // Clear button repeat flag
-    sys.flag.up_down_repeat_enabled = 0;
-
-    // Timer0_A3 IRQ repeats with 4Hz
-    Timer0_A3_Stop();
-}
-
-// *************************************************************************************************
-// @fn          button_repeat_function
-// @brief       Check at regular intervals if button is pushed continuously
-//                              and trigger virtual button event.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void button_repeat_function(void)
-{
-    static unsigned char start_delay = 10; // Wait for 2 seconds before starting auto up/down
-    unsigned char repeat = 0;
-
-    if (BUTTON_DOWN_IS_PRESSED)
-    {
-        if (start_delay == 0)
-        {
-            // Generate a virtual button event
-            button.flag.down = 1;
-            repeat = 1;
-        }
-        else
-        {
-            start_delay--;
-        }
-    }
-    else
-    {
-        // Reset repeat counter
-        sButton.repeats = 0;
-        start_delay = 10;
-    }
 }

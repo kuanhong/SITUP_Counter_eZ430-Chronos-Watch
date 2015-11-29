@@ -219,17 +219,11 @@ void Timer0_A4_Delay(unsigned short ticks)
 // *************************************************************************************************
 // @fn          TIMER0_A0_ISR
 // @brief       IRQ handler for TIMER0_A0 IRQ
-//                              Timer0_A0       1/1sec clock tick                       (serviced by
-// function TIMER0_A0_ISR)
-//                              Timer0_A1
-//                                                               (serviced by function
-// TIMER0_A1_5_ISR)
-//                              Timer0_A2       1/100 sec Stopwatch                     (serviced by
-// function TIMER0_A1_5_ISR)
-//                              Timer0_A3       Configurable periodic IRQ       (serviced by
-// function TIMER0_A1_5_ISR)
-//                              Timer0_A4       One-time delay                          (serviced by
-// function TIMER0_A1_5_ISR)
+//                              Timer0_A0 1/1sec clock tick (serviced by function TIMER0_A0_ISR)
+//                              Timer0_A1 (serviced by function TIMER0_A1_5_ISR)
+//                              Timer0_A2 1/100 sec Stopwatch (serviced by function TIMER0_A1_5_ISR)
+//                              Timer0_A3 Configurable periodic IRQ (serviced by function TIMER0_A1_5_ISR)
+//                              Timer0_A4 One-time delay (serviced by function TIMER0_A1_5_ISR)
 // @param       none
 // @return      none
 // *************************************************************************************************
@@ -361,12 +355,9 @@ __interrupt void TIMER0_A0_ISR(void)
 // *************************************************************************************************
 // @fn          Timer0_A1_5_ISR
 // @brief       IRQ handler for timer IRQ.
-//                              Timer0_A0       1/1sec clock tick (serviced by function
-// TIMER0_A0_ISR)
-//                              Timer0_A1       BlueRobin timer
+//                              Timer0_A0       1/1sec clock tick (serviced by function TIMER0_A0_ISR)
 //                              Timer0_A2       1/100 sec Stopwatch
-//                              Timer0_A3       Configurable periodic IRQ (used by button_repeat and
-// buzzer)
+//                              Timer0_A3       Configurable periodic IRQ (used by button_repeat and buzzer)
 //                              Timer0_A4       One-time delay
 // @param       none
 // @return      none
@@ -378,11 +369,6 @@ __interrupt void TIMER0_A1_5_ISR(void)
 
     switch (TA0IV)
     {
-        // Timer0_A1    BlueRobin timer
-        case 0x02:             // Timer0_A1 handler
-//            BRRX_TimerTask_v();
-            break;
-
         // Timer0_A2    1/1 or 1/100 sec Stopwatch
         case 0x04:             // Timer0_A2 handler
             // Disable IE

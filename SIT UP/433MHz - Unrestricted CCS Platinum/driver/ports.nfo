@@ -14,43 +14,17 @@ extern void PORT2_ISR() is called from 0 sites in this file.
 	__enable_interrupt() (2 times)
 	__disable_interrupt() (2 times)
 
-extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 25 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-extern void button_repeat_off() is called from 0 sites in this file.
-    It appears to be inlineable (size = 6 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	Timer0_A3_Stop() (1 times)
-
-extern void button_repeat_on() is called from 0 sites in this file.
-    It appears to be inlineable (size = 18 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	Timer0_A3_Start() (1 times)
-
 extern void init_buttons() is called from 0 sites in this file.
     It appears to be inlineable (size = 19 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
-Address of global variable is never taken:
-	static unsigned char start_delay$1
-
-
 
 These functions may be recursive:
 	PORT2_ISR()
-	button_repeat_off()
-	button_repeat_on()
 
 These external functions are called but not defined here:
-	Timer0_A3_Start()
-	Timer0_A3_Stop()
 	__disable_interrupt()
 	__enable_interrupt()
 	Timer0_A4_Delay()
@@ -66,30 +40,6 @@ These external functions are called but not defined here:
 
 extern void init_buttons() is called from 0 sites in this file.
     It appears to be inlineable (size = 19 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void button_repeat_on() is called from 0 sites in this file.
-    It appears to be inlineable (size = 18 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void button_repeat_off() is called from 0 sites in this file.
-    It appears to be inlineable (size = 6 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 25 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

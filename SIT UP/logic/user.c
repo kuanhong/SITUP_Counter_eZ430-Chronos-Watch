@@ -96,12 +96,6 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
     // Init step size and repeat counter
     sButton.repeats = 0;
 
-    // Turn on 200ms button repeat function
-    button_repeat_on(200);
-
-    // Turn off button repeat function
-    button_repeat_off();
-
     // Enable stopwatch display updates again
     sStopwatch.state = stopwatch_state;
 }
