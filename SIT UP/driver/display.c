@@ -222,23 +222,6 @@ void lcd_init(void)
 }
 
 // *************************************************************************************************
-// @fn          clear_display_all
-// @brief       Erase LINE1 and LINE2 segments. Clear also function-specific content.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void clear_display_all(void)
-{
-    // Clear generic content
-    clear_line(LINE1);
-    clear_line(LINE2);
-
-    // Clean up function-specific content
-    fptr_lcd_function_line1(LINE1, DISPLAY_LINE_CLEAR);
-    fptr_lcd_function_line2(LINE2, DISPLAY_LINE_CLEAR);
-}
-
-// *************************************************************************************************
 // @fn          clear_display
 // @brief       Erase LINE1 and LINE2 segments. Keep icons.
 // @param       none
@@ -258,7 +241,6 @@ void clear_display(void)
 // *************************************************************************************************
 void clear_line(unsigned char line)
 {
-    display_chars(switch_seg(line, LCD_SEG_L1_3_0, LCD_SEG_L2_5_0), NULL, SEG_OFF);
     if (line == LINE1)
     {
         display_symbol(LCD_SEG_L1_DP1, SEG_OFF);
@@ -296,35 +278,6 @@ void write_lcd_mem(unsigned char * lcdmem, unsigned char bits, unsigned char bit
     {
         // Clear segments
         *lcdmem = (unsigned char) (*lcdmem & ~bitmask);
-    }
-    else if (state == SEG_ON_BLINK_ON)
-    {
-        // Clear visible / blink segments before writing
-        *lcdmem = (unsigned char) (*lcdmem & ~bitmask);
-        *(lcdmem + 0x20) = (unsigned char) (*(lcdmem + 0x20) & ~bitmask);
-
-        // Set visible / blink segments
-        *lcdmem = (unsigned char) (*lcdmem | bits);
-        *(lcdmem + 0x20) = (unsigned char) (*(lcdmem + 0x20) | bits);
-    }
-    else if (state == SEG_ON_BLINK_OFF)
-    {
-        // Clear visible segments before writing
-        *lcdmem = (unsigned char) (*lcdmem & ~bitmask);
-
-        // Set visible segments
-        *lcdmem = (unsigned char) (*lcdmem | bits);
-
-        // Clear blink segments
-        *(lcdmem + 0x20) = (unsigned char) (*(lcdmem + 0x20) & ~bitmask);
-    }
-    else if (state == SEG_OFF_BLINK_OFF)
-    {
-        // Clear segments
-        *lcdmem = (unsigned char) (*lcdmem & ~bitmask);
-
-        // Clear blink segments
-        *(lcdmem + 0x20) = (unsigned char) (*(lcdmem + 0x20) & ~bitmask);
     }
 }
 
@@ -378,26 +331,6 @@ unsigned char *int_to_array(unsigned int n, unsigned char digits, unsigned char 
     }
 
     return (int_to_array_str);
-}
-
-// *************************************************************************************************
-// @fn          display_value
-// @brief       Generic decimal display routine. Used exclusively by set_value function.
-// @param       unsigned char segments                     LCD segments where value is displayed
-//                              unsigned int value                       Integer value to be displayed
-//                              unsigned char digits                       Number of digits to convert
-//                              unsigned char blanks                       Number of leadings blanks in
-// int_to_array result string
-// @return      none
-// *************************************************************************************************
-void display_value(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks)
-{
-    unsigned char *str;
-
-    str = int_to_array(value, digits, blanks);
-
-    // Display string in blink mode
-    display_chars(segments, str, SEG_ON_BLINK_ON);
 }
 
 // *************************************************************************************************
@@ -572,26 +505,5 @@ void display_chars(unsigned char segments, unsigned char * str, unsigned char mo
     {
         // Use single character routine to write display memory
         display_char(char_start + i, *(str + i), mode);
-    }
-}
-
-// *************************************************************************************************
-// @fn          switch_seg
-// @brief       Returns index of 7-segment character. Required for display routines that can draw
-//                              information on both lines.
-// @param       unsigned char line             LINE1 or LINE2
-//                              unsigned char index1               Index of LINE1
-//                              unsigned char index2               Index of LINE2
-// @return      uint8
-// *************************************************************************************************
-unsigned char switch_seg(unsigned char line, unsigned char index1, unsigned char index2)
-{
-    if (line == LINE1)
-    {
-        return index1;
-    }
-    else                        // line == LINE2
-    {
-        return index2;
     }
 }

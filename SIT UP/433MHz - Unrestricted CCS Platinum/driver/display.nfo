@@ -10,20 +10,11 @@ extern void clear_display() is called from 0 sites in this file.
     It calls these functions:
 	clear_line() (2 times)
 
-extern void clear_display_all() is called from 0 sites in this file.
-    It appears to be inlineable (size = 13 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	 ? () (2 times)
-	clear_line() (2 times)
-
-extern void clear_line() is called from 4 sites in this file.
-    It appears to be inlineable (size = 34 units)
+extern void clear_line() is called from 2 sites in this file.
+    It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_symbol() (6 times)
-	switch_seg() (1 times)
-	display_chars() (1 times)
 
 extern void display_char() is called from 1 sites in this file.
     It appears to be inlineable (size = 86 units)
@@ -31,7 +22,7 @@ extern void display_char() is called from 1 sites in this file.
     It calls these functions:
 	write_lcd_mem() (1 times)
 
-extern void display_chars() is called from 2 sites in this file.
+extern void display_chars() is called from 0 sites in this file.
     It appears to be inlineable (size = 138 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -43,14 +34,7 @@ extern void display_symbol() is called from 6 sites in this file.
     It calls these functions:
 	write_lcd_mem() (1 times)
 
-extern void display_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 13 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	display_chars() (1 times)
-	int_to_array() (1 times)
-
-extern unsigned char *int_to_array() is called from 1 sites in this file.
+extern unsigned char *int_to_array() is called from 0 sites in this file.
     It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -62,27 +46,15 @@ extern void lcd_init() is called from 0 sites in this file.
     It calls these functions:
 	<NONE>
 
-extern unsigned char switch_seg() is called from 1 sites in this file.
-    It appears to be inlineable (size = 13 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
 extern void write_lcd_mem() is called from 2 sites in this file.
-    It appears to be inlineable (size = 84 units)
+    It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
 
-
-These functions may be recursive:
-	clear_display_all()
-
-Making this function inlineable: switch_seg()
 
 These external functions are called but not defined here:
 	memcpy()
-	 ? ()
 
 
 		======= End file-level Analysis =======
@@ -91,15 +63,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void write_lcd_mem() is called from 2 sites in this file.
-    It appears to be inlineable (size = 84 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern unsigned char switch_seg() is called from 1 sites in this file.
-    It appears to be inlineable (size = 13 units)
+    It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -114,36 +78,11 @@ extern void lcd_init() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern unsigned char *int_to_array() is called from 1 sites in this file.
+extern unsigned char *int_to_array() is called from 0 sites in this file.
     It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
-
-==============================================================================
-
-extern void display_char() is called from 1 sites in this file.
-    It appears to be inlineable (size = 86 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	write_lcd_mem() (1 times)
-
-==============================================================================
-
-extern void display_chars() is called from 2 sites in this file.
-    It appears to be inlineable (size = 138 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	display_char() (1 times)
-
-==============================================================================
-
-extern void display_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 13 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	int_to_array() (1 times)
-	display_chars() (1 times)
 
 ==============================================================================
 
@@ -155,21 +94,27 @@ extern void display_symbol() is called from 6 sites in this file.
 
 ==============================================================================
 
-extern void clear_line() is called from 4 sites in this file.
-    It appears to be inlineable (size = 34 units)
+extern void display_char() is called from 1 sites in this file.
+    It appears to be inlineable (size = 86 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_chars() (1 times)
-	switch_seg() (1 times)
-	display_symbol() (6 times)
+	write_lcd_mem() (1 times)
 
 ==============================================================================
 
-extern void clear_display_all() is called from 0 sites in this file.
-    It appears to be inlineable (size = 13 units)
+extern void display_chars() is called from 0 sites in this file.
+    It appears to be inlineable (size = 138 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	clear_line() (2 times)
+	display_char() (1 times)
+
+==============================================================================
+
+extern void clear_line() is called from 2 sites in this file.
+    It appears to be inlineable (size = 28 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_symbol() (6 times)
 
 ==============================================================================
 

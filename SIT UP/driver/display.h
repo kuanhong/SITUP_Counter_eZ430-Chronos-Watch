@@ -81,9 +81,6 @@ extern volatile s_display_flags display;
 // LCD display modes
 #define SEG_OFF                                 (0u)
 #define SEG_ON                                  (1u)
-#define SEG_ON_BLINK_ON                 		(2u)
-#define SEG_ON_BLINK_OFF                		(3u)
-#define SEG_OFF_BLINK_OFF               		(4u)
 
 // 7-segment character bit assignments
 #define SEG_A                   (BIT4)
@@ -214,7 +211,6 @@ extern void write_lcd_mem(unsigned char * lcdmem, unsigned char bits, unsigned c
 // Display init / clear
 extern void lcd_init(void);
 extern void clear_display(void);
-extern void clear_display_all(void);
 extern void clear_line(unsigned char line);
 
 // Character / symbol draw functions
@@ -222,13 +218,7 @@ extern void display_char(unsigned char segment, unsigned char chr, unsigned char
 extern void display_chars(unsigned char segments, unsigned char * str, unsigned char mode);
 extern void display_symbol(unsigned char symbol, unsigned char mode);
 
-// Set_value display functions
-extern void display_value(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks);
-
 // Integer to string conversion
 extern unsigned char *int_to_array(unsigned int n, unsigned char digits, unsigned char blanks);
-
-// Segment index helper function
-extern unsigned char switch_seg(unsigned char line, unsigned char index1, unsigned char index2);
 
 #endif     /*DISPLAY_H_ */
