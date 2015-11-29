@@ -1,15 +1,14 @@
-MSP430 C/C++ Optimizer                  v4.4.3
-Build Number 1PB2X-KDADEMDK-RTARQ-WAR-ZACIF_U_U_T
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 Making idle_loop a function synonym of to_lpm
 
 		======File-level Analysis Summary======
 
 
 extern void display_update() is called from 1 sites in this file.
-    It appears to be inlineable (size = 116 units)
+    It appears to be inlineable (size = 111 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_chars() (1 times)
 	memcpy() (2 times)
 	clear_line() (3 times)
 	 ? () (7 times)
@@ -66,11 +65,11 @@ extern void to_lpm() is called from 1 sites in this file.
 	__bis_SR_register() (1 times)
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 157 units)
+    It appears to be inlineable (size = 126 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	clear_display() (1 times)
-	 ? () (4 times)
+	 ? () (3 times)
 
 
 These functions may be recursive:
@@ -108,7 +107,6 @@ These external functions are called but not defined here:
 	Timer0_Init()
 	 ? ()
 	clear_line()
-	display_chars()
 
 
 		======= End file-level Analysis =======
@@ -117,7 +115,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 157 units)
+    It appears to be inlineable (size = 126 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -165,7 +163,7 @@ extern void idle_loop() is called from 1 sites in this file.
 ==============================================================================
 
 extern void display_update() is called from 1 sites in this file.
-    It appears to be inlineable (size = 116 units)
+    It appears to be inlineable (size = 111 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

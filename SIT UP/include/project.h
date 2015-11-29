@@ -37,9 +37,6 @@
 // Include section
 #include <cc430x613x.h>
 
-// Conversion from usec to ACLK timer ticks
-#define CONV_US_TO_TICKS(usec)                          (((usec) * 32768) / 1000000)
-
 // Conversion from msec to ACLK timer ticks
 #define CONV_MS_TO_TICKS(msec)                          (((msec) * 32768) / 1000)
 

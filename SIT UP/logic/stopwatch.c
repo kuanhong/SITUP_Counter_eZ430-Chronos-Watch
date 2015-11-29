@@ -112,41 +112,37 @@ void stopwatch_tick(void)
 {
     static unsigned char delay = 0;
 
-    // Default view (< 20 minutes): display and count MM:SS:hh
-    if (sStopwatch.viewStyle == DISPLAY_DEFAULT_VIEW)
+    // Add 1/100 sec
+	sStopwatch.time[7]--;
+
+    // Draw flag minimizes display update activity
+    // swt.drawFlag = 1: second L
+    // swt.drawFlag = 2: second H/L
+    // swt.drawFlag = 3: minutes L, second H/L
+    // swt.drawFlag = 4: minutes H/L, second H/L
+    // swt.drawFlag = 5: hours L, minutes H/L, second H/L
+    // swt.drawFlag = 6: hours H/L, minutes H/L, second H/L
+    // swt.drawFlag = 7: 1/10 sec, 1/100 sec
+    // swt.drawFlag = 8: 1/100 sec (every 17/100 sec to reduce display draw activity)
+    if (delay++ > 17)
     {
-        // Add 1/100 sec
-    	sStopwatch.time[7]--;
+        sStopwatch.drawFlag = 8;
+        delay = 0;
+    }
 
-        // Draw flag minimizes display update activity
-        // swt.drawFlag = 1: second L
-        // swt.drawFlag = 2: second H/L
-        // swt.drawFlag = 3: minutes L, second H/L
-        // swt.drawFlag = 4: minutes H/L, second H/L
-        // swt.drawFlag = 5: hours L, minutes H/L, second H/L
-        // swt.drawFlag = 6: hours H/L, minutes H/L, second H/L
-        // swt.drawFlag = 7: 1/10 sec, 1/100 sec
-        // swt.drawFlag = 8: 1/100 sec (every 17/100 sec to reduce display draw activity)
-        if (delay++ > 17)
-        {
-            sStopwatch.drawFlag = 8;
-            delay = 0;
-        }
+    // Add 1/10 sec
+    if (sStopwatch.time[7] == 0x2f)
 
-        // Add 1/10 sec
-        if (sStopwatch.time[7] == 0x2f)
+    {
+        sStopwatch.time[7] = '9';
 
-        {
-            sStopwatch.time[7] = '9';
+        sStopwatch.time[6]--;
 
-            sStopwatch.time[6]--;
+        // 1/10Hz trigger
+        sStopwatch.swtIs10Hz = 1;
 
-            // 1/10Hz trigger
-            sStopwatch.swtIs10Hz = 1;
-
-            // Update draw flag
-            sStopwatch.drawFlag = 7;
-        }
+        // Update draw flag
+        sStopwatch.drawFlag = 7;
     }
 
     // Second overflow?
@@ -236,9 +232,6 @@ void reset_stopwatch(void)
 
     // Init stopwatch state 'Off'
     sStopwatch.state = STOPWATCH_STOP;
-
-    // Default display style is MM:SS:HH
-    sStopwatch.viewStyle = DISPLAY_DEFAULT_VIEW;
 }
 
 // *************************************************************************************************
@@ -389,9 +382,5 @@ void display_stopwatch(unsigned char line, unsigned char update)
 
         display_symbol(LCD_SEG_L2_COL1, SEG_ON);
         display_symbol(LCD_SEG_L2_COL0, SEG_ON);
-    }
-    else if (update == DISPLAY_LINE_CLEAR)
-    {
-        // Clean up symbols when leaving function
     }
 }

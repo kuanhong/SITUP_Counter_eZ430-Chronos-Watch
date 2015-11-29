@@ -287,21 +287,7 @@ void button_repeat_function(void)
     static unsigned char start_delay = 10; // Wait for 2 seconds before starting auto up/down
     unsigned char repeat = 0;
 
-    // If buttons UP or DOWN are continuously high, repeatedly set button flag
-    if (BUTTON_UP_IS_PRESSED)
-    {
-        if (start_delay == 0)
-        {
-            // Generate a virtual button event
-            button.flag.up = 1;
-            repeat = 1;
-        }
-        else
-        {
-            start_delay--;
-        }
-    }
-    else if (BUTTON_DOWN_IS_PRESSED)
+    if (BUTTON_DOWN_IS_PRESSED)
     {
         if (start_delay == 0)
         {

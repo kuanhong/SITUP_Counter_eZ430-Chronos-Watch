@@ -33,9 +33,6 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-// *************************************************************************************************
-// Defines section
-
 struct menu
 {
     // Pointer to direct function (start, stop etc)
@@ -46,8 +43,6 @@ struct menu
     void (*display_function)(unsigned char line, unsigned char mode);
     // Display update trigger
     unsigned char (*display_update)(void);
-    // Pointer to next menu item
-    const struct menu *next;
 };
 
 // Line1 navigation

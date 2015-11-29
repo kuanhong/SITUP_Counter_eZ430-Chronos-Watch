@@ -1,9 +1,7 @@
 // CORRECT VERSION !!!!
 
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -32,7 +30,6 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 //******************************************************************************
 //   eZ430-Chronos
 //
@@ -46,8 +43,6 @@
 //     Code Composer Studio (Version  5.2.0.00069)
 // *************************************************************************************************
 // Initialization and control of application.
-// *************************************************************************************************
-
 // *************************************************************************************************
 // Include section
 
@@ -324,38 +319,9 @@ void wakeup_event(void)
     // Process single button press event (after button was released)
     else if (button.all_flags)
     {
-        // M1 button event ---------------------------------------------------------------------
-        // (Short) Advance to next menu item
-        if (button.flag.star)
-        {
-//            Go to next menu entry
-//            ptrMenu_L1 = ptrMenu_L1->next;
-        }
-        // NUM button event ---------------------------------------------------------------------
-        // (Short) Advance to next menu item
-        else if (button.flag.num)
-        {
-        	//reset_acceleration();
-           // reset_stopwatch();
-//            Go to next menu entry
-//            ptrMenu_L2 = ptrMenu_L2->next;
-        }
-        // UP button event ---------------------------------------------------------------------
-        // Activate user function for Line1 menu item
-        else if (button.flag.up)
-        {
-            // Call direct function
-            ptrMenu_L1->sx_function(LINE1);
-
-            // Set Line1 display update flag
-            display.flag.line1_full_update = 1;
-
-            // Clear button flag
-            button.flag.up = 0;
-        }
         // DOWN button event ---------------------------------------------------------------------
         // Activate user function for Line2 menu item
-        else if (button.flag.down)
+        if (button.flag.down)
         {
             // Call direct function
             ptrMenu_L2->sx_function(LINE2);
@@ -441,11 +407,6 @@ void display_update(void)
         // Clear previous content
         clear_line(line);
         fptr_lcd_function_line2(line, DISPLAY_LINE_CLEAR);
-
-        if (line == LINE2)
-            display_chars(LCD_SEG_L2_5_0, string, SEG_ON);
-        else
-            display_chars(LCD_SEG_L1_3_0, string, SEG_ON);
 
         // Next second tick erases message and repaints original screen content
         message.all_flags = 0;

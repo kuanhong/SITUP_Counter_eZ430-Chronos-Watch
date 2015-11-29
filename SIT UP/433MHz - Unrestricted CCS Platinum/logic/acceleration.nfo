@@ -1,5 +1,5 @@
-MSP430 C/C++ Optimizer                  v4.4.3
-Build Number 1PB2X-KDADEMDK-RTARQ-WAR-ZACIF_U_U_T
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 
 		======File-level Analysis Summary======
 
@@ -17,10 +17,9 @@ extern unsigned convert_acceleration_value_to_mgrav() is called from 3 sites in 
 	acceleration_value_is_positive() (1 times)
 
 extern void display_acceleration() is called from 0 sites in this file.
-    It appears to be inlineable (size = 354 units)
+    It appears to be inlineable (size = 349 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	display_chars() (1 times)
 	bmp_as_start() (1 times)
 	is_acceleration_measurement() (1 times)
 	start_buzzer() (1 times)
@@ -76,7 +75,6 @@ These external functions are called but not defined here:
 	__delay_cycles()
 	start_buzzer()
 	bmp_as_start()
-	display_chars()
 
 
 		======= End file-level Analysis =======
@@ -141,7 +139,7 @@ extern unsigned convert_acceleration_value_to_mgrav() is called from 3 sites in 
 ==============================================================================
 
 extern void display_acceleration() is called from 0 sites in this file.
-    It appears to be inlineable (size = 354 units)
+    It appears to be inlineable (size = 349 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	convert_acceleration_value_to_mgrav() (3 times)

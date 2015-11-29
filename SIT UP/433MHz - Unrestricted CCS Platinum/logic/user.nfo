@@ -1,5 +1,5 @@
-MSP430 C/C++ Optimizer                  v4.4.3
-Build Number 1PB2X-KDADEMDK-RTARQ-WAR-ZACIF_U_U_T
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 
 		======File-level Analysis Summary======
 
@@ -11,7 +11,7 @@ extern void dummy() is called from 0 sites in this file.
 	<NONE>
 
 extern void set_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 26 units)
+    It appears to be inlineable (size = 19 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	button_repeat_off() (1 times)
@@ -38,7 +38,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void set_value() is called from 0 sites in this file.
-    It appears to be inlineable (size = 26 units)
+    It appears to be inlineable (size = 19 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

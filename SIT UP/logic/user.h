@@ -34,15 +34,6 @@
 #define USER_H_
 
 // *************************************************************************************************
-// Defines section
-#define SETVALUE_ROLLOVER_VALUE                         BIT0
-#define SETVALUE_DISPLAY_VALUE                          BIT1
-#define SETVALUE_DISPLAY_ARROWS                         BIT2
-#define SETVALUE_DISPLAY_SELECTION                      BIT3
-#define SETVALUE_FAST_MODE                              BIT4
-#define SETVALUE_NEXT_VALUE                             BIT5
-
-// *************************************************************************************************
 // Prototypes section
 
 extern void (*fptr_setValue_display_function1)(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks);

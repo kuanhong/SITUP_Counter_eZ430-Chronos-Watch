@@ -1,5 +1,5 @@
-MSP430 C/C++ Optimizer                  v4.4.3
-Build Number 1PB2X-KDADEMDK-RTARQ-WAR-ZACIF_U_U_T
+MSP430 C/C++ Optimizer                  v4.4.2
+Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 
 		======File-level Analysis Summary======
 
@@ -15,7 +15,7 @@ extern void PORT2_ISR() is called from 0 sites in this file.
 	__disable_interrupt() (2 times)
 
 extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 58 units)
+    It appears to be inlineable (size = 39 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	stop_blink() (1 times)
@@ -93,7 +93,7 @@ extern void button_repeat_off() is called from 0 sites in this file.
 ==============================================================================
 
 extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 58 units)
+    It appears to be inlineable (size = 39 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

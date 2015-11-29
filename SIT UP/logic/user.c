@@ -85,11 +85,7 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
                void (*fptr_setValue_display_function1)(unsigned char segments, unsigned int value, unsigned char digits,
                                                        unsigned char blanks))
 {
-    unsigned char update;
-    short stepValue = 1;
-    unsigned char doRound = 0;
     unsigned char stopwatch_state;
-    unsigned int val;
 
     // Clear button flags
     button.all_flags = 0;
@@ -100,15 +96,8 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
     // For safety only - buzzer on/off and button_repeat share same IRQ
     stop_buzzer();
 
-    // Disable stopwatch display update while function is active
-    stopwatch_state = sStopwatch.state;
-    sStopwatch.state = STOPWATCH_HIDE;
-
     // Init step size and repeat counter
     sButton.repeats = 0;
-
-    // Initial display update
-    update = 1;
 
     // Turn on 200ms button repeat function
     button_repeat_on(200);

@@ -242,8 +242,9 @@ void display_acceleration(unsigned char line, unsigned char update) {
 //    int counter=0;
 
 	// Show warning if acceleration sensor was not initialised properly
-	if (!as_ok) {
-		display_chars(LCD_SEG_L1_2_0, (unsigned char *) "ERR", SEG_ON);
+	if (!as_ok)
+	{
+
 	} else {
 		// Redraw whole screen
 		if (update == DISPLAY_LINE_UPDATE_FULL) {
@@ -309,10 +310,6 @@ void display_acceleration(unsigned char line, unsigned char update) {
 			sAccel.data_x = accel_data_x;
 			sAccel.data_y = accel_data_y;
 
-			// Display acceleration in x.xx format
-//			str = int_to_array(accel_data, 3, 0); // edit here
-//			display_chars(LCD_SEG_L1_2_0, str, SEG_ON);
-
 			//Down Counter
 			if (downCounter == 0) {
 				if ((accel_data_y >= 70 && accel_data_y <= 80)
@@ -361,43 +358,12 @@ void display_acceleration(unsigned char line, unsigned char update) {
 				}
 			}
 
-//			str_counter = int_to_array(counter, 4, 0);
-			//display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
 			tens = counter % 100 / 10;
 			ones = counter % 10;
 
-			//LCDM2 = LCD_Char_Map[5];     // Display Character
-			//LCDM3 = LCD_Char_Map['U'];      // Display Character
 			LCDM4 = LCD_Char_Map[tens];          // Display Character
 			LCDM6 = LCD_Char_Map[ones];          // Display Character
-			//printf("hello %d\n" , counter);
 		}
-
-//            if (accel_data_x>=35 && accel_data_x<=55){
-//            	if (accel_data_y>=25 && accel_data_y<=55){
-//            		start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-//            	}
-//            }
-
-//            //Up Counter
-//            if (accel_data_x==55 && accel_data_y <= 60 && accel_data_y >= 54){
-//            	upCounter = 1;
-//            	start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-//
-//
-//            }
-//            //Down Counter
-//            if (accel_data_x==85 && accel_data_y <= 15 && accel_data_y > 0){
-//            	downCounter = 1;
-//                start_buzzer(5, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-//            }
-//            if (upCounter == 1 && downCounter ==1){
-//            	counter += 1;
-//            	upCounter = 0;
-//            	downCounter = 0;
-//            	str_counter = int_to_array(downCounter, 4, 0);
-//	            display_chars(LCD_SEG_L1_2_0, str_counter, SEG_ON);
-//            }
 
 		else if (update == DISPLAY_LINE_CLEAR) {
 			// Stop acceleration sensor

@@ -55,7 +55,6 @@ extern void display_stopwatch(unsigned char line, unsigned char update);
 #define STOPWATCH_100HZ_TICK            (32768 / 100)
 #define STOPWATCH_STOP                          (0u)
 #define STOPWATCH_RUN                           (1u)
-#define STOPWATCH_HIDE                          (2u)
 
 // *************************************************************************************************
 // Global Variable section
@@ -75,13 +74,7 @@ struct stopwatch
     // time[5]      second L
     // time[6]      1/10 sec
     // time[7]      1/100 sec
-
-    // Display style
-    unsigned char viewStyle;
 };
 extern struct stopwatch sStopwatch;
-
-// *************************************************************************************************
-// Extern section
 
 #endif                          /*STOPWATCH_H_ */
