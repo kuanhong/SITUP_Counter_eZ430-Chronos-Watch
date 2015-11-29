@@ -8,8 +8,6 @@ extern void TIMER0_A0_ISR() is called from 0 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	__bic_SR_register_on_exit() (1 times)
-	display_symbol() (3 times)
-	display_chars() (1 times)
 	bmp_as_stop() (1 times)
 	is_acceleration_measurement() (1 times)
 
@@ -82,8 +80,6 @@ These external functions are called but not defined here:
 	stopwatch_tick()
 	is_acceleration_measurement()
 	bmp_as_stop()
-	display_chars()
-	display_symbol()
 	__bic_SR_register_on_exit()
 
 

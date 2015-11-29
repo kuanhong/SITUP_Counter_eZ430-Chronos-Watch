@@ -17,7 +17,7 @@ extern unsigned convert_acceleration_value_to_mgrav() is called from 3 sites in 
 	acceleration_value_is_positive() (1 times)
 
 extern void display_acceleration() is called from 0 sites in this file.
-    It appears to be inlineable (size = 349 units)
+    It appears to be inlineable (size = 340 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	bmp_as_start() (1 times)
@@ -25,7 +25,6 @@ extern void display_acceleration() is called from 0 sites in this file.
 	start_buzzer() (1 times)
 	__delay_cycles() (6 times)
 	convert_acceleration_value_to_mgrav() (3 times)
-	display_symbol() (3 times)
 	bmp_as_stop() (1 times)
 
 extern void do_acceleration_measurement() is called from 0 sites in this file.
@@ -71,7 +70,6 @@ Making this function inlineable: acceleration_value_is_positive()
 These external functions are called but not defined here:
 	bmp_as_get_data()
 	bmp_as_stop()
-	display_symbol()
 	__delay_cycles()
 	start_buzzer()
 	bmp_as_start()
@@ -139,7 +137,7 @@ extern unsigned convert_acceleration_value_to_mgrav() is called from 3 sites in 
 ==============================================================================
 
 extern void display_acceleration() is called from 0 sites in this file.
-    It appears to be inlineable (size = 349 units)
+    It appears to be inlineable (size = 340 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	convert_acceleration_value_to_mgrav() (3 times)

@@ -266,12 +266,6 @@ __interrupt void TIMER0_A0_ISR(void)
         	{
             	bmp_as_stop();
         	}
-            // Show ----
-            display_chars(LCD_SEG_L1_3_0, (unsigned char *) "----", SEG_ON);
-            // Clear up/down arrow
-            display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-            display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
-            display_symbol(LCD_SEG_L1_DP1, SEG_OFF);
         }
 
         // If DRDY is (still) high, request data again

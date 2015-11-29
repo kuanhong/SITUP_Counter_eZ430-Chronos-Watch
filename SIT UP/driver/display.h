@@ -67,11 +67,7 @@ typedef union
         unsigned short line2_full_update : 1;      // 1 = Redraw Line2 content
 
         // Logic module data update flags
-//        unsigned short update_time : 1;            // 1 = Time was updated
         unsigned short update_stopwatch : 1;       // 1 = Stopwatch was updated
-//        unsigned short update_battery_voltage : 1; // 1 = Battery voltage was updated
-//        unsigned short update_date : 1;            // 1 = Date was updated
-//        unsigned short update_alarm : 1;           // 1 = Alarm time was updated
         unsigned short update_acceleration : 1;    // 1 = Acceleration data was updated
     } flag;
     unsigned short all_flags;                      // Shortcut to all display flags (for reset)
@@ -121,37 +117,17 @@ extern volatile s_display_flags display;
 // xxx_L1_xxx           = Item is part of Line1 information
 // xxx_L2_xxx           = Item is part of Line2 information
 
-// Symbols for Line1
-#define LCD_SYMB_AM                             0
-#define LCD_SYMB_PM                             1
-#define LCD_SYMB_ARROW_UP                       2
-#define LCD_SYMB_ARROW_DOWN                     3
-#define LCD_SYMB_PERCENT                        4
-
 // Symbols for Line2
-#define LCD_SYMB_TOTAL                          5
-#define LCD_SYMB_AVERAGE                        6
-#define LCD_SYMB_MAX                            7
 #define LCD_SYMB_BATTERY                        8
 
 // Units for Line1
-#define LCD_UNIT_L1_FT                          9
-#define LCD_UNIT_L1_K                           10
-#define LCD_UNIT_L1_M                           11
-#define LCD_UNIT_L1_I                           12
-#define LCD_UNIT_L1_PER_S                       13
-#define LCD_UNIT_L1_PER_H                       14
 #define LCD_UNIT_L1_DEGREE                      15
 
 // Units for Line2
-#define LCD_UNIT_L2_KCAL                        16
-#define LCD_UNIT_L2_KM                          17
 #define LCD_UNIT_L2_MI                          18
 
 // Icons
-#define LCD_ICON_HEART                          19
-#define LCD_ICON_STOPWATCH                      20
-#define LCD_ICON_RECORD                         21
+#define LCD_ICON_STOPWATCH                      0
 #define LCD_ICON_ALARM                          22
 #define LCD_ICON_BEEPER1                        23
 #define LCD_ICON_BEEPER2                        24
@@ -226,28 +202,10 @@ extern volatile s_display_flags display;
 #define LCD_SEG_L2_COL1_MEM                     (LCD_MEM_1)
 #define LCD_SEG_L2_COL0_MEM                     (LCD_MEM_5)
 #define LCD_SEG_L2_DP_MEM                       (LCD_MEM_9)
-#define LCD_SYMB_AM_MEM                         (LCD_MEM_1)
-#define LCD_SYMB_PM_MEM                         (LCD_MEM_1)
-#define LCD_SYMB_ARROW_UP_MEM           (LCD_MEM_1)
-#define LCD_SYMB_ARROW_DOWN_MEM         (LCD_MEM_1)
-#define LCD_SYMB_PERCENT_MEM            (LCD_MEM_5)
-#define LCD_SYMB_TOTAL_MEM                      (LCD_MEM_11)
-#define LCD_SYMB_AVERAGE_MEM            (LCD_MEM_10)
-#define LCD_SYMB_MAX_MEM                        (LCD_MEM_8)
 #define LCD_SYMB_BATTERY_MEM            (LCD_MEM_7)
-#define LCD_UNIT_L1_FT_MEM                      (LCD_MEM_5)
-#define LCD_UNIT_L1_K_MEM                       (LCD_MEM_5)
-#define LCD_UNIT_L1_M_MEM                       (LCD_MEM_7)
-#define LCD_UNIT_L1_I_MEM                       (LCD_MEM_7)
-#define LCD_UNIT_L1_PER_S_MEM           (LCD_MEM_5)
-#define LCD_UNIT_L1_PER_H_MEM           (LCD_MEM_7)
 #define LCD_UNIT_L1_DEGREE_MEM          (LCD_MEM_5)
-#define LCD_UNIT_L2_KCAL_MEM            (LCD_MEM_7)
-#define LCD_UNIT_L2_KM_MEM                      (LCD_MEM_7)
 #define LCD_UNIT_L2_MI_MEM                      (LCD_MEM_7)
-#define LCD_ICON_HEART_MEM                      (LCD_MEM_2)
 #define LCD_ICON_STOPWATCH_MEM          (LCD_MEM_3)
-#define LCD_ICON_RECORD_MEM                     (LCD_MEM_1)
 #define LCD_ICON_ALARM_MEM                      (LCD_MEM_4)
 #define LCD_ICON_BEEPER1_MEM            (LCD_MEM_5)
 #define LCD_ICON_BEEPER2_MEM            (LCD_MEM_6)
@@ -270,28 +228,10 @@ extern volatile s_display_flags display;
 #define LCD_SEG_L2_COL1_MASK            (BIT4)
 #define LCD_SEG_L2_COL0_MASK            (BIT0)
 #define LCD_SEG_L2_DP_MASK                      (BIT7)
-#define LCD_SYMB_AM_MASK                        (BIT1 + BIT0)
-#define LCD_SYMB_PM_MASK                        (BIT0)
-#define LCD_SYMB_ARROW_UP_MASK          (BIT2)
-#define LCD_SYMB_ARROW_DOWN_MASK        (BIT3)
-#define LCD_SYMB_PERCENT_MASK           (BIT4)
-#define LCD_SYMB_TOTAL_MASK                     (BIT7)
-#define LCD_SYMB_AVERAGE_MASK           (BIT7)
-#define LCD_SYMB_MAX_MASK                       (BIT7)
 #define LCD_SYMB_BATTERY_MASK           (BIT7)
-#define LCD_UNIT_L1_FT_MASK                     (BIT5)
-#define LCD_UNIT_L1_K_MASK                      (BIT6)
-#define LCD_UNIT_L1_M_MASK                      (BIT1)
-#define LCD_UNIT_L1_I_MASK                      (BIT0)
-#define LCD_UNIT_L1_PER_S_MASK          (BIT7)
-#define LCD_UNIT_L1_PER_H_MASK          (BIT2)
 #define LCD_UNIT_L1_DEGREE_MASK         (BIT1)
-#define LCD_UNIT_L2_KCAL_MASK           (BIT4)
-#define LCD_UNIT_L2_KM_MASK                     (BIT5)
 #define LCD_UNIT_L2_MI_MASK                     (BIT6)
-#define LCD_ICON_HEART_MASK                     (BIT3)
 #define LCD_ICON_STOPWATCH_MASK         (BIT3)
-#define LCD_ICON_RECORD_MASK            (BIT7)
 #define LCD_ICON_ALARM_MASK                     (BIT3)
 #define LCD_ICON_BEEPER1_MASK           (BIT3)
 #define LCD_ICON_BEEPER2_MASK           (BIT3)

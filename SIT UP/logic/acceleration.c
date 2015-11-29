@@ -373,11 +373,6 @@ void display_acceleration(unsigned char line, unsigned char update) {
 
 			// Clear mode
 			sAccel.mode = ACCEL_MODE_OFF;
-
-			// Clean up display
-			display_symbol(LCD_SEG_L1_DP1, SEG_OFF);
-			display_symbol(LCD_SYMB_ARROW_UP, SEG_OFF);
-			display_symbol(LCD_SYMB_ARROW_DOWN, SEG_OFF);
 		}
 	}
 }
