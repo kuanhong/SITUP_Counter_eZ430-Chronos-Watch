@@ -107,9 +107,6 @@ extern volatile struct struct_button sButton;
 
 // *************************************************************************************************
 // Extern section
-extern void button_repeat_on(unsigned short msec);
-extern void button_repeat_off(void);
-extern void button_repeat_function(void);
 extern void init_buttons(void);
 
 #endif                          /*PORTS_H_ */
