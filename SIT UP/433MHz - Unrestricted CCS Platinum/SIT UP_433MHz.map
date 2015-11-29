@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v4.4.2                      
 ******************************************************************************
->> Linked Sun Nov 29 17:38:46 2015
+>> Linked Sun Nov 29 18:27:51 2015
 
 OUTPUT FILE NAME:   <SIT UP_433MHz.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000932e
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00000ffe  000000fe  00000f00  RWIX
-  FLASH                 00008000   00007f80  00001530  00006a50  RWIX
+  FLASH                 00008000   00007f80  0000152a  00006a56  RWIX
   INT00                 0000ff80   00000002  00000000  00000002  RWIX
   INT01                 0000ff82   00000002  00000000  00000002  RWIX
   INT02                 0000ff84   00000002  00000000  00000002  RWIX
@@ -162,18 +162,18 @@ section   page    origin      length       input sections
                   00009408    00000004     rts430x.lib : pre_init.obj (.text:_system_pre_init)
                   0000940c    00000004                 : exit.obj (.text:abort)
 
-.const     0    00009410    00000096     
+.const     0    00009410    00000090     
                   00009410    0000002a     display.obj (.const:.string:segments_bitmask)
                   0000943a    00000024     <whole-program> (.const:.string)
                   0000945e    00000020     menu.obj (.const)
-                  0000947e    00000010     display.obj (.const:.string:lcd_font)
-                  0000948e    0000000e     acceleration.obj (.const:bmp_mgrav_per_bit)
-                  0000949c    0000000a     acceleration.obj (.const:.string:LCD_Char_Map)
+                  0000947e    0000000e     acceleration.obj (.const:bmp_mgrav_per_bit)
+                  0000948c    0000000a     acceleration.obj (.const:.string:LCD_Char_Map)
+                  00009496    0000000a     display.obj (.const:.string:lcd_font)
 
-.cinit     0    000094a6    0000008a     
-                  000094a6    00000087     <whole-program> (.cinit)
-                  0000952d    00000001     --HOLE-- [fill = 0]
-                  0000952e    00000002     (.pad.cinit) [fill = 0]
+.cinit     0    000094a0    0000008a     
+                  000094a0    00000087     <whole-program> (.cinit)
+                  00009527    00000001     --HOLE-- [fill = 0]
+                  00009528    00000002     (.pad.cinit) [fill = 0]
 
 .pinit     0    00008000    00000000     UNINITIALIZED
 
@@ -502,7 +502,7 @@ address   name
 00000a26  LCDM7                              
 00000a27  LCDM8                              
 00000a28  LCDM9                              
-0000949c  LCD_Char_Map                       
+0000948c  LCD_Char_Map                       
 000093b6  L_LSL                              
 000093c6  L_LSR                              
 000004c4  MAC                                
@@ -988,7 +988,7 @@ address   name
 ffffffff  __binit__                          
 00001c00  __bss__                            
 ffffffff  __c_args__                         
-000094a6  __cinit__                          
+000094a0  __cinit__                          
 00001c00  __data__                           
 0000915e  __divli                            
 00009376  __divu                             
@@ -1020,11 +1020,11 @@ ffffffff  binit
 00008dac  bmp_as_read_register               
 000091d8  bmp_as_stop                        
 00008e74  bmp_as_write_register              
-0000948e  bmp_mgrav_per_bit                  
+0000947e  bmp_mgrav_per_bit                  
 00001c7a  bmp_used                           
 00001c9a  button                             
 00001c7b  chronos_black                      
-000094a6  cinit                              
+000094a0  cinit                              
 00008f2e  clear_line                         
 00009038  convert_acceleration_value_to_mgrav
 00001c6c  counter                            
@@ -1045,7 +1045,7 @@ ffffffff  binit
 000082d6  init_application                   
 00001c56  int_to_array_str                   
 000093a2  is_stopwatch                       
-0000947e  lcd_font                           
+00009496  lcd_font                           
 00008954  main                               
 000093d6  memcpy                             
 0000945e  menu_L1_Acceleration               
@@ -1894,11 +1894,11 @@ address   name
 00009410  segments_bitmask                   
 0000945e  menu_L1_Acceleration               
 0000946e  menu_L2_Stopwatch                  
-0000947e  lcd_font                           
-0000948e  bmp_mgrav_per_bit                  
-0000949c  LCD_Char_Map                       
-000094a6  __cinit__                          
-000094a6  cinit                              
+0000947e  bmp_mgrav_per_bit                  
+0000948c  LCD_Char_Map                       
+00009496  lcd_font                           
+000094a0  __cinit__                          
+000094a0  cinit                              
 0000ffda  __TI_int45                         
 0000ffdc  __TI_int46                         
 0000ffde  __TI_int47                         

@@ -90,9 +90,6 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
     // Clear button flags
     button.all_flags = 0;
 
-    // Clear blink memory
-    clear_blink_mem();
-
     // For safety only - buzzer on/off and button_repeat share same IRQ
     stop_buzzer();
 
@@ -101,13 +98,6 @@ void set_value(int * value, unsigned char digits, unsigned char blanks, int limi
 
     // Turn on 200ms button repeat function
     button_repeat_on(200);
-
-    // Start blinking with with 2Hz
-    set_blink_rate(BIT6 + BIT5);
-
-    // Set blinking rate to 1Hz and stop
-    set_blink_rate(BIT7 + BIT6 + BIT5);
-    clear_blink_mem();
 
     // Turn off button repeat function
     button_repeat_off();

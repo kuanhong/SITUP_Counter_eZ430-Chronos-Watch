@@ -15,11 +15,10 @@ extern void PORT2_ISR() is called from 0 sites in this file.
 	__disable_interrupt() (2 times)
 
 extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 39 units)
+    It appears to be inlineable (size = 25 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	stop_blink() (1 times)
-	start_blink() (1 times)
+	<NONE>
 
 extern void button_repeat_off() is called from 0 sites in this file.
     It appears to be inlineable (size = 6 units)
@@ -46,15 +45,12 @@ Address of global variable is never taken:
 
 These functions may be recursive:
 	PORT2_ISR()
-	button_repeat_function()
 	button_repeat_off()
 	button_repeat_on()
 
 These external functions are called but not defined here:
 	Timer0_A3_Start()
 	Timer0_A3_Stop()
-	start_blink()
-	stop_blink()
 	__disable_interrupt()
 	__enable_interrupt()
 	Timer0_A4_Delay()
@@ -93,7 +89,7 @@ extern void button_repeat_off() is called from 0 sites in this file.
 ==============================================================================
 
 extern void button_repeat_function() is called from 0 sites in this file.
-    It appears to be inlineable (size = 39 units)
+    It appears to be inlineable (size = 25 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

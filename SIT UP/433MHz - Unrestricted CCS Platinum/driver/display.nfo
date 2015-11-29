@@ -4,12 +4,6 @@ Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 		======File-level Analysis Summary======
 
 
-extern void clear_blink_mem() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
 extern void clear_display() is called from 0 sites in this file.
     It appears to be inlineable (size = 5 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -57,31 +51,13 @@ extern void display_value() is called from 0 sites in this file.
 	int_to_array() (1 times)
 
 extern unsigned char *int_to_array() is called from 1 sites in this file.
-    It appears to be inlineable (size = 108 units)
+    It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	memcpy() (3 times)
 
 extern void lcd_init() is called from 0 sites in this file.
     It appears to be inlineable (size = 22 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-extern void set_blink_rate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 12 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-extern void start_blink() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-extern void stop_blink() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -130,30 +106,6 @@ extern unsigned char switch_seg() is called from 1 sites in this file.
 
 ==============================================================================
 
-extern void stop_blink() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void start_blink() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
-extern void set_blink_rate() is called from 0 sites in this file.
-    It appears to be inlineable (size = 12 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
-
-==============================================================================
-
 extern void lcd_init() is called from 0 sites in this file.
     It appears to be inlineable (size = 22 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -163,7 +115,7 @@ extern void lcd_init() is called from 0 sites in this file.
 ==============================================================================
 
 extern unsigned char *int_to_array() is called from 1 sites in this file.
-    It appears to be inlineable (size = 108 units)
+    It appears to be inlineable (size = 89 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
@@ -226,13 +178,5 @@ extern void clear_display() is called from 0 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	clear_line() (2 times)
-
-==============================================================================
-
-extern void clear_blink_mem() is called from 0 sites in this file.
-    It appears to be inlineable (size = 4 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	<NONE>
 
 == END OF INFO OUTPUT==

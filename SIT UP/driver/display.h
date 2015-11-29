@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,7 +28,6 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef __DISPLAY_H
@@ -41,17 +38,11 @@
 
 #include <project.h>
 
-// *************************************************************************************************
-// Extern section
-
 // Constants defined in library
 extern const unsigned char lcd_font[];
 extern const unsigned char *segments_lcdmem[];
 extern const unsigned char segments_bitmask[];
 extern const unsigned char int_to_array_conversion_table[][3];
-
-// *************************************************************************************************
-// Global Variable section
 
 // Set of display flags
 typedef union
@@ -83,10 +74,6 @@ extern volatile s_display_flags display;
 #define DISPLAY_LINE_UPDATE_PARTIAL             (BIT1)
 #define DISPLAY_LINE_CLEAR                      (BIT2)
 
-// Definitions for line view style
-#define DISPLAY_DEFAULT_VIEW                    (0u)
-#define DISPLAY_ALTERNATIVE_VIEW                (1u)
-
 // Definitions for line access
 #define LINE1                                   (1u)
 #define LINE2                                   (2u)
@@ -117,21 +104,12 @@ extern volatile s_display_flags display;
 // xxx_L1_xxx           = Item is part of Line1 information
 // xxx_L2_xxx           = Item is part of Line2 information
 
-// Symbols for Line2
-#define LCD_SYMB_BATTERY                        8
-
 // Units for Line1
 #define LCD_UNIT_L1_DEGREE                      15
-
-// Units for Line2
-#define LCD_UNIT_L2_MI                          18
 
 // Icons
 #define LCD_ICON_STOPWATCH                      0
 #define LCD_ICON_ALARM                          22
-#define LCD_ICON_BEEPER1                        23
-#define LCD_ICON_BEEPER2                        24
-#define LCD_ICON_BEEPER3                        25
 
 // Line1 7-segments
 #define LCD_SEG_L1_3                            26
@@ -202,14 +180,9 @@ extern volatile s_display_flags display;
 #define LCD_SEG_L2_COL1_MEM                     (LCD_MEM_1)
 #define LCD_SEG_L2_COL0_MEM                     (LCD_MEM_5)
 #define LCD_SEG_L2_DP_MEM                       (LCD_MEM_9)
-#define LCD_SYMB_BATTERY_MEM            (LCD_MEM_7)
 #define LCD_UNIT_L1_DEGREE_MEM          (LCD_MEM_5)
-#define LCD_UNIT_L2_MI_MEM                      (LCD_MEM_7)
 #define LCD_ICON_STOPWATCH_MEM          (LCD_MEM_3)
 #define LCD_ICON_ALARM_MEM                      (LCD_MEM_4)
-#define LCD_ICON_BEEPER1_MEM            (LCD_MEM_5)
-#define LCD_ICON_BEEPER2_MEM            (LCD_MEM_6)
-#define LCD_ICON_BEEPER3_MEM            (LCD_MEM_7)
 
 // Bit masks for write access
 #define LCD_SEG_L1_0_MASK                       (BIT2 + BIT1 + BIT0 + BIT7 + BIT6 + BIT5 + BIT4)
@@ -228,14 +201,9 @@ extern volatile s_display_flags display;
 #define LCD_SEG_L2_COL1_MASK            (BIT4)
 #define LCD_SEG_L2_COL0_MASK            (BIT0)
 #define LCD_SEG_L2_DP_MASK                      (BIT7)
-#define LCD_SYMB_BATTERY_MASK           (BIT7)
 #define LCD_UNIT_L1_DEGREE_MASK         (BIT1)
-#define LCD_UNIT_L2_MI_MASK                     (BIT6)
 #define LCD_ICON_STOPWATCH_MASK         (BIT3)
 #define LCD_ICON_ALARM_MASK                     (BIT3)
-#define LCD_ICON_BEEPER1_MASK           (BIT3)
-#define LCD_ICON_BEEPER2_MASK           (BIT3)
-#define LCD_ICON_BEEPER3_MASK           (BIT3)
 
 // *************************************************************************************************
 // API section
@@ -249,24 +217,13 @@ extern void clear_display(void);
 extern void clear_display_all(void);
 extern void clear_line(unsigned char line);
 
-// Blinking function
-extern void start_blink(void);
-extern void stop_blink(void);
-extern void clear_blink_mem(void);
-extern void set_blink_rate(unsigned char bits);
-
 // Character / symbol draw functions
 extern void display_char(unsigned char segment, unsigned char chr, unsigned char mode);
 extern void display_chars(unsigned char segments, unsigned char * str, unsigned char mode);
 extern void display_symbol(unsigned char symbol, unsigned char mode);
 
-// Time display function
-extern void DisplayTime(unsigned char updateMode);
-extern void display_am_pm_symbol(unsigned char timeAM);
-
 // Set_value display functions
 extern void display_value(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks);
-extern void display_hours(unsigned char segments, unsigned int value, unsigned char digits, unsigned char blanks);
 
 // Integer to string conversion
 extern unsigned char *int_to_array(unsigned int n, unsigned char digits, unsigned char blanks);

@@ -52,9 +52,6 @@ void display_symbol(unsigned char symbol, unsigned char mode);
 void display_char(unsigned char segment, unsigned char chr, unsigned char mode);
 void display_chars(unsigned char segments, unsigned char * str, unsigned char mode);
 
-// *************************************************************************************************
-// Global Variable section
-
 // Table with memory bit assignment for digits "0" to "9" and characters "A" to "Z"
 const unsigned char lcd_font[] = {
     SEG_A + SEG_B + SEG_C + SEG_D + SEG_E + SEG_F,         // Displays "0"
@@ -67,54 +64,19 @@ const unsigned char lcd_font[] = {
     SEG_A + SEG_B + SEG_C,                                 // Displays "7"
     SEG_A + SEG_B + SEG_C + SEG_D + SEG_E + SEG_F + SEG_G, // Displays "8"
     SEG_A + SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,         // Displays "9"
-    0,                                                     // Displays " "
-    0,                                                     // Displays " "
-    0,                                                     // Displays " "
-    0,                                                     // Displays " "
-    0,                                                     // Displays " "
-//    SEG_D + SEG_E + SEG_G,                                 // Displays "c"
-    0,                                                     // Displays " "
-//    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,         // Displays "A"
-//    SEG_C + SEG_D + SEG_E + SEG_F + SEG_G,                 // Displays "b"
-//    SEG_A + SEG_D + SEG_E + SEG_F,                         // Displays "C"
-//    SEG_B + SEG_C + SEG_D + SEG_E + SEG_G,                 // Displays "d"
-//    SEG_A + +SEG_D + SEG_E + SEG_F + SEG_G,                // Displays "E"
-//    SEG_A + SEG_E + SEG_F + SEG_G,                         // Displays "F"
-//    //  SEG_A+      SEG_C+SEG_D+SEG_E+SEG_F+SEG_G,       // Displays "G"
-//    SEG_A + SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,         // Displays "g"
-//    SEG_B + SEG_C + SEG_E + SEG_F + SEG_G,                 // Displays "H"
-//    SEG_E + SEG_F,                                         // Displays "I"
-//    SEG_A + SEG_B + SEG_C + SEG_D,                         // Displays "J"
-//    //              SEG_B+SEG_C+      SEG_E+SEG_F+SEG_G,     // Displays "k"
-//    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "k"
-//    SEG_D + SEG_E + SEG_F,                                 // Displays "L"
-//    SEG_A + SEG_B + SEG_C + SEG_E + SEG_F,                 // Displays "M"
-//    SEG_C + SEG_E + SEG_G,                                 // Displays "n"
-//    SEG_C + SEG_D + SEG_E + SEG_G,                         // Displays "o"
-//    SEG_A + SEG_B + SEG_E + SEG_F + SEG_G,                 // Displays "P"
-//    SEG_A + SEG_B + SEG_C + SEG_D + SEG_E + SEG_F,         // Displays "Q"
-//    SEG_E + SEG_G,                                         // Displays "r"
-//    SEG_A + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "S"
-//    SEG_D + SEG_E + SEG_F + SEG_G,                         // Displays "t"
-//    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
-//    SEG_C + SEG_D + SEG_E,                                 // Displays "u"
-//    SEG_G,                                                 // Displays "-"
-//    SEG_B + SEG_C + +SEG_E + SEG_F + SEG_G,                // Displays "X"
-//    SEG_B + SEG_C + SEG_D + SEG_F + SEG_G,                 // Displays "Y"
-//    SEG_A + SEG_B + SEG_D + SEG_E + SEG_G,                 // Displays "Z"
 };
 
 // Table with memory address for each display element
 const unsigned char *segments_lcdmem[] = {
 	LCD_ICON_STOPWATCH_MEM,				// 0
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-	LCD_SYMB_BATTERY_MEM,
-    LCD_SYMB_BATTERY_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
+	LCD_UNIT_L1_DEGREE_MEM,
     LCD_UNIT_L1_DEGREE_MEM,
     LCD_UNIT_L1_DEGREE_MEM,
     LCD_UNIT_L1_DEGREE_MEM,
@@ -122,17 +84,17 @@ const unsigned char *segments_lcdmem[] = {
     LCD_UNIT_L1_DEGREE_MEM,
     LCD_UNIT_L1_DEGREE_MEM,
     LCD_UNIT_L1_DEGREE_MEM,
-    LCD_UNIT_L2_MI_MEM,
-    LCD_UNIT_L2_MI_MEM,
-    LCD_UNIT_L2_MI_MEM,
+    LCD_UNIT_L1_DEGREE_MEM,
+    LCD_UNIT_L1_DEGREE_MEM,
+    LCD_UNIT_L1_DEGREE_MEM,
     LCD_ICON_ALARM_MEM,
     LCD_ICON_ALARM_MEM,				// 20
 //  LCD_ICON_STOPWATCH_MEM,			// 20
     LCD_ICON_ALARM_MEM,
     LCD_ICON_ALARM_MEM,
-    LCD_ICON_BEEPER1_MEM,
-    LCD_ICON_BEEPER2_MEM,
-    LCD_ICON_BEEPER3_MEM,
+    LCD_ICON_ALARM_MEM,
+    LCD_ICON_ALARM_MEM,
+    LCD_ICON_ALARM_MEM,
     LCD_SEG_L1_3_MEM,
     LCD_SEG_L1_2_MEM,
     LCD_SEG_L1_1_MEM,
@@ -154,14 +116,14 @@ const unsigned char *segments_lcdmem[] = {
 // Table with bit mask for each display element
 const unsigned char segments_bitmask[] = {
 	LCD_ICON_STOPWATCH_MASK,		// 0
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-	LCD_SYMB_BATTERY_MASK,
-    LCD_SYMB_BATTERY_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
+	LCD_UNIT_L1_DEGREE_MASK,
     LCD_UNIT_L1_DEGREE_MASK,
     LCD_UNIT_L1_DEGREE_MASK,
     LCD_UNIT_L1_DEGREE_MASK,
@@ -169,17 +131,17 @@ const unsigned char segments_bitmask[] = {
     LCD_UNIT_L1_DEGREE_MASK,
     LCD_UNIT_L1_DEGREE_MASK,
     LCD_UNIT_L1_DEGREE_MASK,
-    LCD_UNIT_L2_MI_MASK,
-    LCD_UNIT_L2_MI_MASK,
-    LCD_UNIT_L2_MI_MASK,
+    LCD_UNIT_L1_DEGREE_MASK,
+    LCD_UNIT_L1_DEGREE_MASK,
+    LCD_UNIT_L1_DEGREE_MASK,
     LCD_ICON_ALARM_MASK,
     LCD_ICON_ALARM_MASK,			// 20
 //  LCD_ICON_STOPWATCH_MASK,		// 20
     LCD_ICON_ALARM_MASK,
     LCD_ICON_ALARM_MASK,
-    LCD_ICON_BEEPER1_MASK,
-    LCD_ICON_BEEPER2_MASK,
-    LCD_ICON_BEEPER3_MASK,
+    LCD_ICON_ALARM_MASK,
+    LCD_ICON_ALARM_MASK,
+    LCD_ICON_ALARM_MASK,
     LCD_SEG_L1_3_MASK,
     LCD_SEG_L1_2_MASK,
     LCD_SEG_L1_1_MASK,
@@ -213,17 +175,7 @@ const unsigned char int_to_array_conversion_table[][3] = {
     "077", "078", "079",
     "080", "081", "082", "083", "084", "085", "086", "087", "088", "089", "090", "091", "092",
     "093", "094", "095",
-    "096", "097", "098", "099", "100", "101", "102", "103", "104", "105", "106", "107", "108",
-    "109", "110", "111",
-    "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124",
-    "125", "126", "127",
-    "128", "129", "130", "131", "132", "133", "134", "135", "136", "137", "138", "139", "140",
-    "141", "142", "143",
-    "144", "145", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "156",
-    "157", "158", "159",
-    "160", "161", "162", "163", "164", "165", "166", "167", "168", "169", "170", "171", "172",
-    "173", "174", "175",
-    "176", "177", "178", "179", "180",
+    "096", "097", "098", "099",
 };
 
 // Display flags
@@ -410,16 +362,6 @@ unsigned char *int_to_array(unsigned int n, unsigned char digits, unsigned char 
         {
             memcpy(int_to_array_str, int_to_array_conversion_table[n] + (3 - digits), digits);
         }
-    }
-    else                        // For n > 180 need to calculate string content
-    {
-        // Calculate digits from least to most significant number
-        do
-        {
-            int_to_array_str[digits - 1] = n % 10 + '0';
-            n /= 10;
-        }
-        while (--digits > 0);
     }
 
     // Remove specified number of leading '0', always keep last one
@@ -653,49 +595,3 @@ unsigned char switch_seg(unsigned char line, unsigned char index1, unsigned char
         return index2;
     }
 }
-
-// *************************************************************************************************
-// @fn          start_blink
-// @brief       Start blinking.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void start_blink(void)
-{
-    LCDBBLKCTL |= LCDBLKMOD0;
-}
-
-// *************************************************************************************************
-// @fn          stop_blink
-// @brief       Stop blinking.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void stop_blink(void)
-{
-    LCDBBLKCTL &= ~LCDBLKMOD0;
-}
-
-// *************************************************************************************************
-// @fn          stop_blink
-// @brief       Clear blinking memory.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void clear_blink_mem(void)
-{
-    LCDBMEMCTL |= LCDCLRBM;
-}
-
-// *************************************************************************************************
-// @fn          set_blink_rate
-// @brief       Set blink rate register bits.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void set_blink_rate(unsigned char bits)
-{
-    LCDBBLKCTL &= ~(BIT7 | BIT6 | BIT5);
-    LCDBBLKCTL |= bits;
-}
-

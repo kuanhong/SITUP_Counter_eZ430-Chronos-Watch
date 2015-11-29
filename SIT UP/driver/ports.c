@@ -305,18 +305,5 @@ void button_repeat_function(void)
         // Reset repeat counter
         sButton.repeats = 0;
         start_delay = 10;
-
-        // Enable blinking
-        start_blink();
-    }
-
-    // If virtual button event is generated, stop blinking and reset timeout counter
-    if (repeat)
-    {
-        // Increase repeat counter
-        sButton.repeats++;
-
-        // Disable blinking
-        stop_blink();
     }
 }
