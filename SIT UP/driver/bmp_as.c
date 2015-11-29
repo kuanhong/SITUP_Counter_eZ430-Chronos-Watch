@@ -76,7 +76,15 @@
 
 // Sleep phase duration in ms
 // Valid sleep phase durations are: 1, 2, 4, 6, 10, 25, 50
-//#define BMP_AS_SLEEPPHASE   (6u)
+#define BMP_AS_SLEEPPHASE   (6u)
+
+
+// *************************************************************************************************
+// Global Variable section
+
+// *************************************************************************************************
+// Extern section
+
 
 // *************************************************************************************************
 // @fn          bmp_as_start
@@ -88,7 +96,7 @@ void bmp_as_start(void)
 {
 	unsigned char bGRange;                                  // g Range;
 	unsigned char bBwd;                                     // Bandwidth
-//	unsigned char bSleep;                                   // Sleep phase
+	unsigned char bSleep;                                   // Sleep phase
 	
 	// Initialize SPI interface to acceleration sensor
 	AS_SPI_CTL0 |= UCSYNC | UCMST | UCMSB        // SPI master, 8 data bits,  MSB first,
@@ -113,7 +121,7 @@ void bmp_as_start(void)
 #else
 	#error "Measurement range not supported"
 #endif
-
+  
 #if (BMP_AS_BANDWIDTH == 8)
 	bBwd = 0x08;
 #elif (BMP_AS_BANDWIDTH == 16)
@@ -133,29 +141,30 @@ void bmp_as_start(void)
 #else
 	#error "Sample rate not supported"
 #endif
-
-//#if (BMP_AS_SLEEPPHASE == 1)
-//	bSleep = 0x4C;
-//#elif (BMP_AS_SLEEPPHASE == 2)
-//	bSleep = 0x4E;
-//#elif (BMP_AS_SLEEPPHASE == 4)
-//	bSleep = 0x50;
-//#elif (BMP_AS_SLEEPPHASE == 6)
-//	bSleep = 0x52;
-//#elif (BMP_AS_SLEEPPHASE == 10)
-//	bSleep = 0x54;
-//#elif (BMP_AS_SLEEPPHASE == 25)
-//	bSleep = 0x56;
-//#elif (BMP_AS_SLEEPPHASE == 50)
-//	bSleep = 0x58;
-//#else
-//	#error "Sleep phase duration not supported"
-//#endif
+	
+#if (BMP_AS_SLEEPPHASE == 1)
+	bSleep = 0x4C;
+#elif (BMP_AS_SLEEPPHASE == 2)
+	bSleep = 0x4E;
+#elif (BMP_AS_SLEEPPHASE == 4)
+	bSleep = 0x50;
+#elif (BMP_AS_SLEEPPHASE == 6)
+	bSleep = 0x52;
+#elif (BMP_AS_SLEEPPHASE == 10)
+	bSleep = 0x54;
+#elif (BMP_AS_SLEEPPHASE == 25)
+	bSleep = 0x56;
+#elif (BMP_AS_SLEEPPHASE == 50)
+	bSleep = 0x58;
+#else
+	#error "Sleep phase duration not supported"
+#endif
 
 	// write sensor configuration
 	bmp_as_write_register(BMP_GRANGE, bGRange);  // Set measurement range
 	bmp_as_write_register(BMP_BWD, bBwd);        // Set filter bandwidth
-//	bmp_as_write_register(BMP_PM, bSleep);       // Set filter bandwidth
+	bmp_as_write_register(BMP_PM, bSleep);       // Set filter bandwidth
+
 
 #ifndef BMP_AS_FILTERING
 	bmp_as_write_register(BMP_SCR, 0x80);        // acquire unfiltered acceleration data
@@ -169,6 +178,8 @@ void bmp_as_start(void)
 	AS_INT_IE  |=  AS_INT_PIN;                   // Enable interrupt
 }
 
+
+
 // *************************************************************************************************
 // @fn          bmp_as_stop
 // @brief       Power down acceleration sensor
@@ -179,6 +190,7 @@ void bmp_as_stop(void)
 {
 	as_stop();
 }
+
 
 // *************************************************************************************************
 // @fn          bmp_as_read_register
@@ -207,6 +219,7 @@ unsigned char bmp_as_write_register(unsigned char bAddress, unsigned char bData)
   return as_write_register(bAddress, bData);
 }
 
+
 // *************************************************************************************************
 // @fn          bmp_as_get_data
 // @brief       Service routine to read acceleration values.
@@ -227,3 +240,5 @@ void bmp_as_get_data(unsigned char * data)
 	*(data+1) = bmp_as_read_register(BMP_ACC_Y_MSB);
 	*(data+2) = bmp_as_read_register(BMP_ACC_Z_MSB);
 }
+
+
