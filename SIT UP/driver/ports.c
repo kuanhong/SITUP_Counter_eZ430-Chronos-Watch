@@ -191,33 +191,7 @@ __interrupt void PORT2_ISR(void)
             request.flag.acceleration_measurement = 1;
         }
 
-        // ---------------------------------------------------
-        // Safe long button event detection
-        if (button.flag.star || button.flag.num)
-        {
-            // Additional debounce delay to enable safe high detection - 50ms
-            Timer0_A4_Delay(CONV_MS_TO_TICKS(BUTTONS_DEBOUNCE_TIME_LEFT));
 
-            // Check if this button event is short enough
-            if (BUTTON_STAR_IS_PRESSED)
-            {
-                // Change interrupt edge to detect button release
-                BUTTONS_IES |= BUTTON_STAR_PIN;
-                button.flag.star = 0;
-                // This flag is used to detect if the user released the button before the
-                // time for a long button press (3s)
-                button.flag.star_not_long = 1;
-            }
-            if (BUTTON_NUM_IS_PRESSED)
-            {
-                // Change interrupt edge to detect button release
-                BUTTONS_IES |= BUTTON_NUM_PIN;
-                button.flag.num = 0;
-                // This flag is used to detect if the user released the button before the
-                // time for a long button press (3s)
-                button.flag.num_not_long = 1;
-            }
-        }
 
     }
     // Reenable PORT2 IRQ
