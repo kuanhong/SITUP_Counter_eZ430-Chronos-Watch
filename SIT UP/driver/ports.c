@@ -191,8 +191,6 @@ __interrupt void PORT2_ISR(void)
             request.flag.acceleration_measurement = 1;
         }
 
-
-
     }
     // Reenable PORT2 IRQ
     __disable_interrupt();

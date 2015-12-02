@@ -34,9 +34,6 @@
 // *************************************************************************************************
 // Bosch BMA250 acceleration sensor driver functions
 // *************************************************************************************************
-
-
-// *************************************************************************************************
 // Include section
 
 // system
@@ -47,13 +44,6 @@
 #include "as.h"
 #include "timer.h"
 #include "display.h"
-
-
-// *************************************************************************************************
-// Prototypes section
-
-// *************************************************************************************************
-// Defines section
 
 // =================================================================================================
 // BMA250 acceleration sensor configuration
@@ -77,14 +67,6 @@
 // Sleep phase duration in ms
 // Valid sleep phase durations are: 1, 2, 4, 6, 10, 25, 50
 #define BMP_AS_SLEEPPHASE   (6u)
-
-
-// *************************************************************************************************
-// Global Variable section
-
-// *************************************************************************************************
-// Extern section
-
 
 // *************************************************************************************************
 // @fn          bmp_as_start
@@ -178,8 +160,6 @@ void bmp_as_start(void)
 	AS_INT_IE  |=  AS_INT_PIN;                   // Enable interrupt
 }
 
-
-
 // *************************************************************************************************
 // @fn          bmp_as_stop
 // @brief       Power down acceleration sensor
@@ -190,7 +170,6 @@ void bmp_as_stop(void)
 {
 	as_stop();
 }
-
 
 // *************************************************************************************************
 // @fn          bmp_as_read_register
@@ -219,7 +198,6 @@ unsigned char bmp_as_write_register(unsigned char bAddress, unsigned char bData)
   return as_write_register(bAddress, bData);
 }
 
-
 // *************************************************************************************************
 // @fn          bmp_as_get_data
 // @brief       Service routine to read acceleration values.
@@ -234,11 +212,7 @@ void bmp_as_get_data(unsigned char * data)
   	// Dummy read LSB from LSB acceleration data to update MSB (BMA250 datasheet 4.4.1)
   	*(data+0) = bmp_as_read_register(BMP_ACC_X_LSB);
 	*(data+1) = bmp_as_read_register(BMP_ACC_Y_LSB);
-	*(data+2) = bmp_as_read_register(BMP_ACC_Z_LSB);
   	// Store X/Y/Z MSB acceleration data in buffer
 	*(data+0) = bmp_as_read_register(BMP_ACC_X_MSB);
 	*(data+1) = bmp_as_read_register(BMP_ACC_Y_MSB);
-	*(data+2) = bmp_as_read_register(BMP_ACC_Z_MSB);
 }
-
-

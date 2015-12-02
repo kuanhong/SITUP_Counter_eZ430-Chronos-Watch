@@ -1,8 +1,6 @@
 // *************************************************************************************************
+//	Copyright (C) 2011 Texas Instruments Incorporated - http://www.ti.com/
 //
-//	Copyright (C) 2011 Texas Instruments Incorporated - http://www.ti.com/ 
-//	 
-//	 
 //	  Redistribution and use in source and binary forms, with or without 
 //	  modification, are permitted provided that the following conditions 
 //	  are met:
@@ -30,16 +28,10 @@
 //	  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
 //	  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
 //	  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef BMP_AS_H_
 #define BMP_AS_H_
-
-
-// *************************************************************************************************
-// Include section
-
 
 // *************************************************************************************************
 // Prototypes section
@@ -59,8 +51,6 @@ extern void bmp_as_get_data(unsigned char * data);
 #define BMP_ACC_X_MSB        (0x03)
 #define BMP_ACC_Y_LSB        (0x04)
 #define BMP_ACC_Y_MSB        (0x05)
-#define BMP_ACC_Z_LSB        (0x06)
-#define BMP_ACC_Z_MSB        (0x07)
 
 #define BMP_GRANGE           (0x0F)	   // g Range
 #define BMP_BWD              (0x10)	   // Bandwidth

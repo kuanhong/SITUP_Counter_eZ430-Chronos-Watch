@@ -58,10 +58,6 @@ const struct menu *ptrMenu_L2 = NULL;
 // *************************************************************************************************
 // Global Variable section
 
-void display_nothing(unsigned char line, unsigned char update)
-{
-}
-
 unsigned char update_stopwatch(void)
 {
     return (display.flag.update_stopwatch);

@@ -269,9 +269,6 @@ void display_acceleration(unsigned char line, unsigned char update) {
 					// Start with Y-axis values
 					sAccel.view_style = DISPLAY_ACCEL_Y;
 				}
-
-				// Display decimal point
-				//           display_symbol(LCD_SEG_L1_DP1, SEG_ON);
 			}
 		} else if (update == DISPLAY_LINE_UPDATE_PARTIAL) {
 			// Convert X/Y/Z values to mg
@@ -282,12 +279,9 @@ void display_acceleration(unsigned char line, unsigned char update) {
 
 				raw_data_x = sAccel.xyz[0];
 				raw_data_y = sAccel.xyz[1];
-				//display_char(LCD_SEG_L1_3, 'X', SEG_ON);
 				break;
 			default:
 				raw_data = sAccel.xyz[1];
-				//display_char(LCD_SEG_L1_3, 'Z', SEG_ON);
-
 				break;
 			}
 
