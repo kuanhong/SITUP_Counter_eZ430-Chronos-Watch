@@ -59,10 +59,6 @@ extern void Timer0_Stop() is called from 0 sites in this file.
     It calls these functions:
 	<NONE>
 
-Address of global variable is never taken:
-	static unsigned char button_lock_counter$1
-
-
 
 These functions may be recursive:
 	TIMER0_A0_ISR()

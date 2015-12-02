@@ -230,8 +230,6 @@ void Timer0_A4_Delay(unsigned short ticks)
 #pragma vector = TIMER0_A0_VECTOR
 __interrupt void TIMER0_A0_ISR(void)
 {
-    static unsigned char button_lock_counter = 0;
-
     // Disable IE
     TA0CCTL0 &= ~CCIE;
     // Reset IRQ flag
@@ -240,9 +238,6 @@ __interrupt void TIMER0_A0_ISR(void)
     TA0CCR0 += 32768;
     // Enable IE
     TA0CCTL0 |= CCIE;
-
-    // Set clock update flag
-//    display.flag.update_time = 1;
 
     // -------------------------------------------------------------------
     // Service active modules that require 1/s processing
@@ -288,27 +283,10 @@ __interrupt void TIMER0_A0_ISR(void)
     // Trying to lock/unlock buttons?
     if (BUTTON_NUM_IS_PRESSED && BUTTON_DOWN_IS_PRESSED)
     {
-        if (button_lock_counter++ > LEFT_BUTTON_LONG_TIME)
-        {
-            // Toggle lock / unlock buttons flag
-            sys.flag.lock_buttons = ~sys.flag.lock_buttons;
 
-            // Show "buttons are locked/unlocked" message synchronously with next second tick
-            message.flag.prepare = 1;
-            if (sys.flag.lock_buttons)
-                message.flag.type_locked = 1;
-            else
-                message.flag.type_unlocked = 1;
-
-            // Reset button lock counter
-            button_lock_counter = 0;
-        }
     }
     else                        // Trying to create a long button press?
     {
-        // Reset button lock counter
-        button_lock_counter = 0;
-
         if (BUTTON_STAR_IS_PRESSED)
         {
             sButton.star_timeout++;
@@ -414,4 +392,3 @@ __interrupt void TIMER0_A1_5_ISR(void)
     // Exit from LPM3 on RETI
     _BIC_SR_IRQ(LPM3_bits);
 }
-
