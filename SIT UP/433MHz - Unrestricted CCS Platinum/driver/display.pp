@@ -9,7 +9,6 @@ driver/display.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intri
 driver/display.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/string.h
 driver/display.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/linkage.h
 driver/display.obj: ../driver/display.h
-driver/display.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/logic/user.h
 driver/display.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/logic/stopwatch.h
 
 ../driver/display.c: 
@@ -21,5 +20,4 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics_legacy_undefs.
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/string.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/linkage.h: 
 ../driver/display.h: 
-C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/logic/user.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/logic/stopwatch.h: 

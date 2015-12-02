@@ -17,10 +17,10 @@ extern unsigned char bmp_as_read_register() is called from 6 sites in this file.
 	as_read_register() (1 times)
 
 extern void bmp_as_start() is called from 0 sites in this file.
-    It appears to be inlineable (size = 45 units)
+    It appears to be inlineable (size = 48 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	bmp_as_write_register() (4 times)
+	bmp_as_write_register() (5 times)
 	as_start() (1 times)
 
 extern void bmp_as_stop() is called from 0 sites in this file.
@@ -29,7 +29,7 @@ extern void bmp_as_stop() is called from 0 sites in this file.
     It calls these functions:
 	as_stop() (1 times)
 
-extern unsigned char bmp_as_write_register() is called from 4 sites in this file.
+extern unsigned char bmp_as_write_register() is called from 5 sites in this file.
     It appears to be inlineable (size = 6 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -59,7 +59,7 @@ These external functions are called but not defined here:
 
 ==============================================================================
 
-extern unsigned char bmp_as_write_register() is called from 4 sites in this file.
+extern unsigned char bmp_as_write_register() is called from 5 sites in this file.
     It appears to be inlineable (size = 6 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -76,10 +76,10 @@ extern void bmp_as_stop() is called from 0 sites in this file.
 ==============================================================================
 
 extern void bmp_as_start() is called from 0 sites in this file.
-    It appears to be inlineable (size = 45 units)
+    It appears to be inlineable (size = 48 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	bmp_as_write_register() (4 times)
+	bmp_as_write_register() (5 times)
 
 ==============================================================================
 

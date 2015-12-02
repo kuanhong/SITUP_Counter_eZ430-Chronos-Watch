@@ -8,7 +8,6 @@ logic/menu.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsic
 logic/menu.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics_legacy_undefs.h
 logic/menu.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/driver/display.h
 logic/menu.obj: ../logic/menu.h
-logic/menu.obj: ../logic/user.h
 logic/menu.obj: ../logic/stopwatch.h
 logic/menu.obj: ../logic/acceleration.h
 logic/menu.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/string.h
@@ -22,7 +21,6 @@ E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics.h:
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/intrinsics_legacy_undefs.h: 
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/driver/display.h: 
 ../logic/menu.h: 
-../logic/user.h: 
 ../logic/stopwatch.h: 
 ../logic/acceleration.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/string.h: 

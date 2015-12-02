@@ -10,7 +10,7 @@ extern void PORT2_ISR() is called from 0 sites in this file.
 	__bic_SR_register_on_exit() (1 times)
 	stop_stopwatch() (1 times)
 	is_stopwatch() (1 times)
-	Timer0_A4_Delay() (2 times)
+	Timer0_A4_Delay() (1 times)
 	__enable_interrupt() (2 times)
 	__disable_interrupt() (2 times)
 

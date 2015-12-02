@@ -12,7 +12,6 @@ logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ U
 logic/acceleration.obj: C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/driver/buzzer.h
 logic/acceleration.obj: ../logic/stopwatch.h
 logic/acceleration.obj: ../logic/acceleration.h
-logic/acceleration.obj: ../logic/user.h
 logic/acceleration.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stdio.h
 logic/acceleration.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/linkage.h
 logic/acceleration.obj: E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stdarg.h
@@ -29,7 +28,6 @@ C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/driver/as.h:
 C:/Users/darkdanito/Documents/GitHub/Land-of-Hope/SIT\ UP/driver/buzzer.h: 
 ../logic/stopwatch.h: 
 ../logic/acceleration.h: 
-../logic/user.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stdio.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/linkage.h: 
 E:/ti/ccsv6/tools/compiler/ti-cgt-msp430_4.4.2/include/stdarg.h: 

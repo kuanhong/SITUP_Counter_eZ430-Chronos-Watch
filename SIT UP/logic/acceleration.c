@@ -57,7 +57,6 @@
 
 // logic
 #include "acceleration.h"
-#include "user.h"
 
 #include <stdio.h>
 

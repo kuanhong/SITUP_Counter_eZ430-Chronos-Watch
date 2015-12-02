@@ -41,7 +41,6 @@
 
 // logic
 #include "menu.h"
-#include "user.h"
 #include "stopwatch.h"
 #include "acceleration.h"
 

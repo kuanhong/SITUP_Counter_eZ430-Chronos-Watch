@@ -6,37 +6,31 @@
 C_SRCS += \
 ../logic/acceleration.c \
 ../logic/menu.c \
-../logic/stopwatch.c \
-../logic/user.c 
+../logic/stopwatch.c 
 
 OBJS += \
 ./logic/acceleration.obj \
 ./logic/menu.obj \
-./logic/stopwatch.obj \
-./logic/user.obj 
+./logic/stopwatch.obj 
 
 C_DEPS += \
 ./logic/acceleration.pp \
 ./logic/menu.pp \
-./logic/stopwatch.pp \
-./logic/user.pp 
+./logic/stopwatch.pp 
 
 C_DEPS__QUOTED += \
 "logic\acceleration.pp" \
 "logic\menu.pp" \
-"logic\stopwatch.pp" \
-"logic\user.pp" 
+"logic\stopwatch.pp" 
 
 OBJS__QUOTED += \
 "logic\acceleration.obj" \
 "logic\menu.obj" \
-"logic\stopwatch.obj" \
-"logic\user.obj" 
+"logic\stopwatch.obj" 
 
 C_SRCS__QUOTED += \
 "../logic/acceleration.c" \
 "../logic/menu.c" \
-"../logic/stopwatch.c" \
-"../logic/user.c" 
+"../logic/stopwatch.c" 
 
 
