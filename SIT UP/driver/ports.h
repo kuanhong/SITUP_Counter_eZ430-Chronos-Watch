@@ -60,23 +60,12 @@
 #define BUTTON_STAR_IS_PRESSED          ((BUTTONS_IN & BUTTON_STAR_PIN) == BUTTON_STAR_PIN)
 #define BUTTON_NUM_IS_PRESSED           ((BUTTONS_IN & BUTTON_NUM_PIN) == BUTTON_NUM_PIN)
 #define BUTTON_DOWN_IS_PRESSED          ((BUTTONS_IN & BUTTON_DOWN_PIN) == BUTTON_DOWN_PIN)
-#define NO_BUTTON_IS_PRESSED            ((BUTTONS_IN & ALL_BUTTONS) == 0)
-
-// Macros for button release detection
-#define BUTTON_STAR_IS_RELEASED                 ((BUTTONS_IN & BUTTON_STAR_PIN) == 0)
-#define BUTTON_NUM_IS_RELEASED                  ((BUTTONS_IN & BUTTON_NUM_PIN) == 0)
-#define BUTTON_DOWN_IS_RELEASED                 ((BUTTONS_IN & BUTTON_DOWN_PIN) == 0)
 
 // Button debounce time (msec)
 #define BUTTONS_DEBOUNCE_TIME_IN        (5u)
-#define BUTTONS_DEBOUNCE_TIME_OUT       (250u)
-#define BUTTONS_DEBOUNCE_TIME_LEFT      (50u)
 
 // Detect if STAR / NUM button is held low continuously
 #define LEFT_BUTTON_LONG_TIME           (2u)
-
-// Leave set_value() function after some seconds of user inactivity
-#define INACTIVITY_TIME                 (30u)
 
 // Set of button flags
 typedef union

@@ -59,7 +59,4 @@ struct timer
 };
 extern struct timer sTimer;
 
-// Trigger reset when all buttons are pressed
-#define BUTTON_RESET_SEC                (3u)
-
 #endif                          /*TIMER_H_ */

@@ -4,13 +4,7 @@ Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 		======File-level Analysis Summary======
 
 
-extern void clear_display() is called from 0 sites in this file.
-    It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	clear_line() (2 times)
-
-extern void clear_line() is called from 2 sites in this file.
+extern void clear_line() is called from 0 sites in this file.
     It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
@@ -110,18 +104,10 @@ extern void display_chars() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern void clear_line() is called from 2 sites in this file.
+extern void clear_line() is called from 0 sites in this file.
     It appears to be inlineable (size = 28 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	display_symbol() (6 times)
-
-==============================================================================
-
-extern void clear_display() is called from 0 sites in this file.
-    It appears to be inlineable (size = 5 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	clear_line() (2 times)
 
 == END OF INFO OUTPUT==

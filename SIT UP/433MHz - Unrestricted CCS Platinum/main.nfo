@@ -65,10 +65,10 @@ extern void to_lpm() is called from 1 sites in this file.
 	__bis_SR_register() (1 times)
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 126 units)
+    It appears to be inlineable (size = 129 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
-	clear_display() (1 times)
+	clear_line() (2 times)
 	 ? () (3 times)
 
 
@@ -90,7 +90,6 @@ Making this function inlineable: idle_loop()
 
 These external functions are called but not defined here:
 	memcpy()
-	clear_display()
 	__no_operation()
 	do_acceleration_measurement()
 	reset_buzzer()
@@ -115,7 +114,7 @@ These external functions are called but not defined here:
 ==============================================================================
 
 extern void wakeup_event() is called from 1 sites in this file.
-    It appears to be inlineable (size = 126 units)
+    It appears to be inlineable (size = 129 units)
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>

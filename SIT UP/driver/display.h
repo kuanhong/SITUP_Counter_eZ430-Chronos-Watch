@@ -210,7 +210,6 @@ extern void write_lcd_mem(unsigned char * lcdmem, unsigned char bits, unsigned c
 
 // Display init / clear
 extern void lcd_init(void);
-extern void clear_display(void);
 extern void clear_line(unsigned char line);
 
 // Character / symbol draw functions

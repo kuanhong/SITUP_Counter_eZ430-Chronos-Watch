@@ -221,18 +221,6 @@ void lcd_init(void)
 }
 
 // *************************************************************************************************
-// @fn          clear_display
-// @brief       Erase LINE1 and LINE2 segments. Keep icons.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void clear_display(void)
-{
-    clear_line(LINE1);
-    clear_line(LINE2);
-}
-
-// *************************************************************************************************
 // @fn          clear_line
 // @brief       Erase segments of a given line.
 // @param       unsigned char line LINE1, LINE2

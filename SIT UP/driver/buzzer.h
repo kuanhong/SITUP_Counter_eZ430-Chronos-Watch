@@ -39,14 +39,13 @@ extern void reset_buzzer(void);
 extern void start_buzzer(unsigned char cycles, unsigned short on_time, unsigned short off_time);
 extern void stop_buzzer(void);
 extern void toggle_buzzer(void);
-extern unsigned char is_buzzer(void);
 extern void countdown_buzzer(void);
 
 // *************************************************************************************************
 // Defines section
 
 // Buzzer states
-#define BUZZER_OFF                                                      (0u)
+#define BUZZER_OFF                                      (0u)
 #define BUZZER_ON_OUTPUT_DISABLED                       (1u)
 #define BUZZER_ON_OUTPUT_ENABLED                        (2u)
 

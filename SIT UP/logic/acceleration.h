@@ -1,7 +1,5 @@
 // *************************************************************************************************
-//
 //      Copyright (C) 2009 Texas Instruments Incorporated - http://www.ti.com/
-//
 //
 //        Redistribution and use in source and binary forms, with or without
 //        modification, are permitted provided that the following conditions
@@ -30,23 +28,15 @@
 //        THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 //        (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
 // *************************************************************************************************
 
 #ifndef ACCELERATION_H_
 #define ACCELERATION_H_
 
 // *************************************************************************************************
-// Include section
-
-// *************************************************************************************************
-// Prototypes section
-
-// *************************************************************************************************
 // Defines section
 #define DISPLAY_ACCEL_X         (0u)
 #define DISPLAY_ACCEL_Y         (1u)
-#define DISPLAY_ACCEL_Z         (2u)
 
 #define ACCEL_MODE_OFF          (0u)
 #define ACCEL_MODE_ON           (1u)

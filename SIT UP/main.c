@@ -343,7 +343,8 @@ void wakeup_event(void)
             sys.flag.idle_timeout = 0;
 
             // Clear display
-            clear_display();
+            clear_line(LINE1);
+            clear_line(LINE2);
 
             // Set display update flags
             display.flag.full_update = 1;

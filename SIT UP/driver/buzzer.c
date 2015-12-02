@@ -176,17 +176,6 @@ void stop_buzzer(void)
 }
 
 // *************************************************************************************************
-// @fn          is_buzzer
-// @brief       Check if buzzer is operating
-// @param       none
-// @return      unsigned char              1 = Buzzer is operating, 0 = Buzzer is off
-// *************************************************************************************************
-unsigned char is_buzzer(void)
-{
-    return (sBuzzer.state != BUZZER_OFF);
-}
-
-// *************************************************************************************************
 // @fn          countdown_buzzer
 // @brief       Decrement active buzzer time. Turn off buzzer if cycle end reached.
 // @param       none
