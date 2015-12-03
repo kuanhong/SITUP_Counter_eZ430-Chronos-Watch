@@ -140,6 +140,13 @@ void sx_acceleration(unsigned char line) {
 	}
 }
 
+/****************************************************************************************************/
+/*	This function is to reset the sit up counter which is triggered by the long press num(# ) button*/
+/*	Author: Tan Kuan Hong Rollin															  	*/
+/*	Created in: 28 - Sep 2015																 		*/
+/*	Updated: 28 - Dec 2015																  			*/
+/****************************************************************************************************/
+
 void mx_acceleration(unsigned char line) {
 	counter=0;
 }
@@ -205,30 +212,19 @@ void do_acceleration_measurement(void) {
 	// Set display update flag
 	display.flag.update_acceleration = 1;
 
-//    unsigned char raw_data;
-//    unsigned short accel_data;
-//
-//    raw_data = sAccel.xyz[1];
-//
-//    accel_data = convert_acceleration_value_to_mgrav(raw_data) / 10;
-////            // Filter acceleration
-//    accel_data = (unsigned short) ((accel_data * 0.2) + (sAccel.data * 0.8));
-//
-//    // Store average acceleration
-//    //sAccel.data = accel_data;
-//
-//    if (accel_data==35){
-//            start_buzzer(2, BUZZER_ON_TICKS, BUZZER_OFF_TICKS);
-//    }
 }
-
-// *************************************************************************************************
-// @fn          display_acceleration
-// @brief       Display routine.
-// @param       unsigned char line                 LINE1
-//                              unsigned char update               DISPLAY_LINE_UPDATE_FULL, DISPLAY_LINE_CLEAR
-// @return      none
-// *************************************************************************************************
+/****************************************************************************************************/
+/*	This function is to filter the x-axis and y-axis of the accelerometer for more accurate readings*/
+/*	It then set a condition of the incrementing of upCounter and downCounter when a certain x and y	*/
+/*  value is met. When it checks that both upCounter and downCounter is 1, the main counter will 	*/
+/* 	incrementing. If one of them is not met, the upCounter and downCounter will reset to 0. 		*/
+/* 	We then check for the stopwatch state, if it is running, the counter will be able to increment, */
+/*  if not, the counter will not be increment. The counter value will then be display on LCD Line1
+/*  which mod the value of the counter		  	*/
+/*	Author: Tan Kuan Hong Rollin and Muhammad Khaleef Mun Seng Bin M A Rajkabul					 	*/
+/*	Created in: 01 - Sep 2015																 		*/
+/*	Updated: 03 - Dec 2015																  			*/
+/****************************************************************************************************/
 void display_acceleration(unsigned char line, unsigned char update) {
 	unsigned char *str;
 	unsigned char *str_counter;
