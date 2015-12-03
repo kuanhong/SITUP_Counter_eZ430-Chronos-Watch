@@ -15,7 +15,7 @@ extern void TIMER0_A1_5_ISR() is called from 0 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	__bic_SR_register_on_exit() (1 times)
-	stopwatch_tick() (1 times)
+	countdownTimer() (1 times)
 	update_stopwatch_timer() (1 times)
 	 ? () (1 times)
 
@@ -73,7 +73,7 @@ These external functions are called but not defined here:
 	__enable_interrupt()
 	 ? ()
 	update_stopwatch_timer()
-	stopwatch_tick()
+	countdownTimer()
 	is_acceleration_measurement()
 	bmp_as_stop()
 	__bic_SR_register_on_exit()

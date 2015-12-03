@@ -358,7 +358,7 @@ __interrupt void TIMER0_A1_5_ISR(void)
             // Enable timer interrupt
             TA0CCTL2 |= CCIE;
             // Increase stopwatch counter
-            stopwatch_tick();
+            countdownTimer();
             break;
 
         // Timer0_A3    Configurable periodic IRQ (used by button_repeat and buzzer)

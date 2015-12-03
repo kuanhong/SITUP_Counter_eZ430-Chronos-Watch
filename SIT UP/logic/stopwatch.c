@@ -52,7 +52,7 @@
 void start_stopwatch(void);
 void stop_stopwatch(void);
 void reset_stopwatch(void);
-void stopwatch_tick(void);
+void countdownTimer(void);
 void update_stopwatch_timer(void);
 void mx_stopwatch(unsigned char line);
 void sx_stopwatch(unsigned char line);
@@ -99,14 +99,14 @@ void update_stopwatch_timer(void)
     TA0CCR2 = value;
 }
 
-// *************************************************************************************************
-// @fn          stopwatch_tick
-// @brief       Called by 1/100Hz interrupt handler.
-//                              Increases stopwatch counter and triggers display update.
-// @param       none
-// @return      none
-// *************************************************************************************************
-void stopwatch_tick(void)
+/****************************************************************************************************/
+/*	This function address the function of doing the 1 milisecond reduction for the countdown timer	*/
+/*	It is called by the 1/100Hz Interrupt to do the reduction									  	*/
+/*	Author: Soh Yun Yong																		  	*/
+/*	Created in: 01 - Sep 2015																 		*/
+/*	Updated: 03 - Dec 2015																  			*/
+/****************************************************************************************************/
+void countdownTimer(void)
 {
     static unsigned char delay = 0;
 
@@ -174,12 +174,10 @@ void stopwatch_tick(void)
         {
         	// Buzzer when the time has ended.
         	start_buzzer(5, CONV_MS_TO_TICKS(200), BUZZER_OFF_TICKS);
-
         	stop_stopwatch();
 
             // Clear counter
             memcpy(sStopwatch.time, "00000000", sizeof(sStopwatch.time));
-
         	display_stopwatch(2, DISPLAY_LINE_UPDATE_FULL);
         }
         else
@@ -193,18 +191,6 @@ void stopwatch_tick(void)
                   sStopwatch.drawFlag++;                 // 2
                   sStopwatch.time[5] = '9';
                   sStopwatch.time[4]--;                  // second  H (0 - 5)
-                  if (sStopwatch.time[4] == '6')
-                  {
-                      sStopwatch.drawFlag++;             // 3
-                      sStopwatch.time[4] = '9';
-                      sStopwatch.time[3]--;              // minutes L (0 - 9)
-                      if (sStopwatch.time[3] == 0x2f)
-                      {
-                          sStopwatch.drawFlag++;         // 4
-                          sStopwatch.time[3] = '9';
-                          sStopwatch.time[2]--;          // minutes H (0 - 5)
-                      }
-                  }
               }
         }
     }

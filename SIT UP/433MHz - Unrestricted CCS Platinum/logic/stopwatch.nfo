@@ -4,6 +4,15 @@ Build Number 1OMHQ-KDADEMDK-RTARQ-WAR-ZACIF_U_U_S
 		======File-level Analysis Summary======
 
 
+extern void countdownTimer() is called from 0 sites in this file.
+    It appears to be inlineable (size = 191 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	display_stopwatch() (1 times)
+	memcpy() (1 times)
+	stop_stopwatch() (1 times)
+	start_buzzer() (4 times)
+
 extern void display_stopwatch() is called from 3 sites in this file.
     It appears to be inlineable (size = 105 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -46,15 +55,6 @@ extern void stop_stopwatch() is called from 3 sites in this file.
 	display_stopwatch() (1 times)
 	display_symbol() (1 times)
 
-extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 237 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	display_stopwatch() (1 times)
-	memcpy() (1 times)
-	stop_stopwatch() (1 times)
-	start_buzzer() (4 times)
-
 extern void sx_stopwatch() is called from 0 sites in this file.
     It appears to be inlineable (size = 16 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -74,8 +74,8 @@ Address of global variable is never taken:
 
 
 These functions may be recursive:
+	countdownTimer()
 	mx_stopwatch()
-	stopwatch_tick()
 	sx_stopwatch()
 	stop_stopwatch()
 	display_stopwatch()
@@ -89,10 +89,10 @@ Making this function inlineable: reset_stopwatch()
 
 These external functions are called but not defined here:
 	memcpy()
-	start_buzzer()
 	display_chars()
 	display_symbol()
 	display_char()
+	start_buzzer()
 
 
 		======= End file-level Analysis =======
@@ -141,15 +141,6 @@ extern void sx_stopwatch() is called from 0 sites in this file.
 
 ==============================================================================
 
-extern void stopwatch_tick() is called from 0 sites in this file.
-    It appears to be inlineable (size = 237 units)
-    It has 3 non-trivial scope blocks nested 3 deep.
-    It calls these functions:
-	stop_stopwatch() (1 times)
-	display_stopwatch() (1 times)
-
-==============================================================================
-
 extern void reset_stopwatch() is called from 1 sites in this file.
     It appears to be inlineable (size = 15 units)
     It has 3 non-trivial scope blocks nested 3 deep.
@@ -173,5 +164,14 @@ extern unsigned char is_stopwatch() is called from 0 sites in this file.
     It has 3 non-trivial scope blocks nested 3 deep.
     It calls these functions:
 	<NONE>
+
+==============================================================================
+
+extern void countdownTimer() is called from 0 sites in this file.
+    It appears to be inlineable (size = 191 units)
+    It has 3 non-trivial scope blocks nested 3 deep.
+    It calls these functions:
+	stop_stopwatch() (1 times)
+	display_stopwatch() (1 times)
 
 == END OF INFO OUTPUT==

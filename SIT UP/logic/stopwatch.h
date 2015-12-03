@@ -43,7 +43,7 @@ extern void start_stopwatch(void);
 extern void stop_stopwatch(void);
 extern void reset_stopwatch(void);
 extern unsigned char is_stopwatch(void);
-extern void stopwatch_tick(void);
+extern void countdownTimer(void);
 extern void update_stopwatch_timer(void);
 extern void mx_stopwatch(unsigned char line);
 extern void sx_stopwatch(unsigned char line);
