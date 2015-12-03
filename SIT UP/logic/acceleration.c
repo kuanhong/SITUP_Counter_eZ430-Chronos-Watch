@@ -219,11 +219,11 @@ void do_acceleration_measurement(void) {
 /*  value is met. When it checks that both upCounter and downCounter is 1, the main counter will 	*/
 /* 	incrementing. If one of them is not met, the upCounter and downCounter will reset to 0. 		*/
 /* 	We then check for the stopwatch state, if it is running, the counter will be able to increment, */
-/*  if not, the counter will not be increment. The counter value will then be display on LCD Line1
-/*  which mod the value of the counter		  	*/
+/*  if not, the counter will not be increment. The counter value will then be display on LCD Line1	*/
+/*  which mod the value of the counter		  														*/
 /*	Author: Tan Kuan Hong Rollin and Muhammad Khaleef Mun Seng Bin M A Rajkabul					 	*/
-/*	Created in: 01 - Sep 2015																 		*/
-/*	Updated: 03 - Dec 2015																  			*/
+/*	Created in: 28 - Sep 2015																 		*/
+/*	Updated: 28 - Dec 2015																  			*/
 /****************************************************************************************************/
 void display_acceleration(unsigned char line, unsigned char update) {
 	unsigned char *str;
