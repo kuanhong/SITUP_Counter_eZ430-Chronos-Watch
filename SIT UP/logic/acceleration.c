@@ -221,11 +221,13 @@ void do_acceleration_measurement(void) {
 /* 	We then check for the stopwatch state, if it is running, the counter will be able to increment, */
 /*  if not, the counter will not be increment. The counter value will then be display on LCD Line1	*/
 /*  which mod the value of the counter		  														*/
-/*  The bmp_mgrav_per_bit function is for getting the real value of the raw data regardless the signed 
-/*  bits into mgrav (milli gravity) data. If the raw data is negative, it will do the 2's complement to 
-/*  convert the raw data. Afterwards, because of 10 bits accelerometer and chronos takes in 8 bits MSB
-/*  while 2 bits LSB is ignored, the formula (unsigned short) ((accel_data_y * 0.2) + 
-/*  (sAccel.data_y * 0.8)); is used to get the average value.
+/* The bmp_mgrav_per_bit is bit-mgrav representation which is used for raw data conversion to mgrav. */
+/* convert_acceleration_value_to_mgrav function is a function that does the conversion of raw data to */
+/* mgrav. During the conversion, if the raw data is a negative value, this function will do the two's */
+/* complement to the raw data before converting it to mgrav value. Afterwards, because of 10 bits	*/
+/* accelerometer and chronos takes in 8 bits MSB while 2 bits LSB is offset, the 					*/
+/* formula (unsigned short) ((accel_data_y * 0.2) + (sAccel.data_y * 0.8)); is used to get the		*/
+/* average value.																					*/
 /*	Author: Tan Kuan Hong Rollin and Muhammad Khaleef Mun Seng Bin M A Rajkabul					 	*/
 /*	Created in: 28 - Sep 2015																 		*/
 /*	Updated: 28 - Dec 2015																  			*/
