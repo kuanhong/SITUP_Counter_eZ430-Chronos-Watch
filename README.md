@@ -2,7 +2,7 @@
 
 Group Assignment for Embedded System Programming
 
-Implemented on eZ430 Chronos Watch
+Implemented on eZ430 Chronos Watch with Code Composer Studio
 
 # Function of Chronos Watch:
 
